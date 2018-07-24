@@ -1,0 +1,505 @@
+  <div id="main">
+    <div class="container">
+      <div id="content-wrapper">
+        <section id="content">
+          <div id="content-header">
+            {{ page.breadcrumb }}
+            {% if page.highlighted|render %}
+              <div id="highlighted">{{ page.highlighted }}</div>
+            {% endif %}
+            {% if action_links %}
+              <ul class="action-links">{{ action_links }}</ul>
+            {% endif %}
+          </div><!-- /#content-header -->
+          <!-- homeBanner starts-->  
+          <div class="homeBanner">
+            <a href="javascript:;" class="scroll">Scroll</a>
+            <div class="bannerCarousel">
+              <!-- <div class="item" data-videosrcDesk="http://www.w3schools.com/html/mov_bbb.mp4" data-videosrcDevice="https://www.w3schools.com/tags/movie.mp4" data-videosrc=""> -->
+              <div class="item">
+                <img class="bannerImage" data-srcdesktop="/{{ directory }}/images/upload/homebanner01-desktop.jpg" data-srcdevice="images/upload/homebanner01-mobile.jpg" src="/{{ directory }}/images/spacer.gif" alt="">
+                <div class="content">
+                  <img src="/{{ directory }}/images/logo-lodha-black.png" alt="Lodha">
+                  <p>Luxury beyond square feet</p>
+                  <a href="javascript:;" class="btn btn-black">Experience</a>
+                </div>
+              </div>
+                    <!-- <div class="item" data-videosrcDesk="https://www.w3schools.com/tags/movie.mp4" data-videosrcDevice="http://www.w3schools.com/html/mov_bbb.mp4" data-videosrc=""> -->
+                        <div class="item">
+                        <img class="bannerImage" data-srcdesktop="/{{ directory }}/images/upload/homebanner02-desktop.jpg" data-srcdevice="images/upload/homebanner02-mobile.jpg" src="/{{ directory }}/images/spacer.gif" alt="">
+                        <div class="content">
+                            <img src="/{{ directory }}/images/logo-lodha-black.png" alt="Lodha">
+                            <p>Luxury workspaces redefined</p>
+                            <a href="javascript:;" class="btn btn-black">Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- homeBanner ends-->
+            <div class="searchWrap">
+                <div class="search">
+                    <a href="javascript:;" class="micIcon">Search</a>
+                    <div class="inputWrap"><input type="text" name="" placeholder="Tell us what you’re looking for?"></div>
+                    <a href="javascript:;" class="searchIcon">Search</a>
+                </div>
+            </div>
+            <section class="pillarsWrap">
+                <div class="topSection">
+                    <div class="container paddingBoth">
+                        <div class="sectionTitle">
+                            <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                            <p>the LODHA promise: <span>Our 9 pillars</span></p>
+                        </div>
+                        <div class="content"><p>We believe that the buying experience is as critical as the living experience and hence it is our endeavour to make it world-class as well.</p></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="pillarsCarousel">
+                        <div class="slide">
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>01</strong>Timely <span>Delivery</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/timely-delivery.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>02</strong>Home Loan <span>Support</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/home-loan-support.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>03</strong>Occupation <span>Certificate</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/occupation-certificate.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>04</strong>Renting <span>Support</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/renting-support.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>05</strong>No Transfer <span>Fee</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/no-transfer-fee.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>06</strong>Timely <span>Conveyance</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/timely-conveyance.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>07</strong>Timely <span>Updates</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/timely-updates.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>08</strong>Property <span>Management</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/property-management.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="wrapper">
+                                    <span class="square one"></span>
+                                    <span class="square two"></span>
+                                    <span class="square three"></span>
+                                    <span class="square four"></span>
+                                
+                                <p class="title"><strong>09</strong>World Class <span>Quality</span></p>
+                                <span class="svgBox" data-svg="/{{ directory }}/images/world-class-quality.svg"></span>
+                                <p class="details">Else we pay you interest @ SBI MCLR + 2% from expiry of grace period to offer of possession.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="iconicProjects">
+                <div class="sectionTitle">
+                    <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                    <p>Iconic <span>Projects</span></p>
+                </div>
+                <div class="iconicProCarousel carousel">
+                    <div class="slide">
+                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/iconic-project.jpg"></div>
+                        <div class="content">
+                            <p class="title">PALAVA</p>
+                            <p>India’s No.1 smart city** – planned for over 2 million residents</p>
+                            <a href="javascript:;" class="btn">Discover</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/iconic-project.jpg"></div>
+                        <div class="content">
+                            <p class="title">PALAVA</p>
+                            <p>India’s No.1 smart city** – planned for over 2 million residents</p>
+                            <a href="javascript:;" class="btn">Discover</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/iconic-project.jpg"></div>
+                        <div class="content">
+                            <p class="title">PALAVA</p>
+                            <p>India’s No.1 smart city** – planned for over 2 million residents</p>
+                            <a href="javascript:;" class="btn">Discover</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="locateUs">
+                <div class="container leftPadding">
+                    <div class="content">
+                        <div class="sectionTitle">
+                            <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                            <p>Locate the <span>Better Life</span></p>
+                        </div>
+                        <p>At Lodha, we believe that better living starts with the right location. Not just high standards of building and craftsmanship even the surroundings of our World Class projects stand to deliver the exuberant embodiment of the better life</p>
+                    </div>
+                    <div class="mapSec">
+                        <img src="/{{ directory }}/images/map.jpg">
+                        <span class="plusSign"></span>
+                    </div>
+                </div>
+                <div class="mapContainer">
+                    <div id="map"></div>
+                    <span class="minusSign"></span>
+                </div>
+            </section>
+            <section class="letsWorkBetter">
+                <div class="container">
+                    <div class="sectionTitle">
+                        <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                        <p>LET’S WORK <span>BETTER</span></p>
+                    </div>
+                    <div class="appendedTabsWrap"></div>
+                    <div class="otherProjectsCarousel carousel">
+                        <div class="slide">
+                            <div class="tabsWrap">
+                                <ul class="tabs">
+                                    <li>BOUTIQUE OFFICES</li>
+                                    <li>OFFICES FOR LEASE</li>
+                                    <li>RETAIL</li>
+                                    <li>WAREHOUSING</li>
+                                </ul>
+                            </div>
+                            <div class="tabContentWrap">
+                                <div class="tabContent">
+                                    <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
+                                    <div class="content">
+                                        <p class="title">lodha supremus 01</p>
+                                        <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
+                                        <a href="javascript:;" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                                <div class="tabContent">
+                                    <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
+                                    <div class="content">
+                                        <p class="title">lodha supremus 02</p>
+                                        <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
+                                        <a href="javascript:;" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                                <div class="tabContent">
+                                    <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
+                                    <div class="content">
+                                        <p class="title">lodha supremus 03</p>
+                                        <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
+                                        <a href="javascript:;" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                                <div class="tabContent">
+                                    <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
+                                    <div class="content">
+                                        <p class="title">lodha supremus 04</p>
+                                        <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
+                                        <a href="javascript:;" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="tabsWrap">
+                                <ul class="tabs">
+                                    <li>BOUTIQUE OFFICES</li>
+                                    <li>OFFICES FOR LEASE</li>
+                                </ul>
+                            </div>
+                            <div class="tabContentWrap">
+                                <div class="tabContent">
+                                    <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
+                                    <div class="content">
+                                        <p class="title">lodha supremus</p>
+                                        <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
+                                        <a href="javascript:;" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                                <div class="tabContent">
+                                    <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
+                                    <div class="content">
+                                        <p class="title">lodha supremus</p>
+                                        <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
+                                        <a href="javascript:;" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="lifestyleWrap">
+                <div class="container paddingBoth">
+                    <div class="topSection">
+                        <div class="sectionTitle">
+                            <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                            <p>Not just Lifestyle, <span>This is Life in Style</span></p>
+                        </div>
+                        <div class="content"><p>Verdant lawns, open spaces, tasteful tapestry, plush homes &amp; the warmth of close ones – Snapshots of the better life we have in mind for you!</p></div>
+                    </div>
+                    <div class="sliderWrap">
+                        <div class="galleryWrap">
+                            <div class="galleryWrapper banner">
+                                <ul>
+                                    <li data-attr="Come experience leisure in luxury"><img src="/{{ directory }}/images/upload/tower-img.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 02"><img src="/{{ directory }}/images/upload/img2.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 03"><img src="/{{ directory }}/images/upload/img3.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 04"><img src="/{{ directory }}/images/upload/img4.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                            <p class="copytext">Come experience leisure in luxury</p>
+                            <div id="slider" class="slider"></div>
+                        </div>
+                        <div class="galleryWrap">
+                            <div class="galleryWrapper1 banner">
+                                <ul>
+                                    <li data-attr="Come experience leisure in luxury"><img src="/{{ directory }}/images/upload/tower-img.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 02"><img src="/{{ directory }}/images/upload/img2.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 03"><img src="/{{ directory }}/images/upload/img3.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 04"><img src="/{{ directory }}/images/upload/img4.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                            <p class="copytext">Come experience leisure in luxury</p>
+                            <div id="slider1" class="slider"></div>
+                        </div>
+                        <div class="galleryWrap">
+                            <div class="galleryWrapper2 banner">
+                                <ul>
+                                    <li data-attr="Come experience leisure in luxury"><img src="/{{ directory }}/images/upload/tower-img.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 02"><img src="/{{ directory }}/images/upload/img2.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 03"><img src="/{{ directory }}/images/upload/img3.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 04"><img src="/{{ directory }}/images/upload/img4.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                            <p class="copytext">Come experience leisure in luxury</p>
+                            <div id="slider2" class="slider"></div>
+                        </div>
+                        <div class="galleryWrap">
+                            <div class="galleryWrapper3 banner">
+                                <ul>
+                                    <li data-attr="Come experience leisure in luxury"><img src="/{{ directory }}/images/upload/tower-img.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 02"><img src="/{{ directory }}/images/upload/img2.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 03"><img src="/{{ directory }}/images/upload/img3.jpg" alt=""></li>
+                                    <li data-attr="Come experience leisure in luxury 04"><img src="/{{ directory }}/images/upload/img4.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                            <p class="copytext">Come experience leisure in luxury</p>
+                            <div id="slider3" class="slider"></div>
+                        </div>
+                        
+                        <div class="selectCat">
+                            <span class="icon"><ul><li></li><li></li><li></li><li></li></ul></span>
+                            <div class="dropdown">
+                                <div class="select"><span></span></div>
+                                <ul class="dropdown-menu">
+                                    <li>WORLD TOWERS</li>
+                                    <li>WORLD TOWERS 02</li>
+                                    <li>WORLD TOWERS 03</li>
+                                    <li>WORLD TOWERS 04</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </section>
+            <section class="reviewsWrap">
+                <div class="container">
+                    <div class="sectionTitle">
+                        <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                        <p>BETTER LIFE <span>REVIEWS</span></p>
+                    </div>
+                    <div class="imgWrap">
+                        <div class="profilePic picPos-01"><span class="tab" data-attr="1"><img src="/{{ directory }}/images/upload/profile-pic01.jpg"></span></div>
+                        <div class="profilePic picPos-02"><span class="tab" data-attr="2"><img src="/{{ directory }}/images/upload/profile-pic02.jpg"></span></div>
+                        <div class="profilePic picPos-03"><span class="tab" data-attr="3"><img src="/{{ directory }}/images/upload/profile-pic03.jpg"></span></div>
+                        <div class="profilePic profilePicMain"><span class="tab" data-attr="0"><img src="/{{ directory }}/images/upload/profile-mandar-sohoni.jpg"></span></div>
+                        <div class="profilePicFrame"></div>
+                    </div>
+                    <div class="content">
+                        <div class="profileWrap">
+                            <div class="profileBox">
+                                <p>Thanks for the wonderful experience shared with our family during the entire handover process. You &amp; your team was extremely supportive at every stage which resulted in a great end product. These moments will surely remain great memories.</p>
+                                <p class="name">Mandar Sohoni</p>
+                            </div>
+                            <div class="profileBox">
+                                <p>01 Thanks for the wonderful experience shared with our family during the entire handover process. You &amp; your team was extremely supportive at every stage which resulted in a great end product. These moments will surely remain great memories.</p>
+                                <p class="name">Mandar Sohoni</p>
+                            </div>
+                            <div class="profileBox">
+                                <p>02 Thanks for the wonderful experience shared with our family during the entire handover process. You &amp; your team was extremely supportive at every stage which resulted in a great end product. These moments will surely remain great memories.</p>
+                                <p class="name">Mandar Sohoni</p>
+                            </div>
+                            <div class="profileBox">
+                                <p>03 Thanks for the wonderful experience shared with our family during the entire handover process. You &amp; your team was extremely supportive at every stage which resulted in a great end product. These moments will surely remain great memories.</p>
+                                <p class="name">Mandar Sohoni</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </section>
+            <section class="blogsWrap">
+                <div class="container paddingBoth">
+                    <div class="sectionTitle">
+                        <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                        <p>Blogging <span>Life Better!</span></p>
+                    </div>
+                    <div class="blogsContainer">
+                        <div class="blog">
+                            <p class="date">01.01.2017</p>
+                            <p class="title">Step Out to Stay Fit</p>
+                            <p>Pick a hobby; it will help you uplift your spirit! Do you like to stroll in the mall?</p>
+                            <a href="javascript:;" class="arrowLink">Read More</a>
+                        </div>
+                        <div class="blog">
+                            <p class="date">01.01.2017</p>
+                            <p class="title">Step Out to Stay Fit</p>
+                            <p>Pick a hobby; it will help you uplift your spirit! Do you like to stroll in the mall?</p>
+                            <a href="javascript:;" class="arrowLink">Read More</a>
+                        </div>
+                        <div class="buttonWrap"><a href="javascript:;" class="btn">View All</a></div>
+                    </div>
+                </div>
+            </section>
+            <section class="getInTouch">
+                <div class="container paddingBoth">
+                    <div class="sectionTitle">
+                        <span class="icon"><img src="/{{ directory }}/images/upload/icon-pillars.png"></span>
+                        <p>GET IN <span>TOUCH</span></p>
+                    </div>
+                    <div class="formWrapper">
+                        <p class="title">Keep updated on the latest in luxury living.</p>
+                        <div class="fieldRow">
+                            <div class="clm-3">
+                                <input type="text">
+                                <span class="placeholder">Name</span>
+                            </div>
+                            <div class="clm-3">
+                                <input type="text">
+                                <span class="placeholder">Email - id</span>
+                            </div>
+                            <div class="clm-3">
+                                <input type="text">
+                                <span class="placeholder">Mobile No.</span>
+                            </div>
+                        </div>
+                        <div class="buttonWrap">
+                            <button class="btn">Submit</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+          <div id="content-area">
+            {{ page.content }}
+          </div>
+
+        </section><!-- /#content -->
+
+        {% if page.sidebar_first|render %}
+          <aside id="sidebar-first" class="column sidebar first">
+            {{ page.sidebar_first }}
+          </aside><!-- /#sidebar-first -->
+        {% endif %}
+
+        {% if page.sidebar_second|render %}
+          <aside id="sidebar-second" class="column sidebar second">
+            {{ page.sidebar_second }}
+          </aside><!-- /#sidebar-second -->
+        {% endif %}
+
+      </div><!-- /#content-wrapper -->
+    </div><!-- /.container -->
+  </div><!-- /#main -->
+
+  <!-- ______________________ FOOTER _______________________ -->
+
+  {% if page.footer|render %}
+    <footer id="footer">
+      <div class="container">
+        <div id="footer-region">
+          {{ page.footer }}
+        </div>
+      </div>
+    </footer><!-- /#footer -->
+  {% endif %}
+
+
