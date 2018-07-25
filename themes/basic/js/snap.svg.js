@@ -2526,6 +2526,7 @@ eve.on("snap.util.attr", function (value) {
  = (XMLHttpRequest) the XMLHttpRequest object, just in case
 \*/
 Snap.ajax = function (url, postData, callback, scope){
+    //console.log(postData, url);
     var req = new XMLHttpRequest,
         id = ID();
     if (req) {
@@ -2558,6 +2559,7 @@ Snap.ajax = function (url, postData, callback, scope){
             return req;
         }
         req.send(postData);
+        
         return req;
     }
 };
