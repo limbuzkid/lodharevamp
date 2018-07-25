@@ -263,7 +263,7 @@ function onSlideStartStop(evnt, sliderId, galleryId, e, ui) {
   }
 }
 /* Slider Gallery Ends */
-(function ($, Drupal) {
+
   homeBannerSrc();
   screenSize();
   formPostback();
@@ -588,7 +588,7 @@ var selectCatIcon = setInterval(function() {
   });
 
 
-})(jQuery);
+
 
 function pillars(){
   if($(window).width() < 768)

@@ -1,4 +1,3 @@
-(function ($, Drupal) {
 var isIOS;
 
 $(function() {
@@ -84,4 +83,3 @@ $(window).on("scroll", function() {
     dataSkroller();
     svgEditorForIE($(this));
 })
-})(jQuery);

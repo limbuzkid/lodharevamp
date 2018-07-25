@@ -1,20 +1,28 @@
 global:
   version: VERSION
   css:
+    base:
+      css/base/base.css: {}
+    layout:
+      css/layout/layout.css: {}
+    component:
+      css/components/components.css: {}
     theme:
+      css/theme/theme.css: {}
+      css/theme/print.css: { media: print }
       css/owl.carousel.css: {}
       css/animate.css: {}
       css/jquery-ui.css: {}
       css/style.css: {}
-    
   js:
+    js/modernizr.js: {}
     js/owl.carousel.js: {}
     js/jquery.ui.touch-punch.min.js: {}
     js/snap.svg.js: {}
     js/svg-and-scroll.js: {}
     js/common.js: {}
     
-  # js/build/scripts.js: {}
+    js/build/scripts.js: {}
     dependencies:
       - core/drupal
       - core/jquery
