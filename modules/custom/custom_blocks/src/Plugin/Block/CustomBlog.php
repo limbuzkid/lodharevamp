@@ -26,30 +26,28 @@
 
 			$query = \Drupal::entityQuery('node');
 			$query->condition('status', NODE_PUBLISHED)
-						->condition('type', 'blog')
+						->condition('type', 'blog_post')
 						->sort('nid', 'DESC');
 			$nids 	= $query->execute();
 
 			$nodes 	= entity_load_multiple('node', $nids);
 			foreach($nodes as $node) {
 				$date_time = strtotime($node->field_datetime->value);
-				$date = date('d.m.Y', $date_time);   
+				$date = date('d.m.Y', $date_time); 
 
-				$output .= '<div class="blog">
-							<p class="date">'.$date.'</p>
-							<p class="title">'.$node->title->value.'</p>
-							<p>'.$node->body->value.'</p>
-							<a href="javascript:;" class="arrowLink">Read More</a>
-							</div>';
+				$data[] = array(
+					'title' => $node->title->value,
+					'body' => $node->body->value,
+					'date'  => $date,
+					// 'alias' => $node_url,
+				);
 			}
 
-
-      return array(
-		'#markup' => $this->t($output),
-		/* If you want to bypass Drupal 8's default caching for this block then simply add this, otherwise remove the next three line */
-		'#cache' => array(
-			'max-age' => 0,
-		),
-	  );
+			return [
+				'#theme'    => 'block--homeblog',
+				'#cur_page' => $this->t('landing_page'),
+				'#test_var' => $this->t('Test Value'),
+				'#data_obj' => $data,
+			];
 	}
 }
