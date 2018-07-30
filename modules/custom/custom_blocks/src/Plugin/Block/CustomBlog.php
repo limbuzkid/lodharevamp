@@ -34,10 +34,11 @@
 			foreach($nodes as $node) {
 				$date_time = strtotime($node->field_datetime->value);
 				$date = date('d.m.Y', $date_time); 
+				$shortdesc = preg_replace('/\s+?(\S+)?$/', '', substr($node->body->value, 0, 150)) . '...';
 
 				$data[] = array(
 					'title' => $node->title->value,
-					'body' => $node->body->value,
+					'body' => $shortdesc,
 					'date'  => $date,
 					// 'alias' => $node_url,
 				);

@@ -40,7 +40,7 @@
 							// 'alias' => $node_url,
 						);
 					}
-
+					
 					return [
 						'#theme'    => 'block--hometestimonial',
 						'#cur_page' => $this->t('landing_page'),
