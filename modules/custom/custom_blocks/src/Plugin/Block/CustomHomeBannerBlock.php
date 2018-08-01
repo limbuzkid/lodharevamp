@@ -27,42 +27,32 @@ class CustomHomeBannerBlock extends BlockBase {
     $output = '';
     $query = \Drupal::entityQuery('node')
         ->condition('status', 1)
-        ->condition('type', 'home_page_banner')
-        ->sort('field_banner_order');
+        ->condition('type', 'home_banners')
+        ->sort('field_sequence','DESC');
     $nids = $query->execute();
 
     $nodes = entity_load_multiple('node', $nids);
-    /*echo '<pre>';
+    $base_path =  \Drupal::config('assets_path')->get('url');
+
     foreach($nodes as $node) {
-      echo 'AAA '. $node->field_image->target_id;
-      //print_r($node);
-    }
-    echo '</pre>';
-    exit;*/
-    foreach($nodes as $node) {
-      $wave_color = strip_tags($node->body->value);
-      if($node->field_image->target_id) {
-        $image = file_create_url($node->field_image->entity->getFileUri());
-        $mob_image = file_create_url($node->field_mobile_banner_image->entity->getFileUri());
-        if($node->field_blog_url->value) {
-          $banner_link = $node->field_blog_url->value;
-        } else {
-          $banner_link = 'javascript:;';
-        }
-        $output .= '<div class="item" data-colors="'.$wave_color.'"><a href="'.$banner_link.'"><img src="" alt="banner" data-banner="'.$image.'" data-banner-mobile="'.$mob_image.'"></a></div>';
-      } else {
-        $wave_color = strip_tags($node->body->value);
-        $utube_url = 'https://www.youtube.com/embed/'.$node->field_youtube_video_id->value.'?autoplay=1';
-        $output .= '<div class="item" data-colors="'.$wave_color.'"><img src="" alt="banner" data-banner="/themes/himalaya/images/banner-default.jpg" data-banner-mobile="/themes/himalaya/images/banner-m-default.jpg"><a class="owl-video" href="'.$utube_url.'"></a></div>';
-      }
+    
+      $data[] = array(
+        'title' => $node->title->value,
+        'body' => $node->body->value,
+        'imagePath' => $node->field_image_path->value,
+        'fieldLink' => $node->field_link_->value,
+        'fieldLinkUrl'  => isset($node->field_link_url->value)?$base_path.$node->field_link_url->value:'javascript:;',
+        'fieldYoutubeId' => $node->field_youtube_id->value,
+        'fieldImagePath' => isset($node->field_image_path->value)?$base_path.$node->field_image_path->value:'javascript:;',
+        // 'alias' => $path,
+      );
     }
 
-    return array(
-      '#markup' => $this->t($output),
-      /* If you want to bypass Drupal 8's default caching for this block then simply add this, otherwise remove the next three line */
-      '#cache' => array(
-          'max-age' => 0,
-      ),
-    );
+    return [
+      '#theme'    => 'block--home-banner',
+      '#cur_page' => $this->t('landing_page'),
+      '#test_var' => $this->t('Test Value'),
+      '#data_obj' => $data,
+    ];
   }
 }

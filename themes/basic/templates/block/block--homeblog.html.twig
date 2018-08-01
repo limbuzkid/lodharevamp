@@ -11,10 +11,10 @@
                     <p class="date">{{ data.date }}</p>
                     <p class="title"> {{ data.title }}</p>
                     <p>{{ data.body|raw }}</p>
-                    <a href="javascript:;" class="arrowLink">Read More</a>
+                    <a href="{{ data.alias}}" class="arrowLink">Read More</a>
                 </div> 
             {% endfor %}
-            <div class="buttonWrap"><a href="javascript:;" class="btn">View All</a></div>
+            <div class="buttonWrap"><a href="/blog" class="btn">View All</a></div>
         </div>
     </div>
 </section>

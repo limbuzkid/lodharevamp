@@ -27,7 +27,7 @@
 		 * {@inheritdoc}
 		 */
 		public function build() {
-			
+			$base_path =  \Drupal::config('assets_path')->get('url');
 			$query = \Drupal::entityQuery('node')
 							->condition('status', NODE_PUBLISHED)				
 							->condition('type', "testimonials");
@@ -37,6 +37,7 @@
 						$data[] = array(
 							'title' => $node->title->value,
 							'desc'  => $node->field_description->value,
+							'imagePath' => $base_path.$node->field_image_path->value,
 							// 'alias' => $node_url,
 						);
 					}

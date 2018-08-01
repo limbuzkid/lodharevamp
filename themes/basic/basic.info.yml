@@ -17,6 +17,8 @@ regions:
   page_bottom: 'Page bottom'
   highlighted: Highlighted
   content_top: Content Top
+  content_pillar_header : Content Pillars Header
+  content_pillars : Content Pillars
   content: Content
   content_bottom: Content Bottom
   sidebar_first: 'Sidebar first'
