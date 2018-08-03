@@ -19,6 +19,11 @@ regions:
   content_top: Content Top
   content_pillar_header : Content Pillars Header
   content_pillars : Content Pillars
+  content_iconic_project_header : Content Iconic Project Header
+  content_map_header : Content Map Header
+  content_lets_workbetter_header : Content Lets WorkBetter Header
+  content_lifestyle_wrap_header : Content Lifestyle Wrap Header
+  content_testimonial_header : Content Testimonial Header 
   content: Content
   content_bottom: Content Bottom
   sidebar_first: 'Sidebar first'
