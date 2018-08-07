@@ -1,0 +1,8 @@
+custom_ajax.load_home_world_tower:
+  path: '/ajax/load-home-world-tower'
+  defaults:
+    _title: 'World Tower'
+    _controller: '\Drupal\custom_ajax\Controller\AjaxController::load_home_world_tower'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'

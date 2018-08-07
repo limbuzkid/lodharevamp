@@ -1,12 +1,31 @@
-<div class="iconicProCarousel carousel owl-carousel">
-    {% for data in content["#data_obj"] %}
-        <div class="slide">
-            <div class="imgwrap"><img src="{{ data.imagePath }}></div>
-            <div class="content">
-                <p class="title">{{ data.title }}</p>
-                <p>{{ data.body }}</p>
-                <a href="{{ data.linkUrl }}" class="btn">{{ data.linkText }}</a>
+
+<div class="sliderWrap">
+    {% for data in content["#first_data"] %}
+        <div class="galleryWrap">
+            <div class="galleryWrapper banner">
+                <ul>
+                {% for img in data.imagePath %}
+                    <li data-attr="{{ data.body }}"><img src="{{ data.base_path }}{{img.value }}" alt=""></li>
+                {% endfor %}
+                </ul>
             </div>
+            <p class="copytext">{{ data.body }}</p>
+            <div id="slider" class="slider"></div>
         </div>
     {% endfor %}
+    <div class="selectCat">
+        <span class="icon"><ul>
+        {% for data in content["#data_obj"] %}
+            <li></li>
+        {% endfor %}
+        </ul></span>
+        <div class="dropdown">
+            <div class="select"><span></span></div>
+            <ul class="dropdown-menu">
+            {% for data in content["#data_obj"] %}
+                <li class="home-world-tower" data-attr="{{ data.nodeId }}">{{ data.title }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>

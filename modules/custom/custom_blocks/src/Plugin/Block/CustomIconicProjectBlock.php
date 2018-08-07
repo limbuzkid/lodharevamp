@@ -42,7 +42,7 @@
         $link_text = $node->field_link_->value;
         $link_url = isset($node->field_link_url->value)?$node->field_link_url->value:\Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
         $path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
-        $imagePath = $base_path.$node->value->field_iconic_project_image_;
+        $imagePath = $base_path.$node->field_iconic_project_image_->value;
 
 				$data[] = array(
 					'title' => $node->title->value,
@@ -55,7 +55,7 @@
 			}
 
       return [
-        '#theme'    => 'block--homeiconicproject-2',
+        '#theme'    => 'block--homeiconicprojectblock',
         '#cur_page' => $this->t('landing_page'),
         '#test_var' => $this->t('Test Value'),
         '#data_obj' => $data,

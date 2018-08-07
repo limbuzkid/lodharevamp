@@ -713,6 +713,31 @@
     
   });
 
+  $(document).on('click', '.home-world-tower', function() {
+    var nid = $(this).data('attr');
+    var html = '';
+    $.ajax({
+      url: "ajax/load-home-world-tower",
+      type:'POST',
+      dataType: "json",
+      data: {
+        nid: nid
+      },
+      success: function(response) {
+        jsonObject = response.data;
+        console.log(jsonObject.imagePath);
+        
+        $.each(jsonObject.imagePath,function(){
+         html += '<li data-attr="'+jsonObject.body+'" style="height: 600px; width: 980px;"><img src="'+jsonObject.base_path+this.value+'" alt="" style="height: 600px; width: 980px;"></li>'
+        });
+
+        $('.lhs').html(html);
+        $('.copytext').html(jsonObject.body);
+        
+      }
+    });
+  });
+
 
 //})(jQuery, Drupal);
 })(jQuery);

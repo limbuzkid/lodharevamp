@@ -30,10 +30,13 @@
 			$query = \Drupal::entityQuery('node');
 			$query->condition('status', NODE_PUBLISHED)
             ->condition('type', 'projects')
+            ->condition('field_world_towers_project', 1)
 						->sort('nid', 'DESC');
 			$nids 	= $query->execute();
 
       $nodes 	= entity_load_multiple('node', $nids);
+      $first = true;
+
       foreach($nodes as $node) {
 				$date_time = strtotime($node->field_datetime->value);
 				$date = date('d.m.Y', $date_time); 
@@ -41,23 +44,37 @@
         $link_text = $node->field_link_->value;
         $link_url = isset($node->field_link_url->value)?$node->field_link_url->value:\Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
         $path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
-        $imagePath = $node->value->field_iconic_project_image_;
-
+        $imagePath = $node->field_iconic_project_image_->value;
+        $nodeId = $node->nid->value;
+ 
 				$data[] = array(
 					'title' => $node->title->value,
           'body' => $shortdesc,
           'linkText' => $link_text,
           'linkUrl' => $link_url,
           'imagePath' => $imagePath,
-					'alias' => $path,
+          'alias' => $path,
+          'nodeId' => $nodeId,
 				);
-			}
+      }
+      foreach ($nodes as $node) {
+      
+        $first_data[] = array(
+          'title' => $node->title->value,
+          'body' => $node->field_towers_description->value,
+          'nodeId' => $nodeId,
+          'imagePath' => $node->field_world_towers_image->getValue(),
+          'base_path' => $base_path, 
+        );
+        break;
+      }
 
       return [
         '#theme'    => 'block--home-iconic-project',
         '#cur_page' => $this->t('landing_page'),
         '#test_var' => $this->t('Test Value'),
         '#data_obj' => $data,
+        '#first_data' => $first_data,
       ];
     }
   }
