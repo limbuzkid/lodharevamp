@@ -1,0 +1,12 @@
+<div class="iconicProCarousel carousel owl-carousel">
+    {% for data in content["#data_obj"] %}
+        <div class="slide">
+            <div class="imgwrap"><img src="{{ data.imagePath }}></div>
+            <div class="content">
+                <p class="title">{{ data.title }}</p>
+                <p>{{ data.body }}</p>
+                <a href="{{ data.linkUrl }}" class="btn">{{ data.linkText }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

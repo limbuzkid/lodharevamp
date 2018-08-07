@@ -74,7 +74,9 @@ $(window).on("scroll", function() {
     dataSkroller();
     svgEditorForIE($(this));
 })
-
-
+jQuery(function(){
     svgloader(".svgBox");
+    })
+
+    
 }(jQuery));

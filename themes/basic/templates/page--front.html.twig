@@ -24,32 +24,7 @@
             </section>
             <section class="iconicProjects">
                 {{ page.content_iconic_project_header }}
-                <div class="iconicProCarousel carousel owl-carousel">
-                    <div class="slide">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/iconic-project.jpg"></div>
-                        <div class="content">
-                            <p class="title">PALAVA</p>
-                            <p>India’s No.1 smart city** – planned for over 2 million residents</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/iconic-project.jpg"></div>
-                        <div class="content">
-                            <p class="title">PALAVA</p>
-                            <p>India’s No.1 smart city** – planned for over 2 million residents</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/iconic-project.jpg"></div>
-                        <div class="content">
-                            <p class="title">PALAVA</p>
-                            <p>India’s No.1 smart city** – planned for over 2 million residents</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                </div>
+                {{ page.content_iconic_project }}
             </section>
             <section class="locateUs">
                 <div class="container leftPadding">
@@ -143,6 +118,7 @@
                 </div>
             </section>
             <section class="lifestyleWrap">
+      
                 <div class="container paddingBoth">
                     <div class="sliderWrap">
                         <div class="galleryWrap">
@@ -206,9 +182,13 @@
                                 </ul>
                             </div>
                         </div>
-                        
-                        
                     </div>
+                </div>
+            </section>
+            <section class="reviewsWrap">
+                <div class="container">
+                    {{ page.content_testimonial_header }} 
+                    {{ page.content_testimonial }}
                 </div>
             </section>
             {{ page.content_bottom }}
