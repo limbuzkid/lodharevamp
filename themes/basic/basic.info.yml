@@ -18,15 +18,11 @@ regions:
   page_bottom: 'Page bottom'
   highlighted: Highlighted
   content_top: Content Top
-  content_pillar_header : Content Pillars Header
   content_pillars : Content Pillars
-  content_iconic_project_header : Content Iconic Project Header
   content_iconic_project : Content Iconic Project
   content_map_header : Content Map Header
   content_lets_workbetter_header : Content Lets WorkBetter Header
-  content_lifestyle_wrap_header : Content Lifestyle Wrap Header
   content_lifestyle_wrap : Content Lifestyle Wrap
-  content_testimonial_header : Content Testimonial Header
   content_testimonial : Content Testimonial
   content: Content
   content_bottom: Content Bottom
