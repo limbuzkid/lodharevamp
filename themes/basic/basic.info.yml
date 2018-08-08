@@ -28,8 +28,6 @@ regions:
   content_lifestyle_wrap : Content Lifestyle Wrap
   content_testimonial_header : Content Testimonial Header
   content_testimonial : Content Testimonial
-  content_blog_header: Content Blog Header
-  content_blog: Content Blog
   content: Content
   content_bottom: Content Bottom
   sidebar_first: 'Sidebar first'
