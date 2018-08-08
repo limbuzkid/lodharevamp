@@ -38,6 +38,7 @@
 							'title' => $node->title->value,
 							'desc'  => $node->field_description->value,
 							'imagePath' => $base_path.$node->field_image_path->value,
+							'sequence' => $node->field_sequence->value,
 							// 'alias' => $node_url,
 						);
 					}

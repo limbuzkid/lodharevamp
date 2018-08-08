@@ -11,8 +11,10 @@
         $("body").removeClass("smallScreen").addClass("largeScreen");
     }
   }
+  
   function homeBannerSrc()
   {
+    
     var countr = 0;
     $('.bannerCarousel .item').each(function(countr){
       var imgSrcdesktop = $(this).find('img.bannerImage').attr('data-srcdesktop');
