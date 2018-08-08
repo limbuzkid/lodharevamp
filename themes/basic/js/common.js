@@ -730,8 +730,9 @@
         $.each(jsonObject.imagePath,function(){
          html += '<li data-attr="'+jsonObject.body+'" style="height: 600px; width: 980px;"><img src="'+jsonObject.base_path+this.value+'" alt="" style="height: 600px; width: 980px;"></li>'
         });
-
+  
         $('.lhs').html(html);
+        $('.rhs').html(html);
         $('.copytext').html(jsonObject.body);
         
       }
