@@ -1,0 +1,170 @@
+.nriOverview {
+    .innerMainBanner .bannerCarousel {
+        width: 100%;
+    }
+    .innerMainBanner .bannerCarousel .content p {
+        color: #000;
+    }
+    .locateUs .mapContainer {
+        display: none;
+        height: calc(100% - 200px);
+        position: absolute;
+        margin: 100px 0;
+        min-height: unset;
+        width: 100%;
+    }
+    .locateUs .content h2 {
+        color: #000;
+        padding: 0 0 15px 0;
+        text-align: left;
+    }
+    .testimonials .sectionTitle .icon {
+        width: 57px;
+        height: 57px;
+        border: solid #bd9234 0px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        padding: 8px;
+    }
+    /*.testimonials .sectionTitle span.icon img {
+        margin: 8px 7.5px;
+    }*/
+    .lifestyleWrap {
+        padding: 90px 0 0
+    }
+    /*.factsfiguresWrap {
+        padding: 0 0 90px;
+    }*/
+    .lifestyleWrap .topSection {
+        padding: 0;
+    }
+    .lifestyleWrap:after {
+        display: none;
+    }
+    .lifestyleWrap .topSection .sectionTitle {
+        padding: 0 4% 0 0;
+    }
+
+    .lifestyleWrap .topSection .content {
+        padding: 85px 0 0;
+        vertical-align: top;
+    }
+    .factsfiguresWrap .topSection .content {
+        float: right;
+        width: 93.9%;
+    }
+
+    .factsfiguresWrap .topSection .content p {
+        width: 33%;
+    }
+}
+
+.goldTxt {
+    color: $gold;
+}
+
+.videosGallery {
+    .sectionTitle {
+        background: #f6f2e3;
+        padding: 40px 0;
+    }
+
+    .videos {
+        float: left;
+        width: 100%;
+    }
+
+    .videos .text {
+        float: left;
+        margin: 50px 0 0;
+        width: 40%;
+    }
+    .sliderTextGallery {
+        color: $gold;
+        font-size: 2.3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        .flex-direction-nav {
+            display: none;
+        }
+    }
+    .sliderGallery {
+        float: right;
+        position: relative;
+        margin: -90px 0 0;
+        width: 58%;
+        z-index: 1;
+        li {
+
+            img {
+                width: 100%;
+            }
+        }
+        .flex-direction-nav {
+            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            bottom: 50px;
+            float: left;
+            left: 0;
+            position: absolute;
+            transform: translateX(-50%);
+            width: 150px;
+        }
+
+        ul.flex-direction-nav li {
+            float: left;
+            padding: 10px 0;
+            text-align: center;
+            width: 50%;
+            a {
+                float: left;
+                overflow: hidden;
+                text-indent: -999px;
+                width: 100%;
+                &:before {
+                    font-size: 0;
+                    float:left;
+                    width: 25px;
+                    height: 25px;
+                    left: calc((100% - 25px) / 2);
+                    top: calc((100% - 25px) / 2);
+                    background: url(#{$assetPath}/aspi/arr.png) no-repeat center;
+                    content: '';
+                }
+                &.flex-prev {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .nriOverview .lifestyleWrap .topSection .content {
+        padding: 25px 0 0;
+    }
+    .nriOverview .factsfiguresWrap {
+        padding: 0;
+    }
+
+    .nriOverview .factsfiguresWrap .topSection .content p {
+        width: 100%;
+    }
+
+    .nriOverview .factsfiguresWrap .topSection .content {
+        width: 100%;
+    }
+    .nriOverview .videosGallery .sliderGallery {
+        margin: -10% 5% 0;
+        width: 90%;
+    }
+    .videosGallery .videos .text {
+        margin: 0 0 0 5%;
+        width: 90%;
+    }
+    .videosGallery .sliderTextGallery {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,278 @@
+.menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   // overflow: hidden;
+    z-index: 100;
+    opacity:0;
+    visibility:hidden;
+    width: 100%;
+    z-index: 1;
+    &.is-opening{
+        opacity:1;
+        visibility: inherit;  
+        z-index: 999;
+    }
+    .menuWrap {
+        position: relative;
+        width: 100%;
+        z-index: 2;
+        height: 0;
+        padding-bottom: 100vh;
+    }
+    .leftMenuBox{
+        width: 68.18182%;
+        float: left;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #fff;
+        transition: all .4s cubic-bezier(.25,.46,.45,.94);
+        transform: translateX(-2.5%);
+        opacity: 0;
+        will-change: clip-path,opacity,transform;
+        -webkit-clip-path: polygon(0 0,0 0,0 100%,0 100%);
+        clip-path: polygon(0 0,0 0,0 100%,0 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    .rightMenuBox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 31.81818%;
+        float: left;
+        background: $bgLightGold;
+        transition: all .4s cubic-bezier(.25,.46,.45,.94);
+        transform: translateX(2.5%);
+        opacity: 0;
+        will-change: clip-path,opacity,transform;
+        -webkit-clip-path: polygon(100% 0,100% 0,100% 100%,100% 100%);
+        clip-path: polygon(100% 0,100% 0,100% 100%,100% 100%);
+        li{
+            display: inline-block;
+            display: inline-block;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+        
+    }
+    
+    .subMenu, .mainMenu{
+        width:50%;
+        float:left;
+    }
+    .subMenu li{
+        font-size: 22px;
+        padding-bottom: 20px;
+      
+    }
+    .mainMenu{
+        padding-left: 6.66667%;
+        padding-right: 6.66667%;
+        li {
+            cursor: pointer;
+            display: block;
+            padding-right: 40px;
+            padding-bottom: 2.5rem;
+            font-size:35px;
+            position: relative;
+            span {
+                display: inline-block;
+                position: relative;
+                //padding: 5px 0;
+                -webkit-backface-visibility: hidden;
+                color:$black;
+                /* backface-visibility: hidden; */
+                &:after {
+                    transform: scaleX(1);
+                    transform-origin: 0 50%;
+                    transition-timing-function: ease;
+                }
+            }
+        }
+        .bottomMenu{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    .rightMenuBox{
+        padding-left: 6.66667%;
+        padding-right: 6.66667%; 
+    }
+
+    .closeBtn {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 1;
+        z-index: 9;
+
+        &:before, &:after{
+            position: absolute;
+            left: 15px;
+            content: ' ';
+            height: 30px;
+            width: 2px;
+            background-color: $black;
+        }
+      }
+      
+      .closeBtn:before {
+        transform: rotate(45deg);
+      }
+      .closeBtn:after {
+        transform: rotate(-45deg);
+      }
+      .dropdownArrow{
+        box-sizing: border-box;
+        height: 10px;
+        width: 10px;
+        border-style: solid;
+        border-color: #000;
+        border-width: 0px 2px 2px 0px;
+        transform: rotate(-45deg);
+        transition: border-width 150ms ease-in-out;
+        position: absolute;
+        top: -3px;
+        right: 0px;
+      }
+      
+   
+}
+
+.menuOverlay.is-opening .leftMenuBox, .menuOverlay.is-opening .rightMenuBox{
+    opacity: 1;
+    -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    /* clip-path: polygon(0 0,100% 0,100% 100%,0 100%); */
+}
+.menuOverlay.is-opening .leftMenuBox {
+    transform: translateX(0);
+}
+.menuOverlay.is-opening  .rightMenuBox {
+    transform: translateX(-1px);
+}
+.menuOverlay.is-opening .leftMenuBox, .menuOverlay.is-opening .rightMenuBox {
+    opacity: 1;
+    -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    /* clip-path: polygon(0 0,100% 0,100% 100%,0 100%); */
+}
+/*animation css starts from here*/
+@-webkit-keyframes slideInLeft {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+  }
+  
+  @-webkit-keyframes slideInRight {
+    from {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+  }
+  @keyframes slideOutLeft {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  
+  .slideOutLeft {
+    -webkit-animation-name: slideOutLeft;
+    animation-name: slideOutLeft;
+  }
+  
+  @-webkit-keyframes slideOutRight {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+  
+  .slideOutRight {
+    -webkit-animation-name: slideOutRight;
+    animation-name: slideOutRight;
+  }
+  

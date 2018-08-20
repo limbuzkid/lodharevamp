@@ -1,0 +1,15 @@
+<div class="townSlider flexslider">
+    <ul class="slides flexImg">
+        {% for data in  content["#data_obj"]  %}
+            <li>
+                <img src="{{ directory }}/images/cufee-parade.jpg" /> {#imageFieldPath#}
+            </li>
+        {% endfor %}
+        {#<li>
+            <img src="{{ directory }}/images//cufee-parade.jpg" />
+        </li>
+        <li>
+            <img src="{{ directory }}/images//cufee-parade.jpg" />
+        </li>#}
+    </ul>
+</div>

@@ -1,0 +1,867 @@
+<body class="themeGreen plansPg largeScreen tabFixed" onload="reset()">
+<div class="outerWrap">
+    {% set path_url = path('entity.node.canonical', {'node': node.id})|split('/',-1)|join('/') %}
+    <div class="fixedHeader">
+        <a class="menu" href="javascript:;" id="menu-icon">MENU</a>
+        <a class="logo" href="javascript:;">
+            <img src="{{ file_url(node.field_project.0.entity.field_image_path.value) }}"
+                 alt="{{ node.field_project.0.entity.title.value }}">
+        </a>
+        <div class="rightSec">
+            <ul>
+                <li><a href="javascript:;" class="favourite"><img
+                                src="{{ file_url(directory) }}/images/icon-search.png"></a></li>
+                <li><a href="javascript:;" class="favourite"><img
+                                src="{{ file_url(directory) }}/images/icon-favourite.png"></a></li>
+                <!-- <li><a href="javascript:;" class="contact"><img src="{{ directory }}/images//icon-contact.png"></a></li> -->
+                <!-- <li class="dropdown"><a href="javascript:;"><img src="{{ directory }}/images//mobile-user.png"></a></li> -->
+                <li class="myLodha"><a href="javascript:;">MY LODHA</a></li>
+                <li class="dropdown countryLanguage"><a href="javascript:;">IND/EN</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="subHeader">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="javascript:;">Home</a></li>
+                <li><a href="javascript:;">Residential Properties</a></li>
+                <li><a href="javascript:;">Amara</a></li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="topNav">
+            <ul>
+               {# <li><a href='{{ ('/projects/' ~ node.field_project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field_project.0.entity.title.value ~ '/about') |lower  }}'>About</a></li>
+                <li><a href={{ ('/projects/' ~ node.field_project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field_project.0.entity.title.value ~ '/location') |lower }}>Location</a></li>
+                <li><a href={{ ('/projects/' ~ node.field_project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field_project.0.entity.title.value ~ '/price-plans') |lower }} class="active">Plans & Price</a></li>
+                <li><a href={{ ('/projects/' ~ node.field_project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field_project.0.entity.title.value ~ '/amenities') |lower }} >Amenities</a></li>
+                <li><a href={{ ('/projects/' ~ node.field_project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field_project.0.entity.title.value ~ '/gallery') |lower }}>Gallery</a></li>#}
+                <li><a href={{path_url ~ '/about' }} >About</a></li>
+                <li><a href={{path_url ~ '/location' }}>Location</a></li>
+                <li><a href={{path_url ~ '/plans-prices' }} class="active">Plans & Price</a></li>
+                <li><a href={{path_url ~ '/amenities' }}>Amenities</a></li>
+                <li><a href={{path_url ~ '/gallery' }}>Gallery</a></li>
+            </ul>
+            <div class="enquire-block">
+                <a href="javascript:;" class="modalOpen" data-modal-id="getInTouch">
+                <span class="fav-icon">
+                    <img src="{{ file_url(directory) }}/images/icon-enquire.png" alt="">
+                </span>
+                    <span>Enquire</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Header ends -->
+    <section class="propertyPrice">
+        <!-- <div class="sectionTitle">
+                    <span class="icon"><img src="/{{ directory }}/images/icon-plan-prices.png"></span>
+                    <p>Plans &amp; <span>Prices</span></p>
+                </div> -->
+        <div class="container">
+            {#<a href="javascript:;" class="getinTouch modalOpen" data-modal-id="getInTouch"><img src="/{{ directory }}/images/icon-enquire.png" alt=""></a>#}
+            <div class="sectionTitle active">
+                <span class="icon"><img src="/{{ directory }}/images/icon-plan-prices.png"></span>
+                <p>Plans &amp; <span>Prices</span></p>
+                <span class="before-block"></span>
+            </div>
+            {#{{ page.plans_prices_header }}#}
+            <div class="planTypes">
+                <div class="planTabsUl customTabs">
+                    <ul commonTab="planTabs">
+                        <li tabName="masterPlan" class="activeTab">Master Plan</li>
+                        <li tabName="floorPlan" checkSlider="true">Floor Plan</li>
+                        <li tabName="unitPlan">Unit Plan</li>
+                    </ul>
+                </div>
+                <div class="planTabContent">
+                    <div id="masterPlan" class="planTabs">
+                        <div><img src={{ file_url(node.field_master_plan.0.entity.field_plan_images.value) }}></div>
+                        <div class="priceContent content">
+                            <div class="richTxt">
+                                {{ node.field_master_plan.0.entity.field_description.value|raw }}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="floorPlan" class="planTabs">
+                        <div class="thumbSlider">
+                            <div id="floorPaging" class="paging">
+                                <span class="currentSlide">1</span> /
+                                <span class="totalSlides"></span>
+                            </div>
+                            <div id="sliderFloor" class="flexslider" navFor="floorPaging">
+                                <ul class="slides">
+                                    {% for data in node.field_floor_plan %}
+                                        <li>
+                                            <img src="{{ file_url(data.entity.field_floor_plan_images.value) }}"/>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div id="carouselFloor" class="flexslider thumbComp">
+                                <ul class="slides">
+                                    {% for data in node.field_floor_plan %}
+                                        <li>
+                                            <img src="{{ file_url(data.entity.field_floor_plan_images.value) }}"/>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="priceContent content">
+                                <div class="richTxt">
+                                    <p>{{ node.field_floor_plan_description.value|raw }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="unitPlan" class="planTabs">
+                        <p class="selectBhkText">Select unit here to see plans & price</p>
+                        <div class="planTabsInner bhkdrop" style="/* border: 1px solid #000; */">
+                            <div class="selectPlan">
+                                <span class="prevPlan" onclick="minusOneRoom()">Previous</span>
+                                <span class="nextPlan" onclick="plusOneRoom()">Next</span>
+                                <div id="test"></div>
+                                <div class="planUnitHolder" style="width: 302px;top: 0;left: 23%;">
+                                    <div class="planUnits" style="width: 232px;height: 50px;">
+                                        <span style="font-size: 2.5rem;text-align: left;padding: 7px 12px;"
+                                              id="typology">{% if node.field_unit_plan.0.entity.field_typology.0.entity.name.value > 5 %}{{ "VILLA" }}{% else %}{{ node.field_unit_plan.0.entity.field_typology.0.entity.name.value ~ " BHK" }}{% endif %}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newDropdown" style="">
+                            <div class="propertyPlans" style="margin-top: 0;">
+                                <div class="typedropdown">
+                                    <select name="" id="ptype" onchange="changePlan()">
+                                        {% for data in node.field_unit_plan %}
+                                            {% if node.field_unit_plan.0.entity.field_typology.0.entity.name.value == data.entity.field_typology.0.entity.name.value %}
+                                                <option value="{{ data.entity.field_room_type_name.0.entity.name.value }}">{{ data.entity.field_room_type_name.0.entity.name.value }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {#<option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2019">WEST WING</option>
+                                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2021">EAST WING</option>
+                                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2033">SOUTH WING</option>
+                                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2045">NORTH WING</option>#}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="propertyTypeHolder">
+                            {#<div class="propertyNav owl-carousel">
+                                <div class="item">
+                                    <span class="active">2 Bed Optima</span>
+                                </div>
+                                <div class="item">
+                                    <span>2 Bed Ultima</span>
+                                </div>
+                                <div class="item">
+                                    <span>2 Bed Optima</span>
+                                </div>
+                                <div class="item">
+                                    <span>2 Bed Ultima</span>
+                                </div>
+                            </div>#}
+                            <div class="planCarousel zoom-gallery">
+                                <div class="unitplanCarousel owl-carousel">
+                                    <div class="item">
+                                        <a class="zoom"
+                                           href="{{ file_url(node.field_unit_plan.0.entity.field_unit_plan_images.value) }}"
+                                           id="planImage1">
+                                            <img src="{{ file_url(node.field_unit_plan.0.entity.field_unit_plan_images.value) }}"
+                                                 id="planImage2">
+                                            <span>Zoom</span>
+                                        </a>
+                                        <div class="priceContent">
+                                            <p>Price :
+                                                <span id="price">{{ node.field_unit_plan.0.entity.field_unit_price.value / 100000 ~ ' Lacs' }}</span>
+                                                <span class="divider">|</span> Savings :
+                                                <span id="saving">₹{{ (node.field_unit_plan.0.entity.field_unit_price.value - node.field_unit_plan.0.entity.field_specialprice.value)/ 100000 ~ ' Lacs' }}</span>
+                                            </p>
+                                            <p>
+                                                <span class="special"
+                                                      id="specialPrice">Special Price: ₹{{ node.field_unit_plan.0.entity.field_specialprice.value / 100000 ~ ' Lacs' }}</span>
+                                            </p>
+                                            <p>Possession:
+                                                <span id="possetion" >{% if node.field_project.0.entity.field_tentative_possession_date.value %}{{ node.field_project.0.entity.field_tentative_possession_date.value|date("M Y") }}{% else %}OC as well as under construction{% endif %}</span>
+                                            </p>
+                                            {#<p>
+                                                <a href="#">View all prices</a>
+                                            </p>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="scheme plansWrap">
+        <div class="container paddingBoth">
+            <div class="wrapper flex-wrp">
+                <div class="scheme-logo">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px"
+                         viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                            <path fill="#010101" d="M23.184,5.456c0.221-0.495,0.332-1.025,0.332-1.576V0h-4.809c-1.611,0-3.074,1.016-3.641,2.529L15,2.708
+                                l-0.066-0.179C14.367,1.016,12.904,0,11.291,0H6.484v3.886c0,0.55,0.111,1.08,0.332,1.576l0.045,0.1H0v6.839h1.854v14.64
+                                C1.854,28.673,3.182,30,4.812,30h15.064v-1.283h-3.199V12.4h10.189v14.642c0,0.924-0.752,1.676-1.676,1.676h-3.604V30h3.604
+                                c1.633,0,2.959-1.327,2.959-2.958V12.4h1.133l0.07-0.004H30V5.556h-6.861L23.184,5.456z M16.105,3.886
+                                c0-1.435,1.166-2.603,2.602-2.603h3.525V3.88c0,0.615-0.205,1.187-0.596,1.654L21.615,5.56h-5.51V3.886z M7.768,1.283h3.523
+                                c1.436,0,2.604,1.167,2.604,2.603V5.56H8.381L8.359,5.534C7.971,5.063,7.768,4.493,7.768,3.886V1.283z M15.395,28.717h-1.402v-7.622
+                                h-1.283v7.622H4.812c-0.924,0-1.676-0.752-1.676-1.676V12.4h9.572v5.987h1.283V12.4h1.402V28.717z M28.717,6.839v4.273h-1.85
+                                l-0.07,0.004H2.562l-0.07,0.002H1.283V6.845L28.717,6.839z"></path>
+                            </svg>
+                </div>
+                <div class="scehme-txt">
+                    <p>
+                        <span>{{ node.field_project.0.entity.field_scheme_title.value }}
+                            :</span>{{ node.field_project.0.entity.field_scheme_details.value | raw }}</p>
+                    <p class="subject">{{ node.field_project.0.entity.field_schemes_conditions.value }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="lifestyleWrap plansWrap">
+        <div class="container paddingBoth">
+            <div class="topSection">
+                <div class="sectionTitle">
+                        <span class="icon"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                width="37.061px" height="32px" viewBox="0 0 37.061 32"
+                                                enable-background="new 0 0 37.061 32" xml:space="preserve">
+                            <circle cx="19.044" cy="7.115" r="1.339"></circle>
+                            <path fill="none" stroke="#000000" stroke-width="12" stroke-miterlimit="10"
+                                  d="M0.905,25.639"></path>
+                            <path d="M34.342,25.23h-1.072c0-3.688-1.46-7.191-4.109-9.864c-2.646-2.669-6.188-4.218-9.975-4.362h-1.232
+                                c-3.819,0.145-7.386,1.693-10.043,4.363c-2.655,2.667-4.118,6.171-4.118,9.863H2.719c0-3.979,1.573-7.75,4.432-10.62
+                                c2.852-2.864,6.678-4.526,10.773-4.679h0.021h1.273c4.062,0.152,7.863,1.814,10.705,4.68
+                                C32.772,17.486,34.342,21.258,34.342,25.23z"></path>
+                                <path d="M7.495,23.488c-0.007,0-0.013,0-0.02,0c-0.298-0.012-0.528-0.262-0.519-0.557c0.195-5.359,4.844-9.558,10.367-9.356
+                                    c0.296,0.011,0.527,0.261,0.517,0.556c-0.011,0.297-0.26,0.528-0.556,0.518c-4.93-0.182-9.082,3.554-9.255,8.322
+                                    C8.021,23.26,7.783,23.488,7.495,23.488z"></path>
+                                <path d="M24.49,3.411c-0.138,0-0.274-0.052-0.38-0.156c-1.378-1.377-3.194-2.151-5.115-2.181
+                                    c-1.912-0.028-3.693,0.687-5.017,2.009c-0.21,0.209-0.551,0.209-0.76,0c-0.21-0.209-0.21-0.55,0-0.76
+                                    C14.748,0.793,16.808-0.033,19.01,0c2.201,0.031,4.281,0.918,5.857,2.493c0.21,0.209,0.21,0.55,0,0.759
+                                    C24.764,3.359,24.626,3.411,24.49,3.411z"></path>
+                                <path d="M22.517,5.209c-0.137,0-0.274-0.052-0.379-0.156c-1.736-1.736-4.514-1.785-6.188-0.109c-0.21,0.21-0.55,0.21-0.759,0
+                                    c-0.21-0.209-0.21-0.549,0-0.759c2.095-2.095,5.551-2.046,7.706,0.108c0.21,0.209,0.21,0.549,0,0.76
+                                    C22.792,5.158,22.655,5.209,22.517,5.209z"></path>
+                            <path d="M37.06,32H0l2.868-5.246H34.19L37.06,32z M1.81,30.926h33.438l-1.693-3.1H3.505L1.81,30.926z"></path>
+                        </svg></span>
+                    <p>BANKING <span>PARTNERS</span></p>
+                </div>
+                <div class="content">
+                    <p>Lore ipsum dolor sit amet,consecteur adispiscing elit. Donec eu velit ut urna suscipit aliquam
+                        eget
+                        eu lorem. Quisque vitae ultrices turpis.</p>
+                    <div class="partnerLogos">
+                        {% for data in  node.field_select_bank_partners %}
+                            <span>
+                            <img src="{{ file_url(directory) ~ "/" ~ data.entity.field_image.value }}"
+                                 alt="{{ data.entity.name.value }}"/>
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <p>
+                        <button class="btn btn-gold">Calculate EMI</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="accordianWrap">
+        <div class="container">
+            <div class="accordian-container">
+                {% for data in node.field_plans_accordians %}
+                    <p class="heading">{{ data.entity.field_title_.value }}</p>
+                    <div class="accordCont">
+                        {{ data.entity.field_accordian_details.value|raw }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+    <section class="propertyDetails">
+        <div class="container">
+            <div class="wrapper">
+                <p>
+                    Price:
+                    <strong>₹69.3 Lacs onwards</strong>
+                </p>
+                <p>
+                    Typology:
+                    <strong>2, 3 BHK</strong>
+                </p>
+                <p>
+                    Possession Date:
+                    <strong>{{ node.field_project.0.entity.field_tentative_possession_date.value|date("M Y") }}</strong>
+                </p>
+                <p>
+                    Location:
+                    <strong>{{ node.field_project.0.entity.field_city.0.entity.name.value }}</strong>
+                </p>
+            </div>
+        </div>
+        <div class="propertyMenu">
+            <p class="fav">
+                <a href="javascript:;">
+                    <img src="{{ file_url(directory) }}/images/icon-favourite-gold.png" alt="">
+                </a>
+            </p>
+            <p id="share-button-2" class="need-share-button-default" data-share-icon-style="box"
+               data-share-networks="Mailto,Twitter,Facebook,Linkedin"></p>
+            <p class="download">
+                <a href="javascript:;" target="_blank">
+                    <img src="{{ file_url(directory) }}/images/icon-download.png" alt="">
+                </a>
+            </p>
+        </div>
+    </section>
+    <!-- Section residential Starts -->
+    <section class="residential">
+        <div class="container">
+            <div class="wrapper">
+                <div class="sectionTitle">
+                    <p>YOU MAY
+                        <span>ALSO LIKE</span>
+                    </p>
+                </div>
+                <div id="residential" class="resComTabs">
+                    <div class="resdient-slider owl-carousel">
+                        {% for data in node.field_project.0.entity.field_related_projects %}
+                            <div class="slides">
+                                <span class="slider-tag">{{ data.entity.field_project_category.0.entity.name.value }}</span>
+                                <div class="res-head flex-wrp">
+                                    <div class="head-txt">
+                                        {#<p>#}
+                                        {#node.field_project.0.entity.field_specific_location.value ~ ', ' ~ #}
+                                        {#Location: <strong>{{ node.field_project.0.entity.field_city.0.entity.name.value }}</strong>#}
+                                        {#</p>#}
+                                        <h3>{{ data.entity.title.value }}</h3>
+                                        <p>{{ data.entity.field_specific_location.value ~ ', ' ~  data.entity.field_city.0.entity.name.value }}</p>
+                                        {#<p>Ghodbunder Road, Thane</p>#}
+                                    </div>
+                                    <div class="rating">
+                                        {#<a href="javascript:void(0);" class="viewIcon"></a>#}
+                                        <!-- <span class="sprite-star"></span> -->
+                                        {#<a href="javascript:void(0);"><img src="/{{ file_url(directory) }}/images/aspi/star.png"
+                                        alt="star"></a>#}
+                                    </div>
+                                </div>
+                                <div class="inner-wrp">
+                                    <div class="inner-slider owl-carousel">
+                                        {% for data2 in data.entity.field_minimized_images_ %}
+                                            <img src={{ file_url(data2.entity.field_image_url.value) }}  alt={{ data2.entity.field_image_alternate_text.value }} />
+                                        {% endfor %}
+                                    </div>
+                                    <span class="fav-icon">
+                                            <img src="{{ file_url(directory) }}/images/aspi/fav-icon.png"
+                                                 alt="fav-icon">
+                                        </span>
+                                </div>
+                                <div class="possession-wrp">
+                                    <p>Possession Date:
+                                        <b>{{ data.entity.field_tentative_possession_date.value|date("M Y") }}</b></p>
+                                    <p>Typology: <b>2, 3 BHK</b> | Price: <b>2.5 to 5 Cr</b></p>
+                                    <p>
+                                            <span>Offer :
+                                                {{ data.entity.field_scheme_title.value }}</span>
+                                    </p>
+                                </div>
+                                <div class="slide-footer">
+                                    <a href="javascript:;">View Details</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section residential Ends -->
+
+    {#<footer>
+        <div class="copy col-footer">
+            <img src="/{{ directory }}/images/logo-lodha-ft.png" alt="Lodha">
+            <p>© LODHAGroup 2018</p>
+        </div>
+        <div class="midSec col-footer">
+            <ul>
+                <li><a href="javascript:;">Site Map</a></li>
+                <li><a href="javascript:;">Terms & Condition</a></li>
+                <li><a href="javascript:;">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="rightSec col-footer">
+            <div class="social-icons">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);"><img src="/{{ directory }}/images/twitter.png" alt="twitter" /></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="/{{ directory }}/images/fb.png" alt="fb" /></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="/{{ directory }}/images/youtube.png" alt="youtube" /></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="/{{ directory }}/images/insta.png" alt="insta" /></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="/{{ directory }}/images/linkedin.png" alt="linkedin" /></a>
+                    </li>
+
+                </ul>
+            </div>
+            <a href="javascript:;" class="moreLink">more</a>
+        </div>
+    </footer>#}
+
+</div>
+
+
+<div class="searchLightboxWrap overlay">
+    <div class="searchLightbox">
+        <a href="javascript:;" class="close"></a>
+        <div class="container">
+            <div class="search">
+                <div class="inputWrap">
+                    <input type="text" name="">
+                </div>
+                <a href="javascript:;" class="searchIcon">Search</a>
+            </div>
+            <div class="lastSearchList">
+                <div class="box">
+                    <p>Last Search</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">2BHK</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Rent in Bandra</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Pallava</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <p>Popular Location</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">South Mumbai</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Andheri</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Ghatkopar</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Dadar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <p>Popular Projects</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">Pallava</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Azzuro</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Venezia</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="formWrapper">
+                <p class="heading">I WISH TO</p>
+                <div class="accordianBox">
+                    <div class="fieldRow">
+                        <div class="field">
+                            <ul class="radioGroup">
+                                <li>
+                                    <input name="radio1" type="radio" value="" id="buy">
+                                    <label for="buy">Buy</label>
+                                </li>
+                                <li>
+                                    <input name="radio1" type="radio" value="" id="rent">
+                                    <label for="rent">Rent</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="field">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Type of Property</option>
+                                    <option>Type of Property</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Select City</option>
+                                    <option>Mumbai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Select Locality</option>
+                                    <option>Parel</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="heading">HOME &amp; BUDGET SIZE</p>
+                <div class="accordianBox">
+                    <div class="fieldRow">
+                        <label>Select Configuration</label>
+                        <ul class="radioGroup">
+                            <li>
+                                <input name="radio2" type="radio" value="" id="bhk1">
+                                <label for="bhk1">1BHK</label>
+                            </li>
+                            <li>
+                                <input name="radio2" type="radio" value="" id="bhk2">
+                                <label for="bhk2">2BHK</label>
+                            </li>
+                            <li>
+                                <input name="radio2" type="radio" value="" id="bhk3">
+                                <label for="bhk3">3BHK</label>
+                            </li>
+                            <li>
+                                <input name="radio2" type="radio" value="" id="bhk4">
+                                <label for="bhk4">4BHK</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fieldRow">
+                        <label>Select Budget</label>
+                        <div class="sliderWrap">
+                            <div class="slider">
+                                <div class="searchValslider" id="searchValslider"></div>
+                            </div>
+                            <div class="sliderRangeBox">
+                                <ul>
+                                    <li>50L</li>
+                                    <li>25Cr</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="heading">POSSESSION STATUS</p>
+                <div class="accordianBox">
+                    <div class="fieldRow">
+                        <ul class="checkGroup">
+                            <li>
+                                <input name="checkbox" type="checkbox" value="" id="checkbox">
+                                <label for="checkbox">Ready Possesion</label>
+                            </li>
+                            <li>
+                                <input name="checkbox" type="checkbox" value="" id="checkbox2">
+                                <label for="checkbox2">Under Construction</label>
+                            </li>
+                            <li>
+                                <input name="checkbox" type="checkbox" value="" id="checkbox3">
+                                <label for="checkbox3">OC Ready</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="buttonWrap">
+                    <button class="btn">Search</button>
+                    <button class="btn btn-black">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Get in touch popup -->
+<div class="modal" id="getInTouch">
+    <div class="modalBody">
+        <div class="close">Close</div>
+        <div class="getInTouchWrap">
+            <div class="getInTouchLightBox">
+                <div class="container">
+                    <h3>GET IN TOUCH</h3>
+                    <div class="formWrapper">
+                        <div class="fieldRow">
+                            <div class="inputWrap"><input type="text" name="" placeholder="Name"></div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="inputWrap"><input type="text" name="" placeholder="Email-Id"></div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="inputWrap"><input type="text" name="" placeholder="Mobile No."></div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Country</option>
+                                    <option>India</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>City</option>
+                                    <option>Mumbai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <ul class="radioGroup">
+                                <li><input name="radio1" type="radio" value="" id="enquire" checked><label
+                                            for="enquire">Enquire</label></li>
+                                <li><input name="radio1" type="radio" value="" id="bookasitevisit"><label
+                                            for="bookasitevisit">Book a site visit</label></li>
+                            </ul>
+                        </div>
+                        <div class="fieldRow hide">
+                            <div class="clm1-2">
+                                <div class="inputWrap"><input type="text" name="" placeholder="dd/mm/yyyy"></div>
+                            </div>
+                            <div class="clm2-2">
+                                <div class="inputWrap"><input type="text" name="" placeholder="Time"></div>
+                            </div>
+                        </div>
+                        <div class="buttonWrap flex-wrp">
+                            <button class="btn btn-gold">Submit</button>
+                            <span class="call">Call : 022 3383 6304</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Get in touch popup -->
+
+
+<!--main menu starts from here-->
+<div class="menuOverlay">
+    <a href="javascript:void(0);" class="closeBtn"></a>
+    <div class="menuWrap">
+        <div class="leftMenuBox animated ">
+            <div class="topMenu  mobileMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" class="favourite"><img
+                                        src="/{{ directory }}/images/icon-favourite.png"></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="/{{ directory }}/images/mobile-user.png"
+                                                               alt="mobile-user"></a>
+                        </li>
+                        <li class="dropdown countryLanguage"><a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li><a href="javascript:void(0);">Country1</a></li>
+                                <li><a href="javascript:void(0);">Country2</a></li>
+                                <li><a href="javascript:void(0);">Country3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="mainMenu">
+                <div class="menuLogo"><a href="javascript:void(0);"><img src="/{{ directory }}/images/logo-lodha-black.png" alt="logo-lodha-black"/></a></div>
+                <li class="menuActive"><a href="/projects/residential/amara/about">Residential Properties</a></li>
+                <li><a href="javascript:void(0);">Commercial Properties</a></li>
+                <li><a href="/priva" class="subMenuDropdown">Services <span class="dropdownArrow"></span></a>
+                    <ul class="subMenu" style="display:none;">
+                        <li><a href="javascript:void(0);">Easy lease</a></li>
+                        <li><a href="javascript:void(0);">Priva</a></li>
+                        <li><a href="javascript:void(0);">Home loan support</a></li>
+                        <li><a href="javascript:void(0);">Registration support</a></li>
+                        <li><a href="javascript:void(0);">Hospitality and facilities management</a></li>
+                        <li><a href="javascript:void(0);"> NRI services</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);"/>Investor Corner</a>
+                </li>
+                <li><a href="javascript:void(0);"/>NRI Corner</a>
+                </li>
+                <li><a href="javascript:void(0);"/>About Lodha</a>
+                </li>
+                <li><a href="javascript:void(0);"/>Careers</a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="rightMenuBox animated">
+            <div class="topMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li><a href="javascript:;" class="favourite"><img src="/{{ directory }}/images/icon-search.png"></a>
+                        </li>
+                        <li><a href="javascript:;" class="favourite"><img
+                                        src="/{{ directory }}/images/icon-favourite.png"></a></li>
+                        <li><a href="javascript:void(0);"><img src="/{{ directory }}/images/mobile-user.png"
+                                                               alt="mobile-user"/></a></li>
+                        <li class="dropdown countryLanguage"><a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li><a href="javascript:void(0);">Country1</a></li>
+                                <li><a href="javascript:void(0);">Country2</a></li>
+                                <li><a href="javascript:void(0);">Country3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottomMenu">
+                <ul class="footerLinks">
+                    <li><a href="javascript:void(0);" class="favourite">Events at Lodha</a></li>
+                    <li><a href="javascript:void(0);" class="contact">Blogs</a></li>
+                    <li><a href="javascript:;">Buying Guides</a></li>
+                    <li><a href="javascript:void(0);">Maharera Regulations</a></li>
+                    <li><a href="javascript:void(0);">Feedback</a></li>
+                    <li><a href="javascript:void(0);">Feedback</a></li>
+                    <li><a href="javascript:void(0);">contact Us</a></li>
+                </ul>
+                <div class="menuFooter">
+
+                    <div class="social-icons">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);"><img src="/{{ directory }}/images/twitter.png"
+                                                                   alt="twitter"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="/{{ directory }}/images/fb.png" alt="fb"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="/{{ directory }}/images/youtube.png"
+                                                                   alt="youtube"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="/{{ directory }}/images/insta.png" alt="insta"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="/{{ directory }}/images/linkedin.png"
+                                                                   alt="linkedin"/></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        <p class="yellowText">&copy; LODHAGroup 2018</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer elements-->
+</div>
+
+</div>
+</body>
+<script>
+    var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    window.minusOneRoom = function () {
+        if (parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g, '')) - 1 < 5) {
+            if (parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g, '')) - 1 > 0) {
+                document.getElementById('typology').innerText = (parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g, '')) - 1) + ' BHK';
+            }
+        } else {
+            if (document.getElementById('typology').innerText === "VILLA") {
+                document.getElementById('typology').innerText = '5 BHK';
+            } else {
+                document.getElementById('typology').innerText = /*(parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g,''))+1) + */' VILLA';
+            }
+        }
+        let url = window.location.href;
+        ajaxQueirer('/ajax/load-unit-plan/' + url.substring(url.lastIndexOf('/', url.lastIndexOf('/') - 1) + 1, url.lastIndexOf('/')) + '/' + document.getElementById('typology').innerText.replace(/[^0-9]/g, ''), function callback(responseText) {
+            // console.log("this.responseText;",responseText);
+            window.responseText = responseText;
+            setInitial();
+        });
+    };
+    window.plusOneRoom = function () {
+        if (parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g, '')) + 1 < 5) {
+            if (parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g, '')) + 1 > 0) {
+                document.getElementById('typology').innerText = (parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g, '')) + 1) + ' BHK';
+            }
+        } else {
+            document.getElementById('typology').innerText = /*(parseInt(document.getElementById('typology').innerText.replace(/[^0-9]/g,''))+1) + */' VILLA';
+        }
+        let url = window.location.href;
+        ajaxQueirer('/ajax/load-unit-plan/' + url.substring(url.lastIndexOf('/', url.lastIndexOf('/') - 1) + 1, url.lastIndexOf('/')) + '/' + document.getElementById('typology').innerText.replace(/[^0-9]/g, ''), function callback(responseText) {
+            // console.log("this.responseText;",responseText);
+            window.responseText = responseText;
+            setInitial();
+        });
+    };
+    window.ajaxQueirer = function (url, callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                callback(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    };
+    window.setInitial = function () {
+        var ptype = document.getElementById('ptype');
+        jQuery('#ptype').empty();
+        window.responseText.forEach(function (each) {
+            jQuery('#ptype').append('<option value=' + each.field_room_type_name + '>' + each.field_room_type_name + '</option>');
+        });
+        if (window.responseText.length > 0) {
+            jQuery('#price').text('₹' + window.responseText[0].field_unit_price / 100000 + " Lacs");
+            jQuery('#specialPrice').text('Special Price: ₹' + window.responseText[0].field_specialprice / 100000 + " Lacs");
+            jQuery('#saving').text('₹' + (window.responseText[0].field_unit_price - window.responseText[0].field_specialprice) / 100000 + " Lacs");
+            jQuery('#planImage1').attr('src', 'http://' + window.responseText[0].field_unit_plan_images);
+            jQuery('#planImage2').attr('src', 'http://' + window.responseText[0].field_unit_plan_images);
+            jQuery('#possetion').text(mL[(new Date(window.responseText[0].possetion)).getMonth()] + ' ' + (new Date(window.responseText[0].possetion)).getFullYear());
+        } else {
+            jQuery('#price').text('');
+            jQuery('#specialPrice').text('');
+            jQuery('#saving').text('');
+            jQuery('#planImage1').attr('src', '');
+            jQuery('#planImage2').attr('src', '');
+            jQuery('#possetion').text('');
+        }
+    };
+    window.changePlan = function () {
+        for (let a of window.responseText) {
+            if (a.field_room_type_name === jQuery('#ptype option:selected').text()) {
+                jQuery('#price').text('₹' + a.field_unit_price / 100000 + " Lacs");
+                jQuery('#specialPrice').text('Special Price: ₹' + a.field_specialprice / 100000 + " Lacs");
+                jQuery('#saving').text('₹' + (a.field_unit_price - a.field_specialprice) / 100000 + " Lacs");
+                jQuery('#planImage1').attr('src', 'http://' + a.field_unit_plan_images);
+                jQuery('#planImage2').attr('src', 'http://' + a.field_unit_plan_images);
+                jQuery('#possetion').text(mL[(new Date(a.possetion)).getMonth()] + ' ' + (new Date(a.possetion)).getFullYear());
+                break;
+            }
+        }
+    }
+    function reset() {
+        minusOneRoom();
+        plusOneRoom();
+    }
+</script>
+

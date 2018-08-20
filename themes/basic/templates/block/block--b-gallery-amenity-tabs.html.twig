@@ -1,0 +1,84 @@
+<div class="amenityTabsHolder flexgallery">
+    <div id="iframe" class="amenityTabs">
+        <div class="thumbSlider">
+            <div id="360Paging" class="paging">
+                <span class="currentSlide">1</span>
+                <span class="totalSlides"></span>
+            </div>
+            <div id="360Slider" class="sliderGallery flexslider" navFor="360Paging" syncfor="360Thumb">
+                <ul class="slides flexImg">
+                    {% for data in content["#data_obj"] %}
+                        <li>
+                            <iframe src="iframe.html" frameborder="0"></iframe>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="360Thumb" syncTo="360Slider" class="galleryThumb flexslider thumbComp">
+                <ul class="slides">
+                    {% for data in content["#data_obj"] %}
+                        <li>
+                            <img src="{{ directory }}/images//floor-plan-tb.jpg" />
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="photos" class="amenityTabs">
+        <div class="thumbSlider">
+            <div id="photosPaging" class="paging">
+                <span class="currentSlide">1</span> /
+                <span class="totalSlides"></span>
+            </div>
+            <div id="photoSlider" class="sliderGallery flexslider" navFor="photosPaging" syncfor="photosThumb">
+                <ul class="slides flexImg">
+                    {% for data in content["#data_obj"] %}
+                        <li>
+                            <img src="{{ directory }}/images//floor-plan.jpg" />
+                            <p class="flex-caption">Modern, fully air-conditioned residence Internal</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="photosThumb" syncTo="photoSlider" class="galleryThumb flexslider thumbComp">
+                <ul class="slides">
+                    {% for data in content["#data_obj"] %}
+                        <li>
+                            <img src="{{ directory }}/images//floor-plan-tb.jpg" />
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="videos" class="amenityTabs">
+        <div class="thumbSlider">
+            <div id="videosPaging" class="paging">
+                <span class="currentSlide">1</span> /
+                <span class="totalSlides"></span>
+            </div>
+            <div id="videoSlider" class="sliderGallery flexslider" navFor="videosPaging" syncfor="videosThumb">
+                <ul class="slides flexImg">
+                    {% for data in content["#data_obj"] %}
+                        <li>
+                            <a class="popup-youtube" href="http://www.youtube.com/watch?v=0O2aH4XLbto">
+                                <img src="{{ directory }}/images//floor-plan.jpg" />
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="videosThumb" syncTo="videoSlider" class="galleryThumb flexslider thumbComp">
+                <ul class="slides">
+                    {% for data in content["#data_obj"] %}
+                        <li>
+                            <img src="{{ directory }}/images//floor-plan-tb.jpg" />
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

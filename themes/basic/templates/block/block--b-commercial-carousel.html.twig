@@ -1,0 +1,19 @@
+<div class="videoContent  owl-carousel">
+    {#<div class="slideItem">
+        <a href="javascript:void(0);" id="modalBtn" style="background: url('images/video-img1.jpg') no-repeat center center">
+            <span class="playBtn"></span>
+        </a>
+    </div>
+    <div class="slideItem">
+        <a href="javascript:void(0);" id="modalBtn" style="background: url('images/video-img1.jpg') no-repeat center center">
+            <span class="playBtn"></span>
+        </a>
+    </div>#}
+    {% for data in content["#data_obj"] %}
+        <div class="slideItem">
+            <a href="javascript:void(0);" id="modalBtn" style="background: url('images/video-img1.jpg') no-repeat center center">
+                <span class="playBtn"></span>
+            </a>
+        </div>
+    {% endfor %}
+</div>

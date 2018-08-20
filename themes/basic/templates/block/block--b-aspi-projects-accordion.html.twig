@@ -1,0 +1,11 @@
+<!-- gallery-accordian-container starts-->
+<div class="accordian-container">
+    {% for data in content["#data_obj"] %}
+        <p class="heading"></p> {#data.contentName#}
+        <div class="accordCont">
+            <p></p> {#data.contentBody#}
+        </div>
+    {% endfor %}
+
+</div>
+<!-- gallery-accordian-container ends-->

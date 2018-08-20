@@ -1,0 +1,12 @@
+<!-- plan and price starts-->
+<div class="accordian-container">
+    {{% for data in  content["#data_obj"]  %}}
+        <p class="heading">PAYMENT PLAN MILESTONES</p> {#{data.paymentplan}#}
+        <div class="accordCont">
+            <p>Content PAYMENT PLAN MILESTONES</p> {#{data.content milestone}#}
+        </div>
+    {{% endFor %}}
+
+
+</div>
+<!-- plan and price ends-->

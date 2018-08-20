@@ -333,7 +333,8 @@
 
   {% set sidebar_first = page.sidebar_first|render %}
   {% set sidebar_second = page.sidebar_second|render %}
-  <body{{ attributes.addClass(classes,
+  
+  {#<body{{ attributes.addClass(classes,
     'homepage',
     not is_front ? 'with-subnav',
     sidebar_first ? 'sidebar-first',
@@ -341,50 +342,74 @@
     (sidebar_first and not sidebar_second) or (sidebar_second and not sidebar_first) ? 'one-sidebar',
     (sidebar_first and sidebar_second) ? 'two-sidebars',
     (not sidebar_first and not sidebar_second) ? 'no-sidebar'
-  ) }}>
+  ) }}>#}
+
+  <body>
     <div class="outerWrap">
       <!-- Header starts -->
-      <div class="fixedHeader">
-        <a class="menu" href="javascript:;">MENU</a>
-        <a class="logo" href="javascript:;"><img src="/{{ directory }}/images/logo-lodha.png" alt="Lodha"></a>
+      {#<div class="fixedHeader">
+        <a class="menu" href="javascript:;" id="menu-icon">MENU</a>
+
+        <a class="logo" href="javascript:;">
+        {% if is_front %}
+            <img src="/{{ directory }}/images/logo-lodha-ft.png" alt="Lodha">
+        {% else %}
+            <img src="{{ directory }}/images/logo-lodha-ft.png" alt="Lodha">
+        {% endif %}
+        </a>
+        
         <div class="rightSec">
           <ul>
-            <li><a href="javascript:;" class="favourite"><img src="/{{ directory }}/images/icon-favourite.png"></a></li>
-            <li><a href="javascript:;" class="contact"><img src="/{{ directory }}/images/icon-contact.png"></a></li>
-            <li class="dropdown"><a href="javascript:;">PRIVA | MY LODHA</a></li>
-            <li class="dropdown countryLanguage"><a href="javascript:;">IND</a></li>
+              <li><a href="javascript:;" class="favourite"><span class="svgBox" data-svg="{{ directory }}/images/svg/search.svg"></span></a></li>
+              <li><a href="javascript:;" class="favourite"><span class="svgBox" data-svg="{{ directory }}/images/svg/icon-favourite.svg"></span></a></li>
+              <li class="mobileMenuIcon"><a href="javascript:;"><span class="svgBox" data-svg="{{ directory }}/images/svg/login.svg"></span></a></li>
+              <li class="myLodha"><a href="javascript:;">MY LODHA</a></li>
+              <li class="dropdown countryLanguage"><a href="javascript:;">IND/EN</a></li>
           </ul>
         </div>
-      </div>
+      </div>#}
 
     {{ page_top }}
     {{ page }}
 
     <footer>
         <div class="copy">
-            <img src="/{{ directory }}/images/logo-lodha-ft.png" alt="Lodha">
+                <img src="/{{ directory }}/images/logo-lodha-ft.png" alt="Lodha">
             <p>© LODHAGroup 2018</p>
         </div>
-        <div class="midSec">
+        <div class="midSec col-footer">
             <ul>
-                <li><a href="javascript:;">Events at Lodha</a></li>
-                <li><a href="javascript:;">Blogs</a></li>
-                <li><a href="javascript:;">Buying Guides</a></li>
-                <li><a href="javascript:;">Maharera Regulations</a></li>
-                <li><a href="javascript:;">Careers</a></li>
-                <li><a href="javascript:;">Feedback</a></li>
+                <li><a href="javascript:;">Site Map</a></li>
+                <li><a href="javascript:;">Terms & Condition</a></li>
+                <li><a href="javascript:;">Privacy Policy</a></li>
             </ul>
-        </div>
-        <div class="rightSec">
-            <ul class="social">
-                <li><a href="javascript:;" class="facebook">Facebook</a></li>
-                <li><a href="javascript:;" class="twitter">Twitter</a></li>
-                <li><a href="javascript:;" class="linkedin">Linkedin</a></li>
-            </ul>
-            <a href="javascript:;" class="moreLink">more</a>
         </div>
         
+        <div class="rightSec col-footer">
+            <div class="social-icons">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);"><span class="svgBox" data-svg="/{{ directory }}/images/svg/twitter.svg"></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><span class="svgBox" data-svg="/{{ directory }}/images/svg/facebook.svg"></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><span class="svgBox" data-svg="/{{ directory }}/images/svg/youtube.svg"></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><span class="svgBox" data-svg="/{{ directory }}/images/svg/insta.svg"></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><span class="svgBox" data-svg="/{{ directory }}/images/svg/linkedin.svg"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <a href="javascript:;" class="moreLink">more</a>
+        </div> 
+        
     </footer>
+
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token }}">
     {% if browser_sync.enabled %}
@@ -392,6 +417,7 @@
       document.write("<script async src='http://{{ browser_sync.host }}:{{ browser_sync.port }}/browser-sync/browser-sync-client.js'><\/script>".replace("HOST", location.hostname));
       </script>
     {% endif %}
+
     </div>
   </body>
 </html>

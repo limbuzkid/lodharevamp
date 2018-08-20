@@ -1,0 +1,39 @@
+<!-- special reward table should be wrap inside specialRewardsDiscounts-->
+<table cellspacing="0">
+    <thead>
+    <tr>
+        <th>Flat price</th>
+        <th>Your reward (0.72%)</th>
+        <th>Discount benefit for family and friends(0.48%)</th>
+        {#{{ for data in  content["#data_obj"] }}
+        <th>Flat price</th>
+        <th>Your reward (0.72%)</th>
+        <th>Discount benefit for family and friends(0.48%)</th>
+        {{% endfor %}}#}
+    </tr>
+    </thead>
+    <tbody>
+    {#{{ for data in  content["#data_obj"] }}
+        <tr>
+            {{for data in  content["#data_obj"] }}
+                <td><span>&#x20B9;</span>50Lacs</td>
+            {{% endFor %}}
+        </tr>
+    {{% endfor %}}#}
+    <tr>
+        <td><span>&#x20B9;</span>50Lacs</td>
+        <td><span>&#x20B9;</span>36,000</td>
+        <td><span>&#x20B9;</span>24,000</td>
+    </tr>
+    <tr>
+        <td><span>&#x20B9;</span>36,000</td>
+        <td><span>&#x20B9;</span>24,000</td>
+        <td><span>&#x20B9;</span>50Lacs</td>
+    </tr>
+    <tr>
+        <td><span>&#x20B9;</span>50Lacs</td>
+        <td><span>&#x20B9;</span>36,000</td>
+        <td><span>&#x20B9;</span>24,000</td>
+    </tr>
+    </tbody>
+</table>

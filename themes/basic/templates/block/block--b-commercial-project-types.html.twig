@@ -1,0 +1,127 @@
+<div>
+  {#{{ dump(content['#data_obj']) }}#}
+  <!--tab section starts from here-->
+  <div class="pageSectionWrapper">
+    {% for data in content['#data_obj']['categoryData'] %}
+      <div class="pageSection" id="{{ data['field_page_section_id'] }}">
+        <div class="propertyPriceWrp">
+          <div class="container">
+            <div class="sectionTitle active">
+              {{ data['field_body_header'] | raw }}
+              <span class="before-block"></span>
+            </div>
+            <!-- For values with images following structure will not be followed -->
+            {% if data['field_banner_img']==null %}
+            <div class="content">
+              {{ data['field_description'] | raw }}
+            </div>
+            <div class="showMore">
+              <a href="javascript:void(0);" class="moreBtn">More
+                <span class="plus-icon">+</span>
+              </a>
+              <a href="javascript:void(0);" class="lessBtn" style="display:none;">Less
+                <span class="plus-icon">-</span>
+              </a>
+            </div>
+            {% endif %}
+          </div>
+
+          {% if data['field_banner_img'] %}
+            <div class="content">
+              <div class="imgWrapContainer">
+                <div class="imgWrap" style="background: url({{ data['field_banner_img'] }}) no-repeat center center">
+                </div>
+              </div>
+              <div class="container">
+                {{ data['field_description'] | raw }}
+                <div class="knowMore"><a href="{{ data['field_know_more_link'] }}" target="_blank">Know More</a></div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% if content['#data_obj']['projects'][data['name']]|length > 0 %}
+          <section id="{{ data['field_section_id'] }}" class="residential commercial">
+            <div class="container">
+              <div class="wrapper">
+                <div class="resdient-slider">
+                  {% for data2 in content['#data_obj']['projects'][data['name']] %}
+                    <div class="slides">
+                      <span class="slider-tag">{{ data2.field_project_category }}</span>
+                      <div class="res-head flex-wrp">
+                        <div class="head-txt">
+                          <h3>{{ data2.title }}</h3>
+                          {#<p>{{field_specific_location ~ ', ' ~  data2.entity.field_city.0.entity.name.value}}</p>#}
+                          <p>{{data2. field_specific_location}}</p>
+                          {#<p>Ghodbunder Road, Thane</p>#}
+                        </div>
+                        <div class="rating">
+                          {#<a href="javascript:void(0);" class="viewIcon"></a>#}
+                          <!-- <span class="sprite-star"></span> -->
+                          {#<a href="javascript:void(0);"><img src="/{{ file_url(directory) }}/images/aspi/star.png" alt="star"></a>#}
+                        </div>
+                      </div>
+                      <div class="inner-wrp">
+                        <div class="inner-slider owl-carousel" >
+                          {% for data3 in data2.field_minimized_images_ %}
+                            <img src={{  file_url(data3.field_image_url) }}  alt={{ data3.field_image_alternate_text }} />
+                          {% endfor %}
+                        </div>
+                        <span class="fav-icon">
+                                            <img src="{{ file_url(directory) }}/images/aspi/fav-icon.png" alt="fav-icon">
+                                        </span>
+                      </div>
+                      <div class="possession-wrp">
+                        <p>Possession Date: <b>{{ data2.field_tentative_possession_date|date("M Y")}}</b></p>
+                        <p>Typology: <b>2, 3 BHK</b> | Price: <b>2.5 to 5 Cr</b></p>
+                        <p>
+                                            <span>Offer :
+                                              {{ data2.field_scheme_title }}</span>
+                        </p>
+                      </div>
+                      <div class="slide-footer">
+                        <a href="javascript:;">View Details</a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--view more detail section-->
+          <div class="container">
+            <div class="viewMoreDetails">
+              <a href="javascript:void(0);" showDivTab="{{ data['field_section_id'] }}" class="viewMoreBtn">More
+                <span class="plus-icon">+</span>
+              </a>
+              <a href="javascript:void(0);" showDivTab="{{ data['field_section_id'] }}" class="viewLessBtn" style="display:none;">Less
+                <span class="plus-icon">-</span>
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+
+    {#<div class="pageSection" id="warehouse">
+      <div class="propertyPriceWrp">
+        <div class="container">
+          <div class="sectionTitle active">
+            <p> WAREHOUSE <span> &amp; LOGISTICS</span></p>
+            <span class="before-block"></span>
+          </div>
+        </div>
+        <div class="content">
+          <div class="imgWrapContainer">
+            <div class="imgWrap" style="background: url({{ file_url(node.field_warehouse_banner_image.value) }}) no-repeat center center">
+            </div>
+          </div>
+          <div class="container">
+            {{ node.field_warehouse_description.value |raw }}
+            <div class="knowMore"><a href="javascript:void(0);">Know More</a></div>
+          </div>
+        </div>
+      </div>
+    </div>#}
+  </div>
+</div>

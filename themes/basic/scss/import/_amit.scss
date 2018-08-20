@@ -1,0 +1,1803 @@
+/*ASPI pages Starts here */
+
+.sectionTitle {
+    position: relative;
+    z-index: 1;
+}
+
+.planTypes {
+    position: relative;
+    // margin:150px 0 0 0;
+    width: 100%;
+    .planTabsInner{
+        width: 50%;
+        float: left;
+    }
+    .planTabsUl{
+        border-bottom: 1px solid #f2f2f2;
+        padding: 25px 0;
+        margin-left: 20%;
+        width: 79%;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+        margin-top: -40px;
+        position: relative;
+        z-index: 1;
+        background: #fff;
+        ul {
+            margin:0; 
+            padding:0;
+            text-align: center;
+            li { 
+                display:inline-block;
+                font-family: $medium;
+                @include font-size(2.4);
+                margin:0 50px;
+                cursor: pointer;
+                position: relative;
+                &:before{
+                    width:0;
+                    height:2px;
+                    background-color:#bd9234;
+                    content:'';
+                    display: block;
+                    bottom:0;
+                    position:absolute;
+                    @include transition(all 0.5s ease-out);
+                }
+                &.activeTab {
+                    color:#bd9234;
+                    &:before{
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
+    .planTabContent {
+        padding:45px 50px 0 50px;
+        .planTabs { 
+            display:none;
+            position: relative;
+            &:first-child { 
+                display:block; 
+            }
+            p.selTxt { 
+                font-family: $regular;
+                @include font-size(2.1);
+                padding:15px 0;
+             }
+            .selectPlan { 
+                position:relative;
+                width:115px; 
+                
+                .prevPlan, .nextPlan {
+                    position: absolute;
+                    width:18px;
+                    height:32px;
+                    top:14px;
+                    background:url(#{$assetPath}/arrow-sprite.png) no-repeat;
+                    display: block;
+                    text-indent:-9999px;
+                    cursor: pointer;
+                    &.inActive{
+                        @include opacity(0.5); 
+                    }
+                }
+                .prevPlan {
+                    background-position: 0 0;
+                    left:0;
+                }
+                .nextPlan {
+                    background-position: right 0;
+                    right:0;
+                }
+                .planUnitHolder { 
+                    position: absolute;
+                    width:60px;
+                    top:0;
+                    left:50%;
+                    margin-left:-30px;
+                    p {
+                        font-family: $medium;
+                        @include font-size(2.1);
+                        padding:5px 0;
+                        text-align:center;
+                        color: #000000;
+                        text-transform:uppercase;
+                    }
+                    .planUnits {
+                        border:2px solid #000; 
+                        position: relative;
+                        width:56px;
+                        height: 56px;
+                        overflow: hidden;
+                        span {
+                            position: relative;
+                            width:100%;
+                            height:100%;
+                            text-align:center;
+                            left:0;
+                            top:0;
+                            display: block;
+                            font-family: $medium;
+                            @include font-size(4);
+                            line-height:120%;
+                            color: #000000;
+                        }
+                    }
+                 }
+            } 
+            
+        }
+    }
+}
+
+.propertyTypeHolder {
+    padding: 60px 0 0 0;
+    .propertyNav{
+        width: 50%;
+        float: right;
+    }
+}
+.propertyNav { 
+    border-right:1px solid #a3a3a3;
+    height:61px;
+    &.owl-carousel{
+        button.owl-next, button.owl-prev{
+            width:15px;
+            height:15px;
+            position: absolute;
+            display: block;
+            text-indent:-9999px;
+            top:50%;
+            margin-top:-6px;
+        }
+        button.owl-next {
+            right:-27px;
+            background:url(#{$assetPath}/arrow-right.png) no-repeat center;
+        }
+        button.owl-prev {
+            left:-27px;
+            background:url(#{$assetPath}/arrow-left.png) no-repeat center;
+        }
+        .item {
+            span {
+                display: block;
+                border:1px solid #a3a3a3;
+                border-right: none;
+                font-family: $medium;
+                @include font-size(2.4);
+                color: #a3a3a3;
+                text-transform:uppercase;
+                padding:15px 10px;
+                text-align:center;
+                &.active {
+                    background: #a3a3a3;
+                    color: #ffffff;
+                }
+            }
+            &:first-child {
+                span {
+                    //border-left: 1px solid #a3a3a3; 
+                }
+                
+            }
+        }
+    }  
+}
+
+.unitplanCarousel { 
+    float: left;
+    width: 100%;
+    &.owl-carousel{
+        button.owl-next, button.owl-prev{
+            width:22px;
+            height:11px;
+            position: absolute;
+            background:url(#{$assetPath}/sprite-icons.png) no-repeat;
+            display: block;
+            text-indent:-9999px;
+            top:70%;
+            margin-top:-6px;
+            left:50%;
+        }
+        button.owl-next {
+            margin-left:15px;
+            background-position:-10px -46px;
+        }
+        button.owl-prev {
+            margin-left:-15px;
+            background-position: -11px -151px;
+        }
+        .item {
+            a.zoom {
+                display: block;
+                margin:35px auto;
+                text-align:center;
+                position: relative;
+                img { display: inline; }
+                span{
+                    position: absolute;
+                    right:0; 
+                    bottom:-35px;
+                    width: 35px;
+                    height: 35px;
+                    background:url(#{$assetPath}/zoom.gif) no-repeat;
+                    display: block;
+                    text-indent:-9999px;
+                }
+            }
+        }
+    }  
+}
+#masterPlan { text-align: center; padding-bottom:50px; }
+.planTabs {
+    .richTxt {
+        text-align: left;
+    }
+}
+#floorPlan {
+    padding-bottom:50px;
+    .unitplanCarousel { 
+        &.owl-carousel{
+            button.owl-next, button.owl-prev{
+                top:95%;
+                margin-top:-6px;
+                left:50%;
+            }
+            button.owl-next {
+                margin-left:15px;
+            }
+            button.owl-prev {
+                margin-left:-15px;
+            }
+            .item { 
+                text-align:center; 
+                img { display: inline; }
+            }
+        }
+    }
+}
+
+section.scheme.plansWrap { margin:0; }
+.plansPg .lifestyleWrap { padding:0; }
+.plansWrap {
+    margin:0;
+    &:before{ 
+        display: none; 
+    }
+    .container {
+        padding:50px 0;        
+        border-top:1px solid #f2f2f2;
+    }
+    .topSection { padding:0; }
+    .content { 
+        vertical-align:top;
+        .partnerLogos {
+            padding-bottom:40px;
+            span { 
+                float: left;
+                width:50%;
+                min-height:90px;
+                position: relative;
+                img {
+                    display: block;
+                    position: absolute;
+                    left:0;
+                    top:0;
+                    right:0;
+                    bottom:0;
+                    margin:auto;
+                 }
+            }
+            &:after {
+                clear: both;
+                content:"";
+                display: block;
+            }
+        }
+        .btn {
+            padding:15px 25px;
+        }
+    }
+    &:after {
+        clear: both;
+        content:"";
+        display: block;
+    }
+    .scehme-txt {
+        .subject { color: #a3a3a3; }
+    }
+}
+
+.priceContent {
+    padding: 40px 0;
+    border-top: 1px solid #f2f2f2;
+    p {
+        font-family: $light;
+        @include font-size(1.8);
+        padding-bottom: 20px;
+        width:auto;
+        float:left;
+        span { 
+            font-family: $medium;
+            &.divider{
+                display:inline-block;
+                margin:0 25px;
+            }
+            &.special{
+                color: #bd9234;
+                display:inline-block;
+                background-color:#f6f2e3;
+                padding:10px 15px;
+                margin-bottom:-5px;
+            }
+        }
+        a {
+            text-decoration:underline;
+            color:#bd9234;
+            display: block;
+            &:hover {
+                text-decoration:none;
+            }
+            &:before {
+                clear: both;
+                display: block;
+                content: '';
+            }
+         }
+         &:first-child {
+            padding: 10px 30px 10px 0;
+         }
+    }
+}
+.flexgallery {
+    width:94%;
+    margin:0 auto;
+}
+
+.thumbSlider {
+    width:100%;
+    margin:0 auto;
+    .flexslider { 
+        margin:0 0 55px 0; 
+        border:0;
+        @include box-shadow(0,0,0,0);
+        .flex-caption {
+            padding:20px;
+            color: #bd9234;
+            font-family: $medium;
+            @include font-size(2.4);
+            background-color:#f6f2e3;
+            position: absolute;
+            bottom:0;
+            z-index: 9;
+            width:100%;
+        }
+        .flexImg {
+            li { position: relative; height:785px; overflow-x: hidden; width:100%; }
+            img { 
+                height:785px;
+                width:auto;
+                position: absolute;
+                left:50%;
+                margin-left:-950px;
+
+            }
+            iframe { 
+                width:100%;
+                height:99%;
+
+            }
+        }
+        &.thumbComp {
+            li {
+                width:125px;
+            }
+            .flex-active-slide { 
+                border:1px solid #000;
+                position: relative;
+                &:before {
+                    content: '';
+                    display: block;
+                    width:100%;
+                    height:100%;
+                    position: absolute;
+                    background:#ffffff;
+                    @include opacity(0.5);
+                }
+            }
+            .flex-direction-nav { display: none; }
+         }
+         &.galleryThumb {
+            .flex-direction-nav { display: none !important; }
+         }
+         &:hover {
+            .flex-direction-nav { display:block; }
+
+         }
+        .flex-direction-nav {
+            display: none;
+            a {
+                @include opacity(1); 
+                width:50px;
+                height:50px;
+                margin-top:-25px;
+                outline:none;
+                display: block;
+                font-size:0;
+                text-indent:-9999px;
+            }
+            .flex-disabled {
+                opacity:1 !important;
+            }
+            .flex-prev { 
+                left:0; 
+                background: url(#{$assetPath}/gallery-left-arrow.png) no-repeat;
+                &:before{ display: none; }
+            }
+            .flex-next { 
+                right:0; 
+                background: url(#{$assetPath}/gallery-right-arrow.png) no-repeat;
+                &:before{ display: none; }
+            }
+        }
+    }
+}
+.paging { 
+    padding:0 0 20px 0;
+    text-align: right;
+    color: #000000;
+    font-family: $regular;
+    @include font-size(1.8);
+    span.currentSlide {
+        color:#bd9234;
+    }    
+ }
+
+ .tabsComponent {
+    padding:35px 0;
+        &:after {
+            clear: both;
+            content: '';
+            display: block;
+        }
+    ul{
+        /*Added styles to take all tabs on left side*/
+        float: left;
+        max-width: 540px;
+        margin: 0 auto;
+        width: 100%;
+        li {
+            float:left;
+            padding: 15px 10px;
+            text-align:center;
+            border:1px solid #a3a3a3;
+            margin:0;
+            width:50%;
+            color: #a3a3a3;
+            font-family: $medium;
+            @include font-size(2.4);
+            text-transform:uppercase;
+            cursor: pointer;
+            &.activeTab {
+            color: #ffffff;
+            background-color:#a3a3a3;
+                
+            }
+        }
+    }
+ }
+
+.amenitiesPg {
+    .amenities {
+        padding:60px 0 0 0;
+        /*.sectionTitle {
+            p span { display: inline-block; }
+        }*/
+    }
+    .amenityTabs { 
+        display: none; 
+        &:first-child { display: block; }
+    }
+    .notes {
+        color: #a3a3a3;
+        font-family: $regular;
+        @include font-size(1.8);
+        
+    }
+}
+
+.listComponent {
+    margin:0;
+    padding:0;
+    li, p {
+        &:before {
+            content: '';
+            display: block;
+            width:20px;
+            height:2px;
+            background:#bd9234;
+            position: absolute;
+            left:0;
+            top: 15px;
+
+        }
+        color: #000000;
+        font-family: $regular;
+        @include font-size(2.4);
+        line-height: 130%;
+        padding: 0 0 50px 40px;
+        position: relative;
+        
+    }
+    &.listHidden{
+        p, li { display: none; }
+        p:nth-child(1),  p:nth-child(2), li:nth-child(1),  li:nth-child(2){
+            display: block;
+        } 
+    }
+    #list2 { display: none; }
+}
+
+.hide { display: none; }
+.toggleContent {
+    &.listHidden{
+        p { display: none; }
+        p:nth-child(1),  p:nth-child(2){
+            display: block;
+        } 
+    }
+    
+    
+}
+.toggleBtn {
+    text-align:right;
+    position: relative;
+    &:before {
+        clear: both;
+        content: '';
+        display: block;
+        border-top:1px solid #a3a3a3;
+        position: absolute;
+        top:10px;
+        left:0;     
+        width:100%; 
+    }
+    a {
+        display:inline-block;
+        background-color:#ffffff;
+        color: #bd9234;
+        text-transform:uppercase;
+        font-family:'DIN-Bold';
+        position: relative;
+        @include font-size(1.4);
+        padding:0 30px; 
+        span.operators {     
+            position: absolute;
+            right: 0;   
+            font-family:$medium;
+            @include font-size(3.3);
+            display:inline-block;
+            top:-15px;
+        }
+        span.less {
+            display:none;
+        }
+        &.open {
+            span.less {
+                display:block;
+            }
+            span.more {
+                display:none;
+            }
+        }
+    }
+}
+
+.galTabs { 
+    width: 260px;
+    position: absolute;
+    right:0;
+    top: 20px;
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+    ul{
+        margin:0 auto;
+        li {
+            float:left;
+            margin:0 15px;
+            text-align:center;
+            border:2px solid #d7be85;
+            width:56px;
+            height:56px;
+            @include font-size(0);
+            background-color:#ffffff;
+            text-indent:-9999px;
+            cursor: pointer;
+            background:url(#{$assetPath}/gallery-icons.png) no-repeat;
+            &[tabName="photos"] {
+                background-position:0 -52px;
+            }
+            &[tabName="videos"] {
+                background-position:-52px -52px;
+            }
+            &[tabName="iframe"] {
+                background-position:-104px -52px;
+            }
+            &.activeTab {
+                background-color:#bd9234;
+                border:2px solid #bd9234;
+                &[tabName="photos"] {
+                    background-position:0 0;
+                }
+                &[tabName="videos"] {
+                    background-position:-52px 0;
+                }
+                &[tabName="iframe"] {
+                    background-position:-104px 0;
+                }
+                
+            }
+        }
+    }
+ }
+
+ .gallerySlider {
+     padding: 20px 0 0 0;
+     margin:35px 0 0 0;
+     position: relative;
+     &:before {
+         content:'';
+         display: block;
+         position: absolute;
+         left:0; width:100%;
+         top: 0;
+         height:300px;
+         background-color: #f6f2e3;
+         z-index: -1;
+     }
+}
+
+.townshipPg {
+    .propertyDetails { padding:1px 0 0 0; margin-bottom:30px; }
+    .fixedHeader .logo { 
+        margin-top:0;  
+        img { 
+            height:50px; 
+            width:auto;
+        }
+    }
+    section.scheme .wrapper { max-width:100%; }
+    .townTitle { 
+        @include font-size(3.2);
+        color: #000000;
+        font-family: $regular;
+        margin:20px 0 90px 0;
+    }
+    .townshipCont {
+        padding: 70px 0;
+        .sectionTitle p span {
+            display:inline-block;
+        }
+        .townContent {
+            color: #000000;
+            font-family: $light;
+            p {
+                @include font-size(1.8);
+                padding:15px 0 10px 0;
+            }
+            .toggleBtn {
+                text-align:left;
+                padding:0;
+                &:before { 
+                    display: none;
+                }
+                a {
+                    padding:0 30px 0 0;
+                }
+            }
+            
+        }
+    }
+}
+
+.resComTabs {
+    /*display:none;*/
+    max-height:670px;
+    &#residential {
+        display: block;
+    }
+    .owl-carousel {
+        display: block;
+    }
+    .resdient-slider {
+         max-height:670px;
+    }
+    .resdient-slider .owl-stage-outer {
+        max-height:570px;
+    }
+}
+
+.locatePlan {
+    margin:0 0 30px 0;
+    .tabsComponent {
+        padding:30px 0 40px 0;
+    }
+    .planLocateTabs {
+        display: none;
+        height:860px;
+        position: relative;
+        &:first-child {
+            display: block;
+        }
+        .locatemap {
+            width:100%;
+            height:770px;
+            overflow:auto;
+        }
+        .locateAdd {
+            position: absolute;
+            bottom:0;
+            background-color: #000000;
+            min-height: 90px;
+            width:100%;
+            .address { 
+                color: #ffffff;
+                font-family: $light;
+                @include font-size(2.1);
+                padding:18px 245px 19px 20px;
+                display:table-cell;
+                vertical-align:middle;
+                height:90px;
+            }
+            .access { 
+                position: absolute;
+                right:0;
+                top: 0;
+                width:245px;
+                background-color:#2ec1cd;
+                height:100%;
+                font-family: $light;
+                @include font-size(2.4);
+                padding:12px 0 0 20px;
+                a {
+                    color: #ffffff;
+                    &.gotomap { display: none; }
+                    img { 
+                        margin-right:10px;
+                     }
+                }
+            }
+        }
+        .accessTab {
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            position: absolute;
+            background-color: #f6f2e3;
+            padding-top: 30px;
+            display: none;
+            a.closeBtn {
+                position: absolute;
+                right:50px;
+                top:50px;
+            }
+            .connect {
+                padding:0 0 30px 90px;
+                h2 {
+                    color:#bd9234;
+                    font-family: $medium;
+                    @include font-size(2.6);
+                    margin-bottom:20px;
+                    text-align:left;
+                }
+                p {
+                    color:#000000;
+                    font-family: $regular;
+                    @include font-size(2);
+                    span.tableCell {
+                        display:inline-block;
+                        width: 230px;
+                    }
+                    &.lineLeft {
+                        position: relative;
+                        &:before {
+                            content:'';
+                            display: block;
+                            position: absolute;
+                            left:-45px;
+                            top:12px;
+                            width:28px;
+                            height: 2px;
+                            background: #ffc600;
+                        }
+                    }
+                    &.lineLeft.one{
+                        &:before {background: #00a241;}
+                    }
+                    &.lineLeft.two{
+                        &:before {background: #b30000;}
+                    }
+                    &.lineLeft.three{
+                        &:before {background: #005787;}
+                    }
+                    &.lineLeft.four{
+                        &:before {background: #ffc600;}
+                    }
+                    &.bdrLeft {
+                        position: relative;
+                        &:before {
+                            content:'';
+                            display: block;
+                            position: absolute;
+                            left:-45px;
+                            top:12px;
+                            width:28px;
+                            border-top:1px dashed #8100a6; 
+                        }
+                    }
+                    &.bdrLeft.one{
+                        &:before {border-top:1px dashed #b2cfc4;}
+                    }
+                    &.bdrLeft.two{
+                        &:before {border-top:1px dashed #8100a6;}
+                    }
+                }
+                    
+            }
+        }
+        &#plan {
+            background-color:#000000;
+            .explore { 
+                width: 350px;
+                height:260px;
+                position: absolute;
+                left:0; top:0; right:0; bottom:0;
+                margin:auto;
+                p {                  
+                    text-align: center;  
+                    color:#ffffff;
+                    font-family: $medium;
+                    @include font-size(2.4);
+                    &:first-child {
+                        text-transform: uppercase;
+                    }
+                }
+                img {
+                    display: block;
+                    margin: 35px auto;
+                }
+            }
+            #exploreIframe {
+                position: absolute;
+                left: 0;
+                top:0;
+                width:100%;
+                height:100%;
+                z-index: 99;
+                display: none;
+                iframe {
+                    width:100%;
+                    height:100%;
+                }
+            }
+        }
+    }
+}
+
+.townBanner {
+    width:100%;
+    position: relative;
+    margin:0 0 0 0;
+    &:after {
+        clear: both; 
+        display:block; 
+        content:'';
+    }
+    .scrollTab {
+        width:370px;
+        height: 480px;
+        top:245px;
+        left: 0;
+        background: #2ec1cd;
+        position: absolute;
+        .scroll {
+            bottom:90px;
+            left:0px;
+            @include font-size(1.8);
+            display: block !important;
+        }
+    }
+    .townBannerHolder {
+        margin:0 50px;
+        width:auto;
+        position: relative;
+
+        .flexslider { 
+            margin:0 0 55px 0; 
+            border:0;
+            @include box-shadow(0,0,0,0);
+            .flex-direction-nav {
+                display: none;
+            }
+            .flex-control-paging {
+                text-align:left;
+                bottom:-30px;
+                 li {
+                     margin:0 20px 0 0;
+                    a {
+                        background:#ffffff;
+                        width:14px;
+                        height:14px;
+                        border:1px solid #caa85d;
+                        @include border-radius(0);
+                        @include box-shadow(none);
+                        font-size: 0;
+                        &.flex-active {
+                            background:#bd9234;
+                            border:1px solid #bd9234;                            
+                        }
+                    }
+                }
+            }
+            .flexImg {
+                li { position: relative; height:670px; overflow-x: hidden; width:100%; }
+                img { 
+                    height:670px;
+                    width:auto;
+                    position: absolute;
+                    left:50%;
+                    margin-left:-950px;
+    
+                }
+            }
+        }
+    }
+}
+
+section.residential .slide-footer {
+    a {
+        display: block;
+        text-align: center;
+        padding: 7px;
+        font-size: 1.3rem
+    }
+}
+section.residential .possession-wrp p span {
+    font-family: $medium;
+    color: #bd9234;
+}
+/*ASPI pages Ends here */
+
+/*World One pages Starts here */
+.themeBlack {
+    .fixedHeader {
+        a {
+            color:#ffffff; 
+            &.logo {
+                img {
+                    height:65px;
+                    width:auto;
+                }
+            }
+        }
+        .rightSec ul li a {
+            color:#ffffff; 
+            svg {
+                path {
+                   fill:#ffffff; 
+                }
+            }
+        }
+        .rightSec ul li.dropdown a {
+            background:url(#{$assetPath}/arrow-dropdown-white.png) right 6px no-repeat;
+        }
+    }
+    .subHeader  { 
+        border:0;
+        a{
+            color:#ffffff; 
+        } 
+        .topNav ul li a {
+            color:#979797; 
+            &.active {
+                color:#bd9234;
+                &:before {
+                    background-color: #bd9234;
+                }
+            }
+        }
+    }
+    .innerMainBanner {
+        background-color:#171717;
+        .owl-dots { display:none; }
+        .price-banner { 
+            background-color:#171717;
+            p {
+                color:#ffffff;
+                margin-right: 25px;
+            }
+        }
+        .bannerCarousel .owl-item .content {
+            top:initial;
+            bottom:50px;
+            p {
+                width:700px;
+                &.bannerTitle {
+                    font-family:$medium;
+                    position:relative;
+                    padding:0 0 15px 0;
+                    margin-bottom:15px;
+                    span { color: #bd9234; }
+                    &:after {
+                        background-color: #ffffff;
+                        bottom: 0;
+                        content: '';
+                        height: 2px;
+                        left: 0;
+                        position: absolute;
+                        width: 50px;
+                    }
+                }
+            }
+        }
+
+    }
+    
+    .scheme { 
+        padding:25px 0 40px 0;
+        margin:0 !important;
+        background-color:#000000;
+        
+        p {
+            color:#8b8b8b;
+            span{
+                color:#ffffff;
+            }
+        }
+    }
+    .worldOneAbt {
+        padding:60px 0 30px 0;
+        background-color:#000000;
+        .content p {
+            color:#cbcbcb;
+            a {
+                color:#bd9234;
+                text-decoration:underline;
+                text-transform:uppercase;
+            }
+        }
+        .topSection {
+            padding:0;
+        }
+    }
+    .ourAmenities {
+        margin:70px 0;
+        .sectionTitle {
+            .icon svg path {
+                 fill: #bd9234 !important;
+            }
+            &.active span.before-block {
+                background-color: #bd9234;
+            }
+            p span { color:#ffffff; }
+            span.icon:before {
+                border-top-color: #bd9234;
+                border-right-color: #bd9234;
+            }
+            span.icon:after {
+                border-bottom-color: #bd9234;
+                border-left-color: #bd9234;
+            }
+            p {
+                color:#000000 !important;
+                text-transform:uppercase;
+                span{
+                    color:#bd9234;
+                }
+                &:after { background-color: #000000; }
+            }
+        }
+        .carousel .slide .box ul li a.knowMoreMob {
+            color:#bd9234;
+            text-decoration:underline;
+            display:none;
+        }
+    }
+    .residential {
+        .sectionTitle {
+            p {
+                color:#000000 !important;
+            }
+        }
+    }
+
+    .lifestyleSect {
+        .sectionTitle {
+            .icon svg path {
+                 fill: #bd9234 !important;
+            }
+            &.active span.before-block {
+                background-color: #bd9234;
+            }
+            p span { color:#ffffff; }
+            span.icon:before {
+                border-top-color: #bd9234;
+                border-right-color: #bd9234;
+            }
+            span.icon:after {
+                border-bottom-color: #bd9234;
+                border-left-color: #bd9234;
+            }
+            p {
+                color:#000000 !important;
+                span{
+                    color:#bd9234;
+                }
+                &:after { background-color: #000000; }
+            }
+        }
+        &.blackThmlife {
+            &:after {
+                background-color:#000000;
+            }
+            .sliderWrap .galleryWrap .slider .wrap{
+                em, &:before, .steps:after {
+                    background-color: #bd9234;
+                }
+            }
+        }
+        
+    }
+
+    .pillarsWrap {
+        .sectionTitle {
+            .icon svg path {
+                 fill: #bd9234 !important;
+            }
+            &.active span.before-block {
+                background-color: #bd9234;
+            }
+            p span { color:#ffffff; }
+            span.icon:before {
+                border-top-color: #bd9234;
+                border-right-color: #bd9234;
+            }
+            span.icon:after {
+                border-bottom-color: #bd9234;
+                border-left-color: #bd9234;
+            }
+            p {
+                color:#000000 !important;
+                span{
+                    color:#bd9234;
+                }
+                &:after { background-color: #000000; }
+            }
+        }
+    }
+
+    .propertyDetails {
+        padding:0;
+        position:relative;
+            margin:60px 0 0 0;
+        &:after {
+            position:absolute;
+            border-top:1px solid #bd9234;
+            content:'';
+            top:50%;
+            left:2%;
+            width:96%;
+            display:block;
+
+
+        }
+    }
+    .plansPricesMain {
+        background-color:#000000;
+        &.propertyPrice {
+            .sectionTitle {
+                background:none;
+                p span { color:#bd9234; }
+                span.icon:before {
+                    border-top-color: #bd9234;
+                    border-right-color: #bd9234;
+                }
+                span.icon:after {
+                    border-bottom-color: #bd9234;
+                    border-left-color: #bd9234;
+                }
+                .icon svg path {
+                    fill:#bd9234 !important;
+                }
+            }
+        }
+        
+        .sectionTitle.active span.before-block { display:none; }
+        .priceContent {
+            border-top:0;
+            p {
+                color:#ffffff;
+                &:last-child {
+                    display:block;
+                    float:none;
+                    &:before {
+                        content:'';
+                        display:block;
+                        clear:both;
+                    }
+                }
+                span.special {
+                    color:#ffffff;
+                    background-color:#bd9234;
+                }
+            } 
+        }
+        .unitplanCarousel.owl-carousel .owl-nav {
+            position:absolute;
+            bottom:41%;
+            width:100%;
+        }
+        .propertyNav.owl-carousel button.owl-next {
+            background: url(#{$assetPath}/arrow-right-white.png) no-repeat center;
+        }
+        .propertyNav.owl-carousel button.owl-prev {
+            background: url(#{$assetPath}/arrow-left-white.png) no-repeat center;
+        }
+        .planTypes .planTabContent .planTabs .selectPlan .planUnitHolder .planUnits {
+                border: 2px solid #bd9234;
+        }
+        .planTypes .planTabContent .planTabs .selectPlan .planUnitHolder .planUnits span {
+            color:#bd9234;
+        }
+        .planTypes .planTabContent .planTabs p.selTxt { color:#ffffff; }
+        
+        .planTypes .planTabsUl {
+            background:none;
+            border-bottom:0;
+            li { 
+                color:#ffffff; 
+                &.activeTab {
+                    color:#bd9234;
+                }
+            }
+        }
+        .paging {
+            color:#ffffff;
+        }
+    }
+    .scheme {
+        &.schemePlans {
+            background:#171717;
+            padding:40px 0;
+        }
+        .scheme-logo {
+            width:66px;
+            svg path {
+                fill:#bd9234 !important;
+            }
+        }
+    }
+    &.highTown {
+        .townBanner .townBannerHolder {
+            margin:0;
+            .scrollTo {
+                position:absolute;
+                bottom:5%;
+                @include font-size(1.2);
+                color:#ffffff;
+                text-transform:uppercase;
+                font-family:$light;
+                letter-spacing:1px;
+                z-index:9;
+                width:100%;
+                text-align:center;
+            }
+        }
+        .townBanner .townBannerHolder .flexslider {
+            margin:0;
+            .bannerTxt {
+                position:absolute;
+                width:100%;
+                text-align:center;
+                top:50%;
+                transform: translateY(-50%);
+                p {
+                    margin:0 0 35px 0;
+                    &:first-child{
+                        position:relative;
+                        padding-bottom:20px;
+                        color:#ffffff;
+                        font-family: $light;
+                        @include font-size(3.6);
+                        text-transform:uppercase;
+                        &:before {
+                            position:absolute;
+                            content:'';
+                            width:60px;
+                            height:2px;
+                            background-color:#c49218;
+                            left:50%;
+                            margin-left:-30px;
+                            bottom:0;
+                        }
+                    }
+                    .btn.btn-gold {
+                        color:#bd9234;
+                        background:none;
+                    }
+                }
+            }
+            .flex-control-paging {
+                bottom:32%;
+                z-index:9;
+                text-align:center;
+                li{
+                    margin:0 15px;
+                    a {
+                        background:none;
+                        &.flex-active {
+                            background:#c49218;
+                        }
+                    }
+                }
+            }
+        }
+        .propertyPrice{
+            .sectionTitle {
+                min-height: 250px;
+                 p span {
+                    color:#000000;
+                    display:inline-block;
+                }
+            }
+            .towerCarousel {
+                display:block;
+                width:90%;
+                margin-top: -80px;
+                .owl-nav {
+                    text-align: left;
+                    button {
+                        cursor: pointer;
+                        &.deactive {
+                            pointer-events: none;
+                            opacity: 0.5;
+                        }
+                        span {
+                            display: inline-block;
+                            margin-left: 15px;
+                            font-size: 0;
+                            width: 25px;
+                            height: 25px;
+                            background: url('#{$assetPath}/aspi/arr.png') no-repeat center center;
+                        }
+                        &.owl-prev span {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+                .slide {
+                    position:relative;
+                    .towerBox {
+                        position:absolute;
+                        top:15%;
+                        left:30px;
+                        p {
+                            margin-bottom:20px;
+                            text-align:left;
+                            color:#ffffff;
+                            @include font-size(2);
+                            font-family: $light;
+                            &:first-child {
+                                color:#828282;
+                                @include font-size(1.6);
+
+                            }
+                            &.projectName {
+                                position:relative;
+                                padding-bottom:20px;
+                                color:#ffffff;
+                                font-family: $medium;
+                                @include font-size(2.8);
+                                text-transform:uppercase;
+                                &:before {
+                                    position:absolute;
+                                    content:'';
+                                    width:60px;
+                                    height:2px;
+                                    background-color:#454545;
+                                    left:0;
+                                    bottom:0;
+                                }
+                                span { color:#bd9234 !important; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .locatePlan {
+            background-color:#000;
+            .tabsComponent ul li.activeTab {
+                color:#000;
+            }
+            .planLocateTabs {
+                .accessTab {
+                    background-color:#000;
+                    .connect p {
+                        color:#fff;
+                    }
+                }
+                .locatemap {
+                    position:relative;
+                    #map {
+                        height: 100%;
+                    } 
+                    
+                    #floating-panel {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 20px;
+                        z-index: 5;
+                        background-color: #fff;
+                        padding: 5px;
+                        border: 0; 
+                        line-height: 30px;
+                        padding-left: 10px;
+                        width: calc(100% - 40px);
+                        box-sizing: border-box;
+                    }
+               
+                    
+                    #map .gm-bundled-control, #map .gm-style-mtc{
+                        display: none !important;}
+                    #map .gmnoprint{
+                        opacity: 1 !important;
+                    }
+                
+                    .brownShade{
+                        background: #000000;
+                        width: 10000px;
+                        height: 10000px;
+                        display: block;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        opacity: 0.7;
+                        pointer-events: none;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }            
+        }
+    }
+
+    
+}
+    .propertyPrice{
+        .towerCarousel {
+            display:block;
+            .slide {
+                position:relative;
+                .box {
+                    position:absolute;
+                    top:15%;
+                    left:30px;
+                    li {
+                        margin-bottom:20px;
+                        &:first-child {
+                            color:#828282;
+                            @include font-size(1.6);
+
+                        }
+                        &.projectName {
+                            position:relative;
+                            padding-bottom:20px;
+                            color:#ffffff;
+                            font-family: $light;
+                            @include font-size(2.8);
+                            text-transform:uppercase;
+                            &:before {
+                                position:absolute;
+                                content:'';
+                                width:60px;
+                                height:2px;
+                                background-color:#454545;
+                                left:0;
+                                bottom:0;
+                            }
+                            span { color:#bd9234; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+/*World One pages Ends here */
+
+@media only screen and (max-width: 1366px) {
+    .townBanner {
+        .scrollTab {
+            top:220px;
+            height:400px;
+            width: 385px;
+        }
+    }
+    .townBanner .townBannerHolder .flexslider .flexImg li {
+        height: 564px;
+    }
+    .townBanner .townBannerHolder .flexslider .flexImg li img {
+        height:564px;
+        margin-left:-800px;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .planTypes .planTabsUl ul li {
+        margin:0 20px;
+    }
+    section.residential{
+        position: relative;
+        overflow-x: hidden;
+        padding-bottom:20px;
+    }
+    .resComTabs {
+        overflow: hidden;
+        width: 100%;
+        height: 590px;
+        position: relative;
+        .resdient-slider {
+            width: 1000px;
+            height: 570px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    #residential .resdient-slider .owl-nav {
+        text-align: center; 
+        position: absolute;
+        bottom:-20px;
+        width: 100%;
+    }
+    
+}
+
+@media only screen and (max-width: 1023px) {
+    .plansPg {
+        .planTypes {
+            &:before{ clear: both; }
+            // margin:215px 0 0 0;
+            .planTabContent { padding:45px 45px 0 45px; } 
+        }
+        .plansWrap {
+            .container { padding:45px; }
+        } 
+        .planTabs img { max-width:100%; }
+    }
+    
+    .propertyTypeHolder .propertyNav, .planTabsInner{
+        width:100%;
+        float:left;
+    }
+    .planTypes .planTabContent .planTabs .selectPlan {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .propertyTypeHolder .propertyNav{
+        margin-top: 50px;
+    }
+    #residential .resdient-slider .owl-nav {
+        text-align: center; 
+        position: absolute;
+        bottom:20px;
+        width: 100%;
+    }
+    .priceContent p {
+        display: block;
+        float: none;
+    }
+    .unitplanCarousel.owl-carousel button.owl-next, .unitplanCarousel.owl-carousel button.owl-prev {
+        top: 50%;
+    }
+}
+
+
+@media only screen and (max-width: 767px){
+    .propertyPrice .sectionTitle {
+        width: 60% !important;
+    }
+    .planTypes .planTabsInner{
+        width:100%;
+        .selTxt{    padding-right: 130px !important;}
+    }
+    .plansPg {
+        .planTypes {
+            .planTabsUl { margin:0; width:100%; box-shadow: inherit;}
+            .planTabsUl ul{
+                text-align: left;
+            }
+        }
+    }
+    
+    .propertyNav.owl-carousel .item span { 
+        @include font-size(1.8);
+        padding: 10px;
+    }
+    .propertyNav { 
+        height:44px;
+    }
+    .planTypes .planTabsUl ul li {
+        @include font-size(2);
+        margin:0 10px;
+    } 
+    .planTypes .planTabContent .planTabs .selectPlan {
+        right:0;
+        position: absolute;
+        margin:0;
+        padding:0 0 50px 0;
+    }
+
+    .thumbSlider {
+        .flexslider { 
+            .flex-caption {
+                @include font-size(1.8);
+            }
+            .flexImg {
+                li { height:400px; }
+                img { 
+                    height:400px;
+                    margin-left:-484px;
+    
+                }
+            }
+        }
+    }
+    .townBanner {
+        .scrollTab {
+            top:60px;
+            height: 340px;
+            width: 385px;
+        }
+    }
+    .locatePlan .planLocateTabs .locateAdd .access {
+        width:200px;
+    }
+    .locatePlan .planLocateTabs .locateAdd .address, .locatePlan .planLocateTabs .locateAdd .access a { 
+        @include font-size(1.6);
+     }
+     .locatePlan .planLocateTabs .accessTab .connect h2 {
+        @include font-size(1.8);        
+     }
+     .locatePlan .planLocateTabs .accessTab .connect p {
+        @include font-size(1.6);
+    }
+    .locatePlan .planLocateTabs .accessTab .connect {
+        padding: 0 0 30px 60px;
+    }
+    .locatePlan .planLocateTabs .accessTab a.closeBtn { top:30px; }
+    .locatePlan {
+        .planLocateTabs {
+            height:430px;
+            .locatemap {
+                height:300px;
+            }
+        }
+    }
+    .townBanner .townBannerHolder .flexslider .flexImg li {
+        height: 350px;
+    }
+    .townBanner .townBannerHolder .flexslider .flexImg li img {
+        height:350px;
+        margin-left:-470px;
+    }
+    .townshipPg {
+        .propertyDetails { margin-bottom:0; }
+        .townTitle {
+            margin: 0px 0 50px 0;
+            @include font-size(2.4);
+        }
+        section.scheme {
+            padding:0;
+        }
+        section.townBanner {
+            padding:0;
+        }
+    }
+    
+    #residential .resdient-slider .owl-item.active {
+        @include  transform-scale-imp(0.9);
+        @include opacity(0.8);
+    }
+    #residential .resdient-slider .owl-item.active.center {
+        @include  transform-scale-imp(1);
+        @include opacity(1);
+        
+    }
+    .locatePlan .planLocateTabs .accessTab {
+        height:80%;
+        overflow: auto;
+    }
+    .themeBlack{
+        .propertyPrice {
+            .sectionTitle {
+                padding:45px 20px;
+                
+            }
+            .carousel {
+                margin-top: -45px;
+            }
+        }
+        .ourAmenities {
+            .contentWrap {
+                background-color:#000000;
+                &:before{background-color:#000000;}
+                p {
+                    color:#ffffff;
+                }
+                .btn {
+                    background:none;
+                    border:none;
+                    color:#bd9234;
+                    text-decoration:underline;
+                    &:before { display:none !important; }
+                }
+            }
+        }
+        .lifestyleSect {
+            margin:60px 0 130px 0;
+            &:after {
+                bottom:-50px;
+                height:60%;
+            }
+        }
+        .propertyDetails {
+            margin: 100px 0 60px 0;
+        }
+        .innerMainBanner .bannerCarousel .owl-item .content { bottom:80px; }
+
+        &.highTown {
+            .townBanner {
+                padding:0;
+            }
+            .townBanner .townBannerHolder .flexslider {                
+                .flex-control-paging {
+                    bottom:20%;
+                }
+            }
+            .townCarouselHolder {
+                width:70%; overflow-x:hidden;
+                margin-top:-80px;
+                float:right;
+                .towerCarousel {
+                    margin-top:0;
+                    width:100%;
+                    float:left;
+                }
+            }
+            .propertyPrice .towerCarousel {
+                width:700px;
+                .slide {
+                    max-width:100%;
+                }
+            }
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 481px){
+    .unitplanCarousel.owl-carousel button.owl-next, .unitplanCarousel.owl-carousel button.owl-prev {
+        top: 38%;
+    }
+}

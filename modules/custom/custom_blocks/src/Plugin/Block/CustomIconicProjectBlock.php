@@ -36,9 +36,9 @@
 
       $nodes 	= entity_load_multiple('node', $nids);
       foreach($nodes as $node) {
-				$date_time = strtotime($node->field_datetime->value);
-				$date = date('d.m.Y', $date_time); 
-        $shortdesc = preg_replace('/\s+?(\S+)?$/', '', substr($node->field_iconic_project_desc->value, 0, 250)) . '...';
+				$date_time = $node->field_datetime?strtotime($node->field_datetime->value):'';
+				$date = $date_time?date('d.m.Y', $date_time):'';
+        $shortdesc = $node->field_iconic_project_desc?(preg_replace('/\s+?(\S+)?$/', '', substr($node->field_iconic_project_desc->value, 0, 250)) . '...'):'';
         $link_text = $node->field_link_->value;
         $link_url = isset($node->field_link_url->value)?$node->field_link_url->value:\Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
         $path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
@@ -53,11 +53,11 @@
 					'alias' => $path,
 				);
 			}
+      
+      
 
       return [
         '#theme'    => 'block--homeiconicprojectblock',
-        '#cur_page' => $this->t('landing_page'),
-        '#test_var' => $this->t('Test Value'),
         '#data_obj' => $data,
       ];
     }

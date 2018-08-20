@@ -1,0 +1,56 @@
+<!-- container starts-->
+{% for data in content["#data_obj"] %}
+    <div class="slides">
+        <span class="slider-tag">{{ }}</span> {#data.planType#}
+        <div class="res-head flex-wrp">
+            <div class="head-txt">
+                <h3>LODHA SPLENDORA 1</h3>
+                <p>Ghodbunder Road, Thane</p>
+            </div>
+            <div class="rating">
+                <a href="javascript:void(0);" class="viewIcon"></a>
+                <!-- <span class="sprite-star"></span> -->
+                <a href="javascript:void(0);"><img src="{{ directory }}/images/aspi/star.png" alt="star"></a>
+            </div>
+        </div>
+        <div class="inner-wrp">
+            <div class="inner-slider owl-carousel">
+                {#<div class="owl-stage-outer">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="owl-item">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>#}
+                <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+                <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+                <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+                <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+            </div>
+            <span class="fav-icon">
+                    <img src="{{ directory }}/images/aspi/fav-icon.png" alt="fav-icon">
+                </span>
+        </div>
+        <div class="possession-wrp">
+            <p>Possession Date:
+                <b>{{ }}</b> {#date#}
+            </p>
+
+            <p>Typology: <b>{{ }}</b> | Price: <b>{{ }}</b></p>
+
+            <p>
+                Possession Date:
+                <b>{{ }}</b>
+            </p>
+            <p>
+                <span>Offer : 5:90:5 Scheme</span>
+            </p>
+        </div>
+        <div class="slide-footer">
+            <a href="javascript:;">View Details</a>
+        </div>
+    </div>
+{% endfor %}
+<!-- container ends-->

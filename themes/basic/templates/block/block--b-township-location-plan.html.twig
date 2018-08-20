@@ -1,0 +1,59 @@
+<section class="locatePlan">
+    <div class="container paddingBoth">
+        <div class="tabsComponent customTabs">
+            <ul commonTab="planLocateTabs">
+                <li tabName="location" class="activeTab">Location</li>
+                <li tabName="plan">Plan</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container paddingBoth">
+        <div id="location" class="planLocateTabs">
+            <div class="locatemap">
+                <img src="{{ directory }}/images/township-location.jpg" alt="">
+            </div>
+            <div id="accessPop" class="accessTab">
+                <div class="connect">
+                    <h2>Connectivity</h2>
+                    <p><span class="tableCell"> Nariman Point</span> 12-13 km</p>
+                    <p><span class="tableCell">Lower Parel</span> 7-8 km</p>
+                    <p><span class="tableCell">Worli/Prabhadevi</span> 7-8 km</p>
+                    <p><span class="tableCell">BKC</span> 5-6km</p>
+                    <p><span class="tableCell">Andheri East</span> 3-15 km</p>
+                    <p><span class="tableCell">Powai</span> 14-16 km</p>
+
+                </div>
+                <div class="connect">
+                    <h2>By Road</h2>
+                    <p class="lineLeft one"><span>Eastern Freeway </span></p>
+                    <p class="lineLeft two"><span>Eastern Express Highway</span></p>
+                    <p class="lineLeft three"><span>Santacruz - Chembur Link Road</span></p>
+                    <p class="lineLeft four"><span>BKC - Sion Elevated Road</span></p>
+
+                </div>
+                <div class="connect">
+                    <h2>By Rail</h2>
+                    <p class="bdrLeft one"><span>Monorail </span></p>
+                    <p class="bdrLeft two"> <span>Metro Phase 3 </span></p>
+
+                </div>
+                <a href="javascript:;" class="closeAccessPop closeBtn"><img src="{{ directory }}/images/close-access.gif" alt=""></a>
+            </div>
+            <div class="locateAdd">
+                <div class="address">New Cuffe Parade, Near IMAX Dome, Off Eastern Freeway, Mumbai </div>
+                <div class="access">
+                    <a href="javascript:;" class="openAccess"><img src="{{ directory }}/images/access.png" valign="middle"> See Access</a>
+                    <a href="javascript:;" class="closeAccessPop gotomap"><img src="{{ directory }}/images/map-icon.png" valign="middle"> Go To Map</a>
+                </div>
+            </div>
+        </div>
+        <div id="plan" class="planLocateTabs">
+            <div class="explore">
+                <p>Tap to see a detailed view of THE TOWNSHIP</p>
+                <p><img src="{{ directory }}/images/360.png" alt=""></p>
+                <p><a href="javascript:;" class="btn btn-white exploreIframe" rel="iframe-360.html">Explore</a></p>
+            </div>
+            <div id="exploreIframe"><iframe src="iframe-360.html" frameborder="0"></iframe></div>
+        </div>
+    </div>
+</section>

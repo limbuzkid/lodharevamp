@@ -9,16 +9,6 @@
 <section class="pillarsWrap">
 {{ page.content_pillars }}
 </section>
-<section id="content">
-  <div id="content-header">
-    {{ page.breadcrumb }}
-    {% if page.highlighted|render %}
-      <div id="highlighted">{{ page.highlighted }}</div>
-    {% endif %}
-    {% if action_links %}
-      <ul class="action-links">{{ action_links }}</ul>
-    {% endif %}
-  </div><!-- /#content-header -->
 <section class="iconicProjects">
     {{ page.content_iconic_project }}
 </section>
@@ -31,87 +21,33 @@
         </div>
     </div>
     <div class="mapContainer">
-        <div id="map"></div>
+        <div id="map" class="openMap"></div>
         <span class="minusSign"></span>
     </div>
 </section>
 <section class="letsWorkBetter">
-    <div class="container">
-        {{ page.content_lets_workbetter_header}}
-        <div class="appendedTabsWrap"></div>
-        <div class="otherProjectsCarousel carousel owl-carousel">
-            <div class="slide">
-                <div class="tabsWrap">
-                    <ul class="tabs">
-                        <li>BOUTIQUE OFFICES</li>
-                        <li>OFFICES FOR LEASE</li>
-                        <li>RETAIL</li>
-                        <li>WAREHOUSING</li>
-                    </ul>
-                </div>
-                <div class="tabContentWrap">
-                    <div class="tabContent">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
-                        <div class="content">
-                            <p class="title">lodha supremus 01</p>
-                            <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                    <div class="tabContent">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
-                        <div class="content">
-                            <p class="title">lodha supremus 02</p>
-                            <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                    <div class="tabContent">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
-                        <div class="content">
-                            <p class="title">lodha supremus 03</p>
-                            <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                    <div class="tabContent">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
-                        <div class="content">
-                            <p class="title">lodha supremus 04</p>
-                            <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="tabsWrap">
-                    <ul class="tabs">
-                        <li>BOUTIQUE OFFICES</li>
-                        <li>OFFICES FOR LEASE</li>
-                    </ul>
-                </div>
-                <div class="tabContentWrap">
-                    <div class="tabContent">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
-                        <div class="content">
-                            <p class="title">lodha supremus</p>
-                            <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                    <div class="tabContent">
-                        <div class="imgwrap"><img src="/{{ directory }}/images/upload/office01.jpg"></div>
-                        <div class="content">
-                            <p class="title">lodha supremus</p>
-                            <p>Until now, growing companies looking to set up offices in the heart of Mumbai’s business districts had limited choices: opt for a sub-standard space in old structures, or move into cramped spaces in new developments.</p>
-                            <a href="javascript:;" class="btn">Discover</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+    <div class="sectionTitle">
+      <span class="icon">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="26.305px" height="33px" viewBox="0 0 26.305 33" enable-background="new 0 0 26.305 33" xml:space="preserve">
+          <path d="M23.465,10.045h-0.529c-0.454,0-0.891,0.107-1.298,0.317l-0.354,0.183V2.928C21.283,1.312,19.97,0,18.354,0H7.953
+          C6.338,0,5.024,1.312,5.024,2.928v7.617l-0.354-0.184c-0.406-0.211-0.845-0.318-1.298-0.318H2.844c-1.567,0-2.843,1.275-2.843,2.842
+          v4.686c0,0.326,0.269,0.596,0.597,0.596c0.327,0,0.595-0.27,0.595-0.596v-4.686c0-0.91,0.741-1.65,1.651-1.65h0.529
+          c0.91,0,1.65,0.74,1.65,1.65v10.553H1.701c-0.281,0-0.51-0.229-0.51-0.51v-1.406c0-0.158-0.062-0.309-0.174-0.422
+          c-0.112-0.111-0.263-0.174-0.422-0.174C0.267,20.926,0,21.195,0,21.521v1.406c0,0.938,0.764,1.699,1.7,1.699h8.345v5.508H3.943
+          c-0.328,0-0.595,0.268-0.595,0.594v1.676C3.348,32.732,3.615,33,3.943,33s0.596-0.268,0.596-0.596v-1.078h17.227v1.078
+          c0,0.328,0.268,0.596,0.596,0.596c0.327,0,0.595-0.268,0.595-0.596v-1.676c0-0.326-0.268-0.594-0.595-0.594h-6.103v-5.508h8.346
+          c0.938,0,1.7-0.762,1.7-1.699V12.885C26.306,11.319,25.031,10.045,23.465,10.045z M15.07,30.135h-3.832v-5.506h3.832V30.135z
+           M20.093,23.438H6.215v-3.832h13.878V23.438z M20.093,18.416H6.215V2.928c0-0.959,0.78-1.738,1.738-1.738h10.401
+          c0.958,0,1.737,0.779,1.737,1.738L20.093,18.416L20.093,18.416z M25.115,22.928c0,0.281-0.229,0.51-0.51,0.51h-3.322V12.887
+          c0.001-0.912,0.742-1.651,1.651-1.651h0.529c0.91,0,1.65,0.739,1.65,1.649L25.115,22.928L25.115,22.928z"/>
+        </svg>
+      </span>
+      <p>LET’S WORK <span>BETTER</span></p>
+    </div>  
+    {{ page.content_commercial_project }}
+  </div>
 </section>
 <section class="lifestyleWrap">
     <div class="container paddingBoth">
@@ -119,6 +55,7 @@
         
     </div>
 </section>
+
 <section class="reviewsWrap">
     <div class="container">
         {{ page.content_testimonial }}
@@ -158,6 +95,22 @@
         
     </div>
 </section>
+
+<section id="content">
+  <div id="content-header">
+    {{ page.breadcrumb }}
+    {% if page.highlighted|render %}
+      <div id="highlighted">{{ page.highlighted }}</div>
+    {% endif %}
+    {% if action_links %}
+      <ul class="action-links">{{ action_links }}</ul>
+    {% endif %}
+  </div><!-- /#content-header -->
+
+
+ 
+
+
   <div id="content-area"></div>
 
 </section><!-- /#content -->

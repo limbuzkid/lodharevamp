@@ -1,0 +1,289 @@
+.allproperty {
+    position: relative;
+    padding-bottom:80px;
+    .container {
+        overflow: hidden;
+        &.searchproperty {
+            &:after {
+                background: #f6f3e4;
+                top: 0;
+                content: '';
+                left: 0;
+                height: 100px;
+                position: absolute;
+                width: 100%;
+                z-index: -1;
+            }
+        }
+        .search {
+            background-color: $white;
+            border: 1px solid $gold;
+            height: 52px;
+            position: relative;
+            width: 100%;
+            z-index: 2;
+            margin: 25px 0;
+            .inputWrap {
+                background-color: $white;
+                float: left;
+                height: 50px;
+                overflow: hidden;
+                width: 100%;
+                z-index: 3;
+                input {
+                    background-color: $white;
+                    border: none;
+                    font-family: $regular;
+                    @include font-size(1.7);
+                    height: 100%;
+                    line-height: 2rem;
+                    padding: 1% 25px 1% 65px;
+                    width: 100%
+                }
+            }
+            .searchIcon {
+                background-color: $white;
+                height: 50px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                text-indent: -9999px;
+                width: 60px;
+                z-index: 4;
+                &:before {
+                    background: url('#{$assetPath}/sprite-icons.png') -50px -97px no-repeat;
+                    content: '';
+                    height: 20px;
+                    left: 50%;
+                    position: absolute;
+                    top: 50%;
+                    width: 20px;
+                    z-index: 1;
+                    @include transform-translate(-50%,
+                    -50%)
+                }
+            }
+        }
+        .resultitle {
+            color: $gold;
+            font-family: $medium;
+            @include font-size(1.7);
+            line-height: 1em;
+            padding: 15px 0 30px;
+            float: left;
+            width: 100%;
+            span {
+                color: $black;
+            }
+        }
+        .searchfilter {
+            float: left;
+            width: 100%;
+            margin: 50px 0 30px;
+            .field {
+                float: left;
+                margin-left: 4%;
+                width: 48%;
+                &:first-child {
+                    margin-left: 0;
+                }
+                .selectWrapper {
+                    border: 1px solid $gold;
+                    float: left;
+                    height: 40px;
+                    padding: 0;
+                    position: relative;
+                    width: 100%;
+                    &.refineicon {
+                        background: url(#{$assetPath}/refinesearch.png) no-repeat left 12px center;
+                    }
+                    &.sortbyicon {
+                        background: url(#{$assetPath}/sortby.png) no-repeat left 12px center;
+                    }
+                    .selectedvalue {
+                        background: url(#{$assetPath}/arrow-select.png) no-repeat right 15px center;
+                        color: $black;
+                        font-family: $regular;
+                        @include font-size(1.7);
+                        height: 100%;
+                        left: 0;
+                        line-height: 2em;
+                        overflow: hidden;
+                        padding: 0px 8px 0 40px;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                    }
+                    select {
+                        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                        filter: alpha(opacity=0);
+                        -moz-opacity: 0;
+                        -khtml-opacity: 0;
+                        opacity: 0;
+                        cursor: pointer;
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    &.defaultSel {
+                        .selectedvalue {
+                            color: #939598;
+                        }
+                    }
+                }
+            }
+        }
+        .searchresult {
+            float: left;
+            width: 100%;
+            .slides {
+                width: 30%;
+                border: 1px solid $gold;
+                padding: 40px 15px;
+                position: relative;
+                display: inline-block;
+                margin: 15px 15px 20px;
+                .possession-wrp {
+                    p {
+                        padding: 0;
+                        line-height: 25px;
+                    }
+                }
+                .slide-footer {
+                    background-color: #f6f2e3;
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+                    p {
+                        padding: 7px 15px;
+                        text-align: center;
+                        a {
+                            display: inline-block;
+                        }
+                    }
+                }
+                .inner-wrp {
+                    position: relative;
+                    .fav-icon {
+                        display: inline-block;
+                        padding: 10px;
+                        position: absolute;
+                        bottom: 20px;
+                        bottom: -5px;
+                        right: 20px;
+                        background-color: #fff;
+                        z-index: 2;
+                        @include box-shadow(0 2px 8px 1px rgba(0, 0, 0, 0.3));
+                    }
+                }
+                .slider-tag {
+                    background-color: #bd9234;
+                    font-family: "DIN-Medium";
+                    color: white;
+                    text-transform: capitalize;
+                    font-size: 1.4rem;
+                    padding: 5px 15px;
+                    position: absolute;
+                    top: -15px;
+                    &.black {
+                        background-color: #000;
+                    }
+                    &.grey {
+                        background-color: gray;
+                    }
+                }
+                .head-txt {
+                    h3 {
+                        font-size: 1.8rem;
+                        font-family: $medium;
+                    }
+                    p {
+                        padding: 0;
+                        color: $gold;
+                    }
+                }
+                .inner-slider {
+                    margin: 25px 0;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .owl-nav {
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    @include transform-all(translateY(-50%));
+                    button {
+                        background-color: rgba(255, 255, 255, 0.7);
+                        padding: 0 8px !important;
+                        cursor: pointer;
+                        &.owl-prev {
+                            left: 0;
+                            position: absolute;
+                        }
+                        &.owl-next {
+                            right: 0;
+                            position: absolute;
+                        }
+                        span {
+                            display: inline-block;
+                            margin-left: 0;
+                            font-size: 0;
+                            position: relative;
+                            top: -5px;
+                            width: 25px;
+                            height: 25px;
+                            background: url('#{$assetPath}/aspi/arr-black.png') no-repeat center center;
+                        }
+                    }
+                }
+                .owl-nav {
+                    text-align: right;
+                    button {
+                        cursor: pointer;
+                        &.deactive {
+                            pointer-events: none;
+                            opacity: 0.5;
+                        }
+                        span {
+                            display: inline-block;
+                            margin-left: 15px;
+                            font-size: 0;
+                            width: 25px;
+                            height: 25px;
+                            background: url('#{$assetPath}/aspi/arr.png') no-repeat center center;
+                        }
+                        &.owl-prev span {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .allproperty .container .searchresult .slides {
+        width: 29%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .allproperty .container .searchresult .slides {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .allproperty .container .searchresult .slides {
+        width: 100%;
+        margin: 15px 0 20px;
+    }
+    .allproperty {
+        padding: 0;
+    }
+}

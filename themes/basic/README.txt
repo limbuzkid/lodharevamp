@@ -211,7 +211,7 @@ start using it, it is not Basic anymore, but your own theme.
 
 If you didn't rename your theme, but you don't want to be notified when Basic
 has a new version by the update module, simply delete "project = "basic" in
-basic.info.yml.
+basic..
 
 
 ================

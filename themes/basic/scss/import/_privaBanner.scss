@@ -1,0 +1,99 @@
+/*priva banner css starts from here*/
+.privaBannerwrapper{
+float: left;
+    clear: both;
+    width: 100%;
+    position: relative;
+clear:both;
+	.yellowBg{
+	 background:$gold;
+	     height: 750px;
+        width: 450px;
+	}
+	.bannerImage{
+	background: url(#{$assetPath}/priva-banner.jpg) no-repeat scroll top right;
+    padding: 0 22px 0 20px;
+    position: absolute;
+    top: 60px;
+    width: 90%;
+    height: 630px;
+    right: 0;
+    margin: 0 60px;
+	}
+	.bannerLogo{
+	width: 150px;
+    margin-top: 30px;
+	img{
+	max-width:100%;
+	display:block;
+	width:auto;
+	}
+	}
+	.bannerText{
+	text-transform: uppercase;
+    font-size: 40px;
+    width: 270px;
+    font-weight: bold;
+    margin-top: 20px;
+	}
+	.content{
+	padding-left: 480px;
+    padding-right: 100px;
+    margin-top: -35px;
+    margin-bottom: 17px;
+    width: 80%;
+    line-height: 22px;
+	}
+}
+@media only screen and (max-width: 767px) {
+.privaBannerwrapper{
+    .yellowBg {
+    height: 430px;
+    width: 180px;
+}
+.bannerImage {
+    background: url(#{$assetPath}/priva-banner.jpg) no-repeat scroll center center;
+    padding: 0 22px 0 20px;
+    width: 100%;
+    height: 350px;
+    right: -50px;
+    margin: 0;
+    background-size: cover;
+    top: 40px;
+}
+.content {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 20px;
+}
+.bannerLogo {
+    width: 90px;
+   
+}
+.bannerText {
+    font-size: 18px;
+    width: 140px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+}
+
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+.privaBannerwrapper {
+	.yellowBg {
+ 
+    width: 330px;
+}
+.content {
+    padding-left: 350px;
+    padding-right: 0;
+    margin-top: -45px;
+    width: 90%;
+    line-height: 22px;
+}
+}
+
+} 

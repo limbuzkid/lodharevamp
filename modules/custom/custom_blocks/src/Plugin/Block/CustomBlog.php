@@ -35,10 +35,11 @@
 
 			$nodes 	= entity_load_multiple('node', $nids);
 
+            $data=[];
 			foreach($nodes as $node) {
-				$date_time = strtotime($node->field_datetime->value);
-				$date = date('d.m.Y', $date_time); 
-				$shortdesc = preg_replace('/\s+?(\S+)?$/', '', substr($node->body->value, 0, 150)) . '...';
+				$date_time = $node->field_datetime?strtotime($node->field_datetime->value):'';
+				$date = $date_time?date('d.m.Y', $date_time):'';
+				$shortdesc = $node->body?(preg_replace('/\s+?(\S+)?$/', '', substr($node->body->value, 0, 150)) . '...'):'';
 				$path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid->value);
 
 				$data[] = array(

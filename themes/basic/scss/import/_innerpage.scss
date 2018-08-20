@@ -1,0 +1,629 @@
+.innerMainBanner {
+    float: left;
+    width: 100%;
+    position: relative;
+    &.animate {
+        .bannerCarousel {
+            .owl-item {
+                &.active {
+                    &:before {
+                        @include transition(ease-out, 2s);
+                        width: 0;
+                    }
+                }
+            }
+        }
+    }
+    .scroll {
+        bottom: 110px;
+        color: $white;
+        cursor: default;
+        @include font-size(1.3);
+        left: 40px;
+        line-height: 1em;
+        padding-left: 7px;
+        position: absolute;
+        z-index: 2;
+        @include transform-rotate(-90deg);
+        &:before {
+            background-color: $white;
+            content: '';
+            height: 2px;
+            right: 100%;
+            position: absolute;
+            top: 50%;
+            @include transform-translateY(-50%);
+            width: 0px;
+            @include animation(scrollDash 1s infinite);
+        }
+    }
+    .bannerCarousel {
+        float: left;
+        /* padding-right: calc((100vw - 1024px - 50px) / 2); */
+        position: relative;
+        width: 90%;
+        .owl-item {
+            &:before {
+                @extend .sectionOverlay;
+                @include transition(ease-out, 1s);
+                z-index: 4;
+            }
+            .content {
+                left: 50%;
+                position: absolute;
+                top: 40%;
+                @include transform-translate(-50%, -50%);
+                width: 1024px;
+                z-index: 2;
+                p {
+                    color: $white;
+                    @include font-size(4.5);
+                    line-height: 1.2em;
+                    padding: 0;
+                    position: relative;
+                    text-transform: uppercase;
+                    width: 390px;
+                }
+            }
+            // img.bannerImage{
+            // 	float: left;
+            // 	min-height: 500px;
+            // 	/* max-height: 530px; */
+            // 	padding-right: 11%;
+            // 	position: relative;
+            // 	width: 100%;
+            // 	z-index: 1;
+            // }
+            &.active {
+                .content {
+                    p {
+                        @include animation-delay(1s);
+                        @extend .fadeInLeft;
+                        @extend .animated;
+                    }
+                }
+            }
+        }
+        .item {
+            float: left;
+            position: relative;
+            width: 110%;
+            background-size: cover !important;
+            height: 700px;
+        }
+        .owl-controls {
+            position: absolute;
+            bottom: 34%;
+            width: 100%;
+            z-index: 4;
+            .owl-dots {
+                float: none;
+                margin: 0 auto;
+                text-align: center;
+                .owl-dot {
+                    padding: 5px;
+                    span {
+                        background: transparent;
+                        border: 1px solid $gold;
+                        border-radius: 0;
+                        height: 8px;
+                        width: 8px;
+                    }
+                    &.active {
+                        span {
+                            background-color: $gold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.lifestyleofthane {
+    .topSection {
+        padding: 110px 0 60px;
+        .sectionTitle {
+            display: table-cell;
+            padding-right: 5%;
+            width: 43%;
+            p {
+                padding-top: 0
+            }
+        }
+        .content {
+            display: table-cell;
+            vertical-align: bottom;
+            width: 57%;
+            p {
+                @include font-size(1.7);
+                line-height: 1.2em;
+                padding-bottom: 40px
+            }
+        }
+    }
+}
+
+.ourAmenities {
+    margin: 15px 0 100px;
+    position: relative;
+    .bannerCarousel {
+        .owl-nav,
+        .owl-dots {
+            display: none;
+        }
+    }
+    &:before {
+        @extend .sectionOverlay;
+        @include transition(ease-out, 2s);
+        z-index: 4;
+    }
+    &.animate {
+        &:before {
+            width: 0;
+        }
+    }
+    >.sectionTitle {
+        display: none
+    }
+    .contentWrap {
+        background-color: $white;
+        height: 100%;
+        left: 190px;
+        padding: 55px 45px;
+        position: absolute;
+        top: 0;
+        width: 400px;
+        z-index: 3;
+        .content {
+            float: left;
+            padding: 45px 0 30px;
+            width: 100%;
+            p {
+                font-family: $regular;
+                @include font-size(2);
+                letter-spacing: -1px;
+                line-height: 1.2em;
+            }
+        }
+        &:before {
+            background: $bgLightGold;
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 0;
+            z-index: -1;
+            @include transition(ease-in-out, 0s);
+        }
+        &.active {
+            &:before {
+                @include transition(ease-in-out, 5s);
+                width: 100%
+            }
+        }
+        .owlCustomWrap {
+            bottom: 90px;
+            position: absolute;
+            right: -60px;
+            .pagination {
+                float: left;
+                padding: 12px 20px;
+                span {
+                    color: #a3a3a3;
+                    @include font-size(1.7);
+                    line-height: 1.2em;
+                    &.activeSlide {
+                        color: $gold;
+                    }
+                }
+            }
+            .customNextBtn {
+                background-color: $white;
+                @include box-shadow(0 0 7px 0 rgba(0, 0, 0, .2));
+                color: $black;
+                float: right;
+                @include font-size(1.6);
+                line-height: 1.2em;
+                padding: 15px 65px 15px 30px;
+                position: relative;
+                text-transform: capitalize;
+                &:before {
+                    background: url('#{$assetPath}/sprite-icons.png') -10px -45px no-repeat;
+                    content: '';
+                    height: 13px;
+                    left: 76px;
+                    position: absolute;
+                    top: 20px;
+                    width: 23px;
+                    @include transition(ease-out,
+                    0.7s);
+                    z-index: 1;
+                }
+                &:hover {
+                    &:before {
+                        left: 82px;
+                    }
+                }
+            }
+        }
+    }
+    .bannerCarousel {
+        width: 100%;
+        float: left;
+        position: relative;
+        .owl-item {
+            right: -190px;
+        }
+        .item {
+            width: 100%;
+            float: left;
+            position: relative;
+            img.bannerImage {
+                float: left;
+                min-height: 500px;
+                /* max-height: 640px; */
+                position: relative;
+                width: 100%;
+                z-index: 1
+            }
+            .content {
+                display: none
+            }
+        }
+        .owl-controls {
+            position: absolute;
+            bottom: 34%;
+            width: 100%;
+            z-index: 4;
+            .owl-dots {
+                display: none;
+                .owl-dot {
+                    padding: 5px;
+                    span {
+                        background: transparent;
+                        border: 1px solid $gold;
+                        border-radius: 0;
+                        height: 8px;
+                        width: 8px;
+                    }
+                    &.active {
+                        span {
+                            background-color: $gold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.propertyPrice {
+    .sectionTitle {
+        background-color: $bgLightGold;
+        // float: left; 
+        float: none;
+        padding: 35px 6.4% 35px 0;
+        width: 37%;
+        position: relative;
+        &.active span.before-block {
+            display: inline-block;
+            background-color: #f6f3e3;
+            position: absolute;
+            width: 130%;
+            left: -130%;
+            top: 0;
+            height: 100%;
+        }
+        // span.icon{
+        //     float: right;
+        //     margin-right:64px;
+        // }
+        // p{
+        //     float: right;
+        //     clear: both;
+        // }
+    }
+    .propertypricecarousel {
+        .owl-nav {
+            text-align: right;
+            display: block;
+            button {
+                cursor: pointer;
+                &.deactive {
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+                span {
+                    display: inline-block;
+                    margin-left: 15px;
+                    font-size: 0;
+                    width: 25px;
+                    height: 25px;
+                    background: url('#{$assetPath}/aspi/arr.png') no-repeat center center;
+                }
+                &.owl-prev span {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+    .carousel {
+        float: right;
+        position: relative;
+        margin-top: -155px;
+        width: 79%;
+        .slide {
+            float: left;
+            padding: 5px;
+            width: 100%;
+            p {
+                color: $gold;
+                font-family: $medium;
+                @include font-size(2.5);
+                line-height: 1em;
+                text-align: right;
+                span {
+                    color: $green;
+                }
+            }
+            .box {
+                background-color: $white;
+                @include box-shadow(0 0 7px 0 rgba(0,
+                0,
+                0,
+                0.2));
+                float: left;
+                padding: 40px 30px 20px;
+                position: relative;
+                width: 100%;
+                ul {
+                    li {
+                        color: $gold;
+                        font-family: $regular;
+                        @include font-size(1.6);
+                        padding: 0 0 20px;
+                        width: 100%;
+                        span {
+                            color: $black;
+                            display: block;
+                            font-family: $medium;
+                            @include font-size(2);
+                        }
+                    }
+                }
+            }
+            .hover {
+                background-color: $green;
+                height: 100%;
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                text-align: center;
+                top: 0;
+                width: 100%;
+                @include transition(ease-out,
+                .5s);
+                @include opacity(0);
+                .btn {
+                    @include transform-translateY(-10%);
+                    @include transition(.5s,
+                    ease-out,
+                    .5s);
+                }
+            }
+            &:hover {
+                .hover {
+                    @include opacity(1);
+                    .btn {
+                        @include transform-translateY(-50%)
+                    }
+                }
+            }
+        }
+        .owl-controls {
+            bottom: -25px;
+            position: absolute;
+            right: 0;
+            .owl-nav {
+                float: left;
+                width: 60px;
+                .owl-next,
+                .owl-prev {
+                    background: url('#{$assetPath}/sprite-icons.png') -10px -45px no-repeat;
+                    float: right;
+                    height: 13px;
+                    text-indent: -99999px;
+                    width: 23px;
+                    z-index: 1;
+                }
+                .owl-prev {
+                    background-position: -10px -150px;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+// ------------Section scheme Starts------------
+section.scheme {
+    padding-top: 25px;
+    .wrapper {
+        max-width: 750px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .scheme-logo {
+        margin-right: 15px;
+        display: block;
+        height: 56px;
+        position: relative;
+        width: 56px;
+        svg {
+            position: absolute;
+            @include transform-translate(-50%,
+            -50%);
+            top: 50%;
+            left: 50%;
+        }
+        &:before,
+        &:after {
+            border: 2px solid transparent;
+            box-sizing: inherit;
+            width: 100%;
+            height: 100%;
+            content: '';
+            position: absolute;
+            @include animation(titleIconBox 1s .25s);
+        }
+        &:before {
+            border-top-color: $gold;
+            border-right-color: $gold;
+            top: 0;
+            right: 0;
+        }
+        &:after {
+            border-bottom-color: $gold;
+            border-left-color: $gold;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    .scehme-txt {
+        line-height: 27px;
+    }
+    p {
+        font-size: 1.8rem;
+        font-family: $regular;
+        padding: inherit;
+        span {
+            color: $gold;
+            font-family: $medium;
+            font-size: 2rem;
+        }
+    }
+}
+
+// ------------Section scheme Ends------------
+// ------------Section Pillar-Services Starts------------
+section.pillar-services {
+    padding: 50px 0;
+    .topSection {
+        background-color: $white;
+        padding: 0;
+    }
+    .pillarsCarousel {
+        padding: 0;
+        .owl-nav {
+            text-align: right;
+            display: block;
+            position: absolute;
+            width: 100%;
+            top: 60%;
+            transform: translateY(-50%);
+            button {
+                position: absolute;
+                cursor: pointer;
+                &.deactive {
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+                span {
+                    display: inline-block;
+                    font-size: 0;
+                    width: 25px;
+                    height: 25px;
+                    background: url('#{$assetPath}/aspi/arr.png') no-repeat center center;
+                }
+                &.owl-prev {
+                    left: 10%;
+                }
+                &.owl-next {
+                    right: 10%;
+                }
+                &.owl-prev span {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .item {
+            float: none;
+            display: inline-block;
+            margin: 30px 0;
+            margin-left: -4px;
+            height: 160px;
+            .pillar-hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                // opacity: 0;
+                display: none;
+            }
+            &.hovered {
+                .pillar-hover {
+                    display: block;
+                    p {
+                        padding: 10px;
+                        opacity: 1;
+                    }
+                }
+            }
+            .wrapper {
+                min-height: inherit;
+                max-width: 250px;
+                width: 100%;
+                float: none;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                // border: 1px solid;
+                text-align: center;
+                height: 100%;
+                p {
+                    position: static;
+                }
+                p.title {
+                    font-size: 2rem;
+                }
+                .pillar-img {
+                    max-width: 100px;
+                    width: 100%;
+                    margin: 0 auto;
+                    padding-bottom: 20px;
+                    img {
+                        width: 100%
+                    }
+                }
+                .pillar-para {
+                    margin: 15px 0;
+                    p {
+                        opacity: 1;
+                        padding: 0;
+                        font-size: 1.6rem;
+                        font-family: $light;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.know-btn {
+    padding-top: 10px;
+    .btn {
+        cursor: pointer;
+        text-transform: capitalize;
+        padding: 7px 15px;
+        background-color: $gold;
+        color: $white;
+        font-size: 1.4rem;
+    }
+}
+
+
+/*// ------------Section Pillar-Services Ends------------*/

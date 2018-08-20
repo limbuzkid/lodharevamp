@@ -1,0 +1,660 @@
+<body class="priva">
+<div class="outerWrap priva largescreen">
+    <!-- Header starts -->
+    <div class="fixedHeader">
+        <a class="menu" href="javascript:;" id="menu-icon">MENU</a>
+        <a class="logo" href="javascript:;">
+            <img src="{{ file_url(node.field_project.0.entity.field_image_path.value) }}" alt="{{ node.field_project.0.entity.title.value }}">
+        </a>
+        <div class="rightSec">
+            <ul>
+                <li>
+                    <a href="javascript:;" class="favourite"><img src="{{ file_url(directory) }}/images/icon-search.png"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="favourite"><img src="{{ file_url(directory) }}/images/icon-favourite.png"></a>
+                </li>
+                <!-- <li><a href="javascript:;" class="contact"><img src="{{ directory }}/images/icon-contact.png"></a></li> -->
+                <!-- <li class="dropdown"><a href="javascript:;"><img src="{{ directory }}/images/mobile-user.png"></a></li> -->
+                <li class="myLodha"><a href="javascript:;">MY LODHA</a></li>
+                <li class="dropdown countryLanguage"><a href="javascript:;">IND/EN</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Header ends -->
+    <!-- topBanner starts-->
+    <div class="privaBannerwrapper">
+        <div class="yellowBg">
+        </div>
+
+        <div class="bannerImage">
+            <div class="bannerLogo">
+                <img src="{{ file_url(directory) }}/images/priva/priva-logo.png" alt="priva-logo" />
+            </div>
+            <div class="bannerText">
+                {{ node.body }}
+            </div>
+
+        </div>
+        <div class="content">
+            <p>{{ node.field_banner_content.value | raw }}</p>
+        </div>
+    </div>
+    <!-- earnPoints start-->
+    <section class="earnPoints">
+        <div class="topSection">
+            <div class="container paddingBoth">
+                <div class="sectionTitle">
+                        <span class="icon">
+                            <img src="{{ file_url(directory) }}/images/priva/earn-points.png">
+                        </span>
+                    <p>Earn
+                        <span>Points</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <p>{{ node.field_earn.0.entity.field_header_text.value | raw }}</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="wrapper">
+                <div class="earnPointsSlider owl-carousel">
+                    {#<div>
+                    <img src="{{ directory }}/images/priva/topband.png" alt="">
+                    <div class="slides-box box-1">
+                        <div>
+                            <h3>1.2 Lac</h3>
+                            <span>Silver</span>
+                        </div>
+                    </div>
+                </div>
+                    <div>
+                        <img src="{{ directory }}/images/priva/topband.png" alt="">
+                        <div class="slides-box box-2">
+                            <div>
+                                <h3>1.4 Lac</h3>
+                                <span>Gold</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="{{ directory }}/images/priva/topband.png" alt="">
+                        <div class="slides-box box-3">
+                            <div>
+                                <h3>1.6 Lac</h3>
+                                <span>Platinum</span>
+                            </div>
+                        </div>
+                    </div>#}
+                    {%  for data in node.field_earn.0.entity.field_earn_points_slider %}
+                    <div>
+                        <img src="{{ file_url(data.entity.field_amenity_image_url.value) }}">
+                        <div class="slides-box box-1">
+                            {{ data.field_amenity_description.value }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {{ node.field_earn.0.entity.field_special_rewards_discounts.value }}
+            </div>
+        </div>
+    </section>
+    <!-- earnPoints ends-->
+
+    <!-- redeemPoints start-->
+    <section class="redeemPoints">
+        <div class="topSection">
+            <div class="container paddingBoth">
+                <div class="sectionTitle">
+                        <span class="icon">
+                            <img src="{{ file_url(directory) }}/images/priva/redeem-points.png">
+                        </span>
+                    <p>Redeem
+                        <span>Points</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <p>{{ node.field_reedem_points.0.entity.field_title.value }}</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="wrapper">
+                <div class="redeemPointsSlider owl-carousel">
+                    {#<div class="slides-box">
+                    <div>
+                        <img src="images/priva/home.png" alt="">
+                        <h3 class="item-title">
+                            Buy
+                            <span>
+                                        A Lodha Property
+                                    </span>
+                        </h3>
+                        <span>Buying new property with Lodha.</span>
+                    </div>
+                </div>#}
+                    {% for data in node.field_reedem_points.0.entity.field_group %}
+                    <div class="slides-box">
+                        <div>
+                            <img src="{{ file_url(data.field_amenity_image_url.value) }}" alt="{{ data.field_amenity_image_al.value }}"/>
+                            {{ data.field_amenity_description.value }}
+                            <h3 class="item-title">
+                                Buy
+                                <span>
+                                        A Lodha Property
+                                    </span>
+                            </h3>
+                            <span>Buying new property with Lodha.</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- redeemPoints ends-->
+
+    <!-- whyPriva start-->
+    <section class="whyPriva">
+        <div class="topSection">
+            <div class="container paddingBoth">
+                <div class="sectionTitle">
+                        <span class="icon">
+                            <img src="{{ file_url(directory) }}/images/priva/why-priva.png">
+                        </span>
+                    <p>Why
+                        <span>Priva</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <p>{{ node.field_why_priva.0.entity.field_title.value }}</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="container paddingBoth">
+            <div class="wrapper">
+                {% for data in node.field_why_priva.0.entity.field_group %}
+                <div class="list-box">
+                    <div>
+                        {{ data.field_amenity_image_cap.value }}
+                        <img src="{{file_url(data.field_amenity_image_url.value) }}">
+                        <div class="content">
+                            {{ data.field_amenity_description.value }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {#  <div class="list-box">
+                <div>
+                    <h3 class="item-title">
+                        Best
+                        <span>
+                                    Price
+                                </span>
+                    </h3>
+                    <img src="{{ directory }}/images/priva/rupees.png">
+                    <div class="content">
+                        <p>As a benefit to you, we ensure that your price is same as any other channel and you get the loyalty discount on top of that.</p>
+                    </div>
+                </div>
+            </div>
+                <div class="list-box">
+                    <div>
+                        <h3 class="item-title">
+                            Assured
+                            <span>
+                                    Discount
+                                </span>
+                        </h3>
+                        <img src="{{ directory }}/images/priva/giftbox.png">
+                        <div class="content">
+                            <p>Your referral gets discount at the point of sales & for you it comes as a Priva points once your referral pays 19.9% of the payment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <div>
+                        <h3 class="item-title">
+                            Service
+                            <span>
+                                    Guarantee
+                                </span>
+                        </h3>
+                        <img src="{{ directory }}/images/priva/serviceguarantee.png">
+                        <div class="content">
+                            <p>This purchase is directly from the service team. Hence you will never have any service issues.We will take good care of you.</p>
+                        </div>
+                    </div>
+                </div>#}
+            </div>
+        </div>
+    </section>
+    <!-- whyPriva ends-->
+
+    <!-- highlights start-->
+    <section class="highlights">
+        <div class="topSection">
+            <div class="container paddingBoth">
+                <div class="sectionTitle">
+                        <span class="icon">
+                            <img src="{{ file_url(directory) }}/images/priva/highlights.png">
+                        </span>
+                    <p>Highlights</p>
+                </div>
+            </div>
+        </div>
+        <div class="container paddingBoth">
+            <div class="wrapper">
+                {% for data in node.field_highlights %}
+                <div class="members-enrolled">
+                    <h3>{{ data.field_mai.value }}</h3>
+                    <span>{{ data.field_sub.value }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- highlights ends-->
+
+    <!-- our giveways start-->
+    <section class="propertyPrice overGiveaways">
+        <div class="container paddingBoth">
+            <div class="sectionTitle active">
+                    <span class="icon">
+                        <img src="{{ file_url(directory) }}/images/priva/whitegiftbox.png">
+                    </span>
+                <p>Our <span>Giveaways</span></p>
+                <span class="before-block"></span>
+            </div>
+            <div class="ourgivewayscarousel carousel owl-carousel">
+                {% for data in node.field_our_giveaways %}
+                <div class="slide">
+                    <div class="box">
+                        <img src="{{ file_url(data.field_about_image_url.value) }}" alt="{{ data.field_about_image_alternate_.value }}">
+                    </div>
+                    <h4>{{ data.field_about_image_description.value }}</h4>
+                </div>
+                {% endfor %}
+                {#   <div class="slide">
+                <div class="box">
+                    <img src="images/priva/smart-watch.png">
+                </div>
+                <h4>Apple Smartwatch</h4>
+            </div>
+                <div class="slide">
+                    <div class="box">
+                        <img src="images/priva/smart-watch.png">
+                    </div>
+                    <h4>Apple Smartwatch</h4>
+                </div>
+                <div class="slide">
+                    <div class="box">
+                        <img src="images/priva/smart-watch.png">
+                    </div>
+                    <h4>Apple Smartwatch</h4>
+                </div>#}
+            </div>
+        </div>
+    </section>
+    <!-- our giveways end-->
+
+    <!-- our testimonials-->
+    <section class="testimonials">
+        <div class="topSection">
+            <div class="container paddingBoth">
+                <div class="sectionTitle">
+                        <span class="icon">
+                            <img src="{{ directory }}/images/priva/testimonials.png">
+                        </span>
+                    <p>Testimonials</p>
+                </div>
+            </div>
+        </div>
+        <div class="container paddingBoth">
+            <div class="wrapper">
+                <div class="testimonials-slider owl-carousel">
+                    {% for data in node.field_testimonials %}
+                    <div class="slides">
+                        <img src="{{ file_url(data.field_image_path.value) }}">
+                        {{ data.field_content_body.value }}
+                        {#<div class="content">
+                        <p>
+                            I joined Lodha Group as it is one of the ambitious companies in India and has a pedigree from best colleges of the country. In last one year, LGMP has given me ample opportunities to grow professionally with challenging roles and productive work environment.
+                        </p>
+                        <h4>Samarth Sharma</h4>
+                    </div>#}
+                    </div>
+                    {% for data in node.field_testimonials %}
+                    {#<div class="slides">
+                    <img src="images/priva/profile-mandar-sohoni.jpg">
+                    <div class="content">
+                        <p>
+                            I joined Lodha Group as it is one of the ambitious companies in India and has a pedigree from best colleges of the country. In last one year, LGMP has given me ample opportunities to grow professionally with challenging roles and productive work environment.
+                        </p>
+                        <h4>Samarth Sharma</h4>
+                    </div>
+                </div>#}
+                    {# <div class="slides">
+                    <img src="images/priva/profile-mandar-sohoni.jpg">
+                    <div class="content">
+                        <p>
+                            I joined Lodha Group as it is one of the ambitious companies in India and has a pedigree from best colleges of the country. In last one year, LGMP has given me ample opportunities to grow professionally with challenging roles and productive work environment.
+                        </p>
+                        <h4>Samarth Sharma</h4>
+                    </div>
+                </div>
+                    <div class="slides">
+                        <img src="images/priva/profile-mandar-sohoni.jpg">
+                        <div class="content">
+                            <p>
+                                I joined Lodha Group as it is one of the ambitious companies in India and has a pedigree from best colleges of the country. In last one year, LGMP has given me ample opportunities to grow professionally with challenging roles and productive work environment.
+                            </p>
+                            <h4>Samarth Sharma</h4>
+                        </div>
+                    </div>
+                    <div class="slides">
+                        <img src="images/priva/profile-mandar-sohoni.jpg">
+                        <div class="content">
+                            <p>
+                                I joined Lodha Group as it is one of the ambitious companies in India and has a pedigree from best colleges of the country. In last one year, LGMP has given me ample opportunities to grow professionally with challenging roles and productive work environment.
+                            </p>
+                            <h4>Samarth Sharma</h4>
+                        </div>
+                    </div>#}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our testimonials-->
+
+    <!-- prime member -->
+    <section class="priva-member">
+        <div class="container">
+            <div class="wrapper">
+                <h4>Enjoy exclusive privileges of being a Lodha Priva member</h4>
+                <button class="btn btn-gold">Login</button>
+                <div class="queries">
+                    <span>For any queries</span>
+                    <span><b>Call</b> {{ node.field_contact.value }} | <b>Email</b> {{ node.field_email.value }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- prime member -->
+
+    {# <footer>
+    <div class="copy">
+        <img src="{{ directory }}/images/logo-lodha-ft.png" alt="Lodha">
+        <p>© LODHAGroup 2018</p>
+    </div>
+    <div class="midSec">
+        <ul>
+            <li><a href="javascript:;">Site Map</a></li>
+            <li><a href="javascript:;">Terms & Condition</a></li>
+            <li><a href="javascript:;">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <div class="rightSec">
+        <div class="social-icons">
+            <ul>
+                <li>
+                    <a href="javascript:void(0);"><img src="{{ directory }}/images/twitter.png" alt="twitter" /></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><img src="{{ directory }}/images/fb.png" alt="fb" /></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><img src="{{ directory }}/images/youtube.png" alt="youtube" /></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><img src="{{ directory }}/images/insta.png" alt="insta" /></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);"><img src="{{ directory }}/images/linkedin.png" alt="linkedin" /></a>
+                </li>
+
+            </ul>
+        </div>
+        <a href="javascript:;" class="moreLink">more</a>
+    </div>
+</footer>#}
+</div>
+{#<div class="searchLightboxWrap overlay">
+    <div class="searchLightbox">
+        <a href="javascript:;" class="close"></a>
+        <div class="container">
+            <div class="search">
+                <div class="inputWrap"><input type="text" name=""></div>
+                <a href="javascript:;" class="searchIcon">Search</a>
+            </div>
+            <div class="lastSearchList">
+                <div class="box">
+                    <p>Last Search</p>
+                    <ul>
+                        <li><a href="javascript:;">2BHK</a></li>
+                        <li><a href="javascript:;">Rent in Bandra</a></li>
+                        <li><a href="javascript:;">Pallava</a></li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <p>Popular Location</p>
+                    <ul>
+                        <li><a href="javascript:;">South Mumbai</a></li>
+                        <li><a href="javascript:;">Andheri</a></li>
+                        <li><a href="javascript:;">Ghatkopar</a></li>
+                        <li><a href="javascript:;">Dadar</a></li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <p>Popular Projects</p>
+                    <ul>
+                        <li><a href="javascript:;">Pallava</a></li>
+                        <li><a href="javascript:;">Azzuro</a></li>
+                        <li><a href="javascript:;">Venezia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="formWrapper">
+                <p class="heading">I WISH TO</p>
+                <div class="accordianBox">
+                    <div class="fieldRow">
+                        <div class="field">
+                            <ul class="radioGroup">
+                                <li><input name="radio1" type="radio" value="" id="buy"><label for="buy">Buy</label></li>
+                                <li><input name="radio1" type="radio" value="" id="rent"><label for="rent">Rent</label></li>
+                            </ul>
+                        </div>
+                        <div class="field">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Type of Property</option>
+                                    <option>Type of Property</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Select City</option>
+                                    <option>Mumbai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Select Locality</option>
+                                    <option>Parel</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="heading">HOME &amp; BUDGET SIZE</p>
+                <div class="accordianBox">
+                    <div class="fieldRow">
+                        <label>Select Configuration</label>
+                        <ul class="radioGroup">
+                            <li><input name="radio2" type="radio" value="" id="bhk1"><label for="bhk1">1BHK</label></li>
+                            <li><input name="radio2" type="radio" value="" id="bhk2"><label for="bhk2">2BHK</label></li>
+                            <li><input name="radio2" type="radio" value="" id="bhk3"><label for="bhk3">3BHK</label></li>
+                            <li><input name="radio2" type="radio" value="" id="bhk4"><label for="bhk4">4BHK</label></li>
+                        </ul>
+                    </div>
+                    <div class="fieldRow">
+                        <label>Select Budget</label>
+                        <div class="sliderWrap">
+                            <div class="slider">
+                                <div class="searchValslider" id="searchValslider"></div>
+                            </div>
+                            <div class="sliderRangeBox">
+                                <ul>
+                                    <li>50L</li>
+                                    <li>25Cr</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="heading">POSSESSION STATUS</p>
+                <div class="accordianBox">
+                    <div class="fieldRow">
+                        <ul class="checkGroup">
+                            <li><input name="checkbox" type="checkbox" value="" id="checkbox"><label for="checkbox">Ready Possesion</label></li>
+                            <li><input name="checkbox" type="checkbox" value="" id="checkbox2"><label for="checkbox2">Under Construction</label></li>
+                            <li><input name="checkbox" type="checkbox" value="" id="checkbox3"><label for="checkbox3">OC Ready</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="buttonWrap">
+                    <button class="btn">Search</button>
+                    <button class="btn btn-black">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>#}
+{#</div>#}
+
+
+<!--main menu starts from here-->
+{#<div class="menuOverlay">
+    <a href="javascript:void(0);" class="closeBtn"></a>
+    <div class="menuWrap">
+        <div class="leftMenuBox animated ">
+            <div class="topMenu  mobileMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" class="favourite"><img src="{{ directory }}/images/icon-favourite.png"></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="{{ directory }}/images/mobile-user.png" alt="mobile-user"></a>
+                        </li>
+                        <li class="dropdown countryLanguage"><a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li><a href="javascript:void(0);">Country1</a></li>
+                                <li><a href="javascript:void(0);">Country2</a></li>
+                                <li><a href="javascript:void(0);">Country3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="mainMenu">
+                <div class="menuLogo">
+                    <a href="javascript:void(0);"><img src="{{ directory }}/images/logo-lodha-black.png" alt="logo-lodha-black" /></a>
+                </div>
+                <li class="menuActive"><a href="javascript:void(0);">Residential Properties</a></li>
+                <li><a href="javascript:void(0);">Commercial Properties</a></li>
+                <li><a href="javascript:void(0);" class="subMenuDropdown">Services <span class="dropdownArrow"></span></a>
+                    <ul class="subMenu" style="display:none;">
+                        <li><a href="javascript:void(0);">Easy lease</a></li>
+                        <li><a href="javascript:void(0);">Priva</a></li>
+                        <li><a href="javascript:void(0);">Home loan support</a></li>
+                        <li><a href="javascript:void(0);">Registration support</a></li>
+                        <li><a href="javascript:void(0);">Hospitality and facilities management</a></li>
+                        <li><a href="javascript:void(0);"> NRI services</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);">Investor Corner</a></li>
+                <li><a href="javascript:void(0);">NRI Corner</a></li>
+                <li><a href="javascript:void(0);">About Lodha</a></li>
+                <li><a href="javascript:void(0);">Careers</a></li>
+            </ul>
+        </div>
+        <div class="rightMenuBox animated">
+            <div class="topMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="favourite"><img src="{{ directory }}/images/icon-search.png"></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="favourite"><img src="{{ directory }}/images/icon-favourite.png"></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="{{ directory }}/images/mobile-user.png" alt="mobile-user" /></a>
+                        </li>
+                        <li class="dropdown countryLanguage"><a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li><a href="javascript:void(0);">Country1</a></li>
+                                <li><a href="javascript:void(0);">Country2</a></li>
+                                <li><a href="javascript:void(0);">Country3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottomMenu">
+                <ul class="footerLinks">
+                    <li><a href="javascript:void(0);" class="favourite">Events at Lodha</a></li>
+                    <li><a href="javascript:void(0);" class="contact">Blogs</a></li>
+                    <li><a href="javascript:;">Buying Guides</a></li>
+                    <li><a href="javascript:void(0);">Maharera Regulations</a></li>
+                    <li><a href="javascript:void(0);">Feedback</a></li>
+                    <li><a href="javascript:void(0);">Feedback</a></li>
+                    <li><a href="javascript:void(0);">contact Us</a></li>
+                </ul>
+                <div class="menuFooter">
+                    <div class="social-icons">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);"><img src="{{ directory }}/images/twitter.png" alt="twitter" /></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="{{ directory }}/images/fb.png" alt="fb" /></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="{{ directory }}/images/youtube.png" alt="youtube" /></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="{{ directory }}/images/insta.png" alt="insta" /></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="{{ directory }}/images/linkedin.png" alt="linkedin" /></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        <p class="yellowText">&copy; LODHA Group 2018</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>#}
+<!--main menu ends here-->
+<!-- <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script> -->
+<!--  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWus3m2h3YdxBOz9XPyzqgATz-hzBklLo&libraries=places&callback=initMap">
+    </script>-->
+</body>

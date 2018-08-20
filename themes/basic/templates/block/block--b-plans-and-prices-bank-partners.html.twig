@@ -1,0 +1,8 @@
+<div class="partnerLogos">
+ {#   {{%  for data in  content["#data_obj"] %}}#}
+    <span>
+        <img src="/{{ directory }}/images/partners/kotak.gif"> {#{data.fieldImagePath}#}
+    </span>
+    {#{{% endFor %}}#}
+    {#//repaet this span block#}
+</div>

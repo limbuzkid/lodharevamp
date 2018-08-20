@@ -6,3 +6,11 @@ custom_ajax.load_home_world_tower:
   requirements:
     _access: 'TRUE'
     _method: 'POST'
+custom_ajax.load_unit_plans:
+  path: '/ajax/load-unit-plan/{arg1}/{arg2}'
+  defaults:
+    _title: 'Unit Plans'
+    _controller: '\Drupal\custom_ajax\Controller\AjaxController::load_unit_plans'
+  requirements:
+    _access: 'TRUE'
+    _method: 'GET'

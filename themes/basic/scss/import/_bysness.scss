@@ -1,0 +1,202 @@
+
+
+.planTypes{
+  .propertyPlans {
+    float: left;
+    margin: 30px 0 0;
+    text-align: center;
+    width: 100%;
+    .typedropdown {
+      float: left;
+      position: relative;
+      width: 100%;
+      &:after {
+        background: url(../images/arrow-select.png) no-repeat center;
+        content: '';
+        height: 38px;
+        position: absolute;
+        pointer-events: none;
+        right: 0;
+        top: 8px;
+        width: 38px;
+      }
+      select {
+        border: none;
+        cursor: pointer;
+        float: left;
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        width: 100%;
+      }
+
+    }
+  }
+  .abc{
+    text-align: center;
+  }
+}
+
+.selectBhkText{
+  font-family: "DIN-Regular";
+  font-size: 21px;
+  font-size: 2.1rem;
+  padding: 15px 0;
+}
+
+
+.planTypes{
+  .planTabContent {
+    padding:45px 50px 0 50px;
+    .planTabs {
+      display: none;
+      position: relative;
+      &:first-child {
+        display: block;
+      }
+      p.selTxt {
+        font-family: $regular;
+        @include font-size(2.1);
+        padding: 15px 0;
+      }
+      .selectPlan {
+        position: relative !important;
+        width: 315px !important;
+
+        .prevPlan, .nextPlan {
+          position: absolute;
+          width: 18px;
+          height: 32px;
+          top: 9px !important;
+          background: url(../images/arrow-sprite.png) no-repeat;
+          display: block;
+          text-indent: -9999px;
+          cursor: pointer;
+          &.inActive {
+            @include opacity(0.5);
+          }
+        }
+        .prevPlan {
+          background-position: 0 0;
+          left: 0;
+        }
+        .nextPlan {
+          background-position: right 0;
+          right: 0px;
+        }
+        .planUnitHolder {
+          position: absolute;
+          width: 60px;
+          top: 0;
+          left: 50%;
+          margin-left: -30px;
+          p {
+            font-family: $medium;
+            @include font-size(2.1);
+            padding: 5px 0;
+            text-align: center;
+            color: #000000;
+            text-transform: uppercase;
+          }
+          .planUnits {
+            border: 2px solid #000;
+            position: relative;
+            width: 56px;
+            height: 56px;
+            overflow: hidden;
+            span {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              left: 0;
+              top: 0;
+              display: block;
+              font-family: $medium;
+              @include font-size(4);
+              line-height: 120%;
+              color: #000000;
+            }
+          }
+        }
+      }
+    }
+  }
+  .newDropdown{
+    width:50%;
+    float: right;
+    .typedropdown{
+      width: 100% !important;
+      select {
+        height: 50px !important;
+        font-size: 1.7rem !important;
+        padding: 10px 10px !important;
+        border: 2px solid #434343 !important;
+        color:#000000;
+      }
+    }
+  }
+}
+
+.planTypes .planTabContent .planTabs .selectPlan {
+  margin-left: -43px ;
+  padding:0 0 50px 0;
+}
+
+
+.bhkdrop{
+  .planUnitHolder{
+    width: 302px !important;
+    top: 0 !important;
+    left: 23% !important;
+    z-index: -1;
+    .planUnits{
+      width: 232px !important;
+      height: 50px !important;
+      span{
+        font-size: 2.5rem !important;
+        text-align: left !important;
+        padding: 7px 12px !important;
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 1023px) {
+  .planTypes .planTabContent .planTabs .selectPlan {
+    position: relative !important;
+    right: 0;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .planTypes {
+    .newDropdown {
+      margin-top: 10px;
+      width: 100%;
+      float: left;
+      .typedropdown {
+        width: 100% !important;
+        select {
+          height: 42px !important;
+          font-size: 1.5rem !important;
+          padding: 10px 10px !important;
+        }
+      }
+    }
+  }
+
+  .planTypes .planTabContent .planTabs .selectPlan {
+    margin-left: -43px !important;
+  }
+
+  .planTypes .planTabContent .planTabs .selectPlan {
+    right: 0;
+    position: relative !important;
+    margin: 0;
+    padding: 0 0 50px 0;
+  }
+}

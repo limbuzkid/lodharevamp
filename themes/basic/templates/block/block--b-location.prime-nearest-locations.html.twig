@@ -1,0 +1,9 @@
+
+{{ content["#data_obj"]['information'] }}
+<div class="nearest">
+    {% for datas in content["#data_obj"]['nearest'] %}
+        <p>
+            {{ datas }} <span>20mins</span>
+        </p>
+    {% endfor %}
+</div>

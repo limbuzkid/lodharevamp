@@ -1,0 +1,25 @@
+{% for data in content["#data_obj"] %}
+<div class="item">
+    <div class="wrapper flex-wrp">
+        <span class="square one"></span>
+        <span class="square two"></span>
+        <span class="square three"></span>
+        <span class="square four"></span>
+
+        <!-- <span class="svgBox" data-svg="images/svg/timely-delivery.svg"></span> -->
+        <div class="pillar-img">
+            <img src="{{ directory }}/images//aspi/servive-slide1.png" alt="service-slide"> {#imageFieldPath#}
+        </div>
+        <p class="title">Easy lease</p> {#{pillar namr}#}
+        <!-- <div class="pillar-para">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean.</p>
+        </div> -->
+        <div class="pillar-hover">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean</p> {#{ pillar desc}#}
+            <div class="know-btn">
+                <button class="btn">know more</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,13 @@
+<!-- Giveaways end here-->
+{{ for data in  content["#data_obj"] }}
+    <div class="slide">
+        <div class="box">
+            <img src="{{ directory }}/images/priva/smart-watch.png"> {#{data.fieldImagePath}#}
+        </div>
+        <h4>Apple Smartwatch</h4> {#{data.fieldName}#}
+    </div>
+
+
+{{% endfor %}}
+
+<!-- Giveaways end here-->

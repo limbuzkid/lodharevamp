@@ -1,0 +1,41 @@
+{% for data in content["#data_obj"] %}
+<div class="slides"> {#//todo: can be converted to a twig file#}
+    <span class="slider-tag black-bg">Commercial</span>
+    <div class="res-head flex-wrp">
+        <div class="head-txt">
+            <h3>LODHA SPLENDORA 1</h3> {#{{ data.name} }}#}
+            <p>Powai</p> {#{{ data.office} }}#}
+        </div>
+        <div class="rating">
+            <!-- <span class="sprite-star"></span> -->
+            <span class="viewIcon"></span>
+            <img src="{{ directory }}/images/aspi/star.png" alt="star">
+        </div>
+    </div>
+    <div class="inner-wrp">
+        <div class="inner-slider owl-carousel">
+            <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+            <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+            <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+            <img src="{{ directory }}/images/aspi/slide1.jpg" alt="resident-image">
+        </div>
+        <span class="fav-icon">
+            <img src="{{ directory }}/images//aspi/fav-icon.png" alt="fav-icon">
+        </span>
+    </div>
+    <div class="possession-wrp">
+        <p>Possession Date:
+            <span>Oct 2019</span> {#{data.date}#}
+        </p>
+        <p>
+            <span>2, 3 BHK</span>  {#{data.typology}#}
+            <span>Price: 2.5 Cr onwards</span> {#{data.price}#}
+        </p>
+    </div>
+    <div class="slide-footer">
+        <p>Offer :
+            <span>5:90:5 Scheme</span> {#{data.scheme}#}
+        </p>
+    </div>
+</div>
+{% endfor %}

@@ -786,7 +786,7 @@ $settings['entity_update_batch_size'] = 50;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'lda_revamp',
+  'database' => 'lodha_revamp',
   'username' => 'root',
   'password' => 'indubuntu',
   'prefix' => 'lda_',
@@ -797,4 +797,4 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_MrFeNYVcKjw6GIzOda-vZry6nMv_JILc2Wx-xkPH82YcGWMh4Z9h62VS-UbSnG-IWaapUQyjZw/sync';
-$config['assets_path']['url'] = 'http://10.132.150.168:8088';
+$config['assets_path']['url'] = 'https://indigoconsulting.in';

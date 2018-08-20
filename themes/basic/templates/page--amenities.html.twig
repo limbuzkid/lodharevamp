@@ -1,0 +1,527 @@
+
+{#{{ directory }}#}
+{#{{ dump(node.field_external_amenities_group.0 | keys) }}#}
+{#{{ dump(node.field_external_amenities_group.0.value) }}#}
+
+{#{% set tid = node.field_external_amenities_group.0.target_id %}#}
+{#{% if tid %}#}
+  {#{% set template = \Drupal\taxonomy\Entity\Term::load(tid)->getName(); %}#}
+    {#{{ dump(template) }}#}
+{#{% endif %}#}
+
+{#{{ dump('Hello World') }}#}
+{#{{ dump(node.field_external_amenities_group.0.entity.field_amenity_image_url.value) }}#}
+{#{{ dump(node.field_external_amenities_group.0.entity.field_amenity_image_cap.value) }}#}
+{#{{ dump(node.field_external_amenities_group.0.entity.field_image_alternate_text.value) }}#}
+{#{{ dump(node.field_external_amenities_group.0.entity | keys) }}#}
+
+<body class="themeGreen plansPg amenitiesPg">
+<div class="outerWrap">
+    <!-- Header starts -->
+    {% set url = path('entity.node.canonical', {'node': node.id})|split('/',-1)|join('/') %}
+    <div class="fixedHeader">
+        <a class="menu" href="javascript:;" id="menu-icon">MENU</a>
+        <a class="logo" href="javascript:;">
+            <!--<img src="/{{ directory ~ (node.field_project.0.entity.field_logo.value)}}" alt="{{ node.field_project.0.entity.title.value }}">-->
+            <img src="{{ file_url(node.field_project.0.entity.field_image_path.value) }}" alt="{{ node.field_project.0.entity.title.value }}">
+        </a>
+        <div class="rightSec">
+            <ul>
+                <li><a href="javascript:;" class="favourite"><img src="{{ file_url(directory) }}/images/icon-search.png"></a></li>
+                <li><a href="javascript:;" class="favourite"><img src="{{ file_url(directory) }}/images/icon-favourite.png"></a></li>
+                <!-- <li><a href="javascript:;" class="contact"><img src="{{ directory }}/images//icon-contact.png"></a></li> -->
+                <!-- <li class="dropdown"><a href="javascript:;"><img src="{{ directory }}/images//mobile-user.png"></a></li> -->
+                <li class="myLodha"><a href="javascript:;">MY LODHA</a></li>
+                <li class="dropdown countryLanguage"><a href="javascript:;">IND/EN</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Header ends -->
+    <div class="subHeader">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="javascript:;">Home</a></li>
+                <li><a href="javascript:;">Residential Properties</a></li>
+                <li><a href="javascript:;">Amara</a></li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="topNav">
+            <ul>
+                <li><a href={{url ~ '/about' }} >About</a></li>
+                <li><a href={{url ~ '/location' }}>Location</a></li>
+                <li><a href={{url ~ '/plans-prices' }}>Plans & Price</a></li>
+                <li><a href={{url ~ '/amenities'}} class="active">Amenities</a></li>
+                <li><a href={{url ~ '/gallery' }}>Gallery</a></li>
+            </ul>
+            <div class="enquire-block">
+                <a href="javascript:;" class="modalOpen" data-modal-id="getInTouch">
+                <span class="fav-icon">
+                    <img src="{{ file_url(directory) }}/images/icon-enquire.png" alt="">
+                </span>
+                    <span>Enquire</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Header ends -->
+    <section class="amenities">
+        <div class="container">
+            <!--<a href="javascript:;" class="getinTouch modalOpen" data-modal-id="getInTouch"><img src="{{ directory }}/images//icon-enquire.png" alt=""></a>-->
+            {#{{ page.amenities_header }}#}
+            <div class="sectionTitle">
+                    <span class="icon"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="33.208px" height="25px" viewBox="404.341 285.14 33.208 25" enable-background="new 404.341 285.14 33.208 25" xml:space="preserve">
+                            <path d="M434.775,290.497c-1.558,0-2.812,1.254-2.812,2.812c0,0.835,0.38,1.558,0.95,2.089l-5.965,3.191l-5.054-7.56
+                                c1.14-0.456,1.938-1.558,1.938-2.85c0-1.672-1.367-3.04-3.04-3.04c-1.672,0-3.04,1.368-3.04,3.04c0,1.292,0.798,2.394,1.938,2.812
+                                l-5.357,7.561l-5.433-3.078c0.646-0.494,1.064-1.292,1.064-2.204c0-1.558-1.254-2.812-2.812-2.812c-1.558,0-2.812,1.253-2.812,2.812
+                                c0,1.368,0.988,2.507,2.28,2.735l1.672,12.425c0.152,0.987,0.988,1.709,1.976,1.709h21.049c0.987,0,1.861-0.722,1.976-1.748
+                                l1.672-12.386c1.443-0.114,2.583-1.33,2.583-2.773C437.586,291.751,436.332,290.497,434.775,290.497z M420.831,286.698
+                                c0.835,0,1.52,0.684,1.52,1.52s-0.685,1.52-1.52,1.52c-0.836,0-1.52-0.684-1.52-1.52S419.995,286.698,420.831,286.698z
+                                 M405.899,293.271c0-0.722,0.57-1.292,1.292-1.292c0.722,0,1.292,0.57,1.292,1.292c0,0.722-0.57,1.292-1.292,1.292
+                                C406.469,294.563,405.899,293.993,405.899,293.271z M408.293,296.881l5.889,3.344c0.342,0.189,0.76,0.113,0.988-0.229l5.623-7.865
+                                l5.244,7.865c0.228,0.342,0.646,0.418,0.987,0.266l6.308-3.381l-0.988,7.523h-23.062L408.293,296.881z M431.356,308.658h-21.049
+                                c-0.228,0-0.456-0.189-0.494-0.417l-0.304-2.394h22.645l-0.305,2.355C431.811,308.507,431.583,308.658,431.356,308.658z
+                                 M434.775,294.563c-0.722,0-1.292-0.57-1.292-1.292c0-0.722,0.57-1.292,1.292-1.292s1.292,0.57,1.292,1.292
+                                C436.067,293.993,435.496,294.563,434.775,294.563z"></path>
+                            </svg></span>
+                <p>Our <span>Amenities</span></p>
+            </div>
+        </div>
+    </section>
+    <section class="amenitiesSlider">
+        <div class="container">
+            <div class="tabsComponent customTabs">
+                <ul commonTab="amenityTabs">
+                    <li tabName="internal" amenitySlider="true" class="activeTab">Internal</li>
+                    <li tabName="external" amenitySlider="true">External</li>
+                </ul>
+            </div>
+        </div>
+        <div class="amenityTabsHolder flexgallery">
+          {# Internal Amenities #}
+          <div id="internal" class="amenityTabs">
+            <div class="thumbSlider">
+              <div id="internalPaging" class="paging">
+                <span class="currentSlide">1</span> / <span class="totalSlides"></span>
+              </div>
+              <div class="sliderAmenities flexslider" navFor="internalPaging">
+                <ul class="slides flexImg">
+                  {% for data in node.field_internal_amenities_group %}
+                    <li>
+                      <img src="{{ file_url(data.entity.field_amenity_image_url.value) }}" alt="{{ data.entity.field_amenity_image_al.value }}"/>
+                      <p class="flex-caption">{{ data.entity.field_amenity_image_cap.value }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="container">
+              <div class="listComponent listHidden" id="list1">
+                {{ node.body.value | raw }}
+              </div>
+              <p class="toggleBtn">
+                <a href="javascript:;" toggleContent="list1">
+                  <span class="more">More <span class="operators">+</span></span>
+                  <span class="less">less <span class="operators">-</span></span>
+                </a>
+              </p>
+              <p class="notes">{{ node.field_notes.value }}</p>
+            </div>
+          </div>
+
+          {# External Amenities #}
+          <div id="external" class="amenityTabs">
+            <div class="thumbSlider">
+              <div id="externalPaging" class="paging">
+                <span class="currentSlide">1</span> / <span class="totalSlides"></span>
+              </div>
+              <div class="sliderAmenities flexslider" navFor="externalPaging">
+                <ul class="slides flexImg">
+                  {% for data in node.field_external_amenities_group %}
+                    <li>
+                      <img src="{{ file_url(data.entity.field_amenity_image_url.value) }}" alt="{{ data.entity.field_amenity_image_al.value }}"/>
+                      <p class="flex-caption">{{ data.entity.field_amenity_image_cap.value }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="container">
+              <div class="listComponent listHidden" id="list2">
+                {{ node.body.value | raw }}
+              </div>
+              <p class="toggleBtn">
+                <a href="javascript:;" toggleContent="list2">
+                  <span class="more">More <span class="operators">+</span></span>
+                  <span class="less">less <span class="operators">-</span></span>
+                </a>
+              </p>
+              <p class="notes">*Except kitchen, passage and bathroom</p>
+            </div>
+          </div>
+            {#{{ page.residential_amenities_slider }}#}
+        </div>
+    </section>
+    <section class="accordianWrap">
+        <div class="container">
+              <div class="accordian-container">
+                  {% for data in node.field_accordians %}
+                  <p class="heading">{{ data.entity.field_title_.value }}</p>
+                  <div class="accordCont">
+                      {{ data.entity.field_accordian_details.value | raw }}
+                  </div>
+                  {% endfor %}
+              </div>
+            {#{{ page.residential_amenities_accordion }}#}
+        </div>
+    </section>
+    <section class="propertyDetails">
+        <div class="container">
+            <div class="wrapper">
+                <p>Price: <strong>₹69.3 Lacs onwards</strong></p>
+                <p>Typology: <strong>2, 3 BHK</strong></p>
+                <p>Possession Date: <strong>{{ node.field_project.0.entity.field_tentative_possession_date.value|date("M Y") }}</strong></p>
+                <p>Location: <strong>{{ node.field_project.0.entity.field_city.0.entity.name.value }}</strong></p>
+            </div>
+        </div>
+        <div class="propertyMenu">
+            <p class="fav"><a href="javascript:;">
+                    <!--<img src="{{ directory }}/images//icon-favourite-gold.png" alt="">-->
+                    <img src="{{ file_url(directory) }}/images/icon-favourite-gold.png" alt=""><!-- Don't push this on server, delete or comment before pushing-->
+                </a></p>
+            <p id="share-button-2" class="need-share-button-default" data-share-icon-style="box" data-share-networks="Mailto,Twitter,Facebook,Linkedin"></p>
+            <p class="download"><a href="javascript:;" target="_blank">
+                    <!--<img src="{{ directory }}/images//icon-download.png" alt="">-->
+                    <img src="{{ file_url(directory) }}/images/icon-download.png" alt="">
+                </a></p>
+        </div>
+    </section>
+    <!-- Section residential Starts -->
+  <section class="residential">
+    <div class="container">
+      <div class="wrapper">
+        <div class="sectionTitle">
+          <p>YOU MAY <span>ALSO LIKE</span></p>
+        </div>
+        <div id="residential" class="resComTabs">
+          <div class="resdient-slider owl-carousel">
+            {% for data in node.field_project.0.entity.field_related_projects %}
+              <div class="slides">
+                <span class="slider-tag">{{ data.entity.field_project_category.0.entity.name.value }}</span>
+                <div class="res-head flex-wrp">
+                  <div class="head-txt">
+                    <h3>{{ data.entity.title.value }}</h3>
+                    <p>{{ data.entity.field_specific_location.value ~ ', ' ~  data.entity.field_city.0.entity.name.value}}</p>
+                    {#<p>Ghodbunder Road, Thane</p>#}
+                  </div>
+                  <div class="rating">
+                    {#<a href="javascript:void(0);" class="viewIcon"></a>#}
+                    <!-- <span class="sprite-star"></span> -->
+                    {#<a href="javascript:void(0);"><img src="/{{ file_url(directory) }}/images/aspi/star.png"
+					alt="star"></a>#}
+                  </div>
+                </div>
+                <div class="inner-wrp">
+                  <div class="inner-slider owl-carousel" >
+                    {% for data2 in data.entity.field_minimized_images_ %}
+                      <img src={{  file_url(data2.entity.field_image_url.value) }}  alt={{ data2.entity.field_image_alternate_text.value }} />
+                    {% endfor %}
+                  </div>
+                  <span class="fav-icon">
+                                            <img src="{{ file_url(directory) }}/images/aspi/fav-icon.png" alt="fav-icon">
+                                        </span>
+                </div>
+                <div class="possession-wrp">
+                  <p>Possession Date: <b>{{ data.entity.field_tentative_possession_date.value|date("M Y")}}</b></p>
+                  <p>Typology: <b>2, 3 BHK</b> | Price: <b>2.5 to 5 Cr</b></p>
+                  <p>
+                                            <span>Offer :
+                                              {{ data.entity.field_scheme_title.value }}</span>
+                  </p>
+                </div>
+                <div class="slide-footer">
+                  <a href="javascript:;">View Details</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="menuOverlay">
+    <a href="javascript:void(0);" class="closeBtn"></a>
+    <div class="menuWrap">
+        <div class="leftMenuBox animated ">
+            <div class="topMenu  mobileMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" class="favourite">
+                                <img src="{{ directory }}/images//icon-favourite.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img src="{{ directory }}/images//mobile-user.png" alt="mobile-user">
+                            </a>
+                        </li>
+                        <li class="dropdown countryLanguage">
+                            <a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li>
+                                    <a href="javascript:void(0);">Country1</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country2</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="mainMenu">
+                <div class="menuLogo">
+                    <a href="javascript:void(0);">
+                        <img src="{{ file_url(directory) }}/images/logo-lodha-black.png" alt="logo-lodha-black" />
+                    </a>
+                </div>
+                <li class="menuActive">
+                    <a href="/projects/residential/amara/about">Residential Properties</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Commercial Properties</a>
+                </li>
+                <li>
+                    <a href="/priva" class="subMenuDropdown">Services
+                        <span class="dropdownArrow"></span>
+                    </a>
+                    <ul class="subMenu" style="display:none;">
+                        <li>
+                            <a href="javascript:void(0);">Easy lease</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Priva</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Home loan support</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Registration support</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Hospitality and facilities management</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"> NRI services</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />Investor Corner</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />NRI Corner</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />About Lodha</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />Careers</a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="rightMenuBox animated">
+            <div class="topMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="favourite">
+                                <img src="{{ file_url(directory) }}/images//icon-search.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="favourite">
+                                <img src="{{ file_url(directory) }}/images//icon-favourite.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img src="{{ file_url(directory) }}/images//mobile-user.png" alt="mobile-user" />
+                            </a>
+                        </li>
+                        <li class="dropdown countryLanguage">
+                            <a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li>
+                                    <a href="javascript:void(0);">Country1</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country2</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottomMenu">
+                <ul class="footerLinks">
+                    <li>
+                        <a href="javascript:void(0);" class="favourite">Events at Lodha</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="contact">Blogs</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Buying Guides</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Maharera Regulations</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Feedback</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Feedback</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">contact Us</a>
+                    </li>
+                </ul>
+                <div class="menuFooter">
+
+                    <div class="social-icons">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//twitter.png" alt="twitter" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//fb.png" alt="fb" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//youtube.png" alt="youtube" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//insta.png" alt="insta" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//linkedin.png" alt="linkedin" />
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        <p class="yellowText">&copy; LODHAGroup 2018</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer elements-->
+</div>
+<!--menu end elements-->
+
+<!-- Get in touch enquire popup start -->
+<div class="modal" id="getInTouch">
+    <div class="modalBody">
+        <div class="close">Close</div>
+        <div class="getInTouchWrap">
+            <div class="getInTouchLightBox">
+                <div class="container">
+                    <h3>GET IN TOUCH</h3>
+                    <div class="formWrapper">
+                        <div class="fieldRow">
+                            <div class="inputWrap">
+                                <input type="text" name="" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="inputWrap">
+                                <input type="text" name="" placeholder="Email-Id">
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="inputWrap">
+                                <input type="text" name="" placeholder="Mobile No.">
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Country</option>
+                                    <option>India</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>City</option>
+                                    <option>Mumbai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <ul class="radioGroup">
+                                <li>
+                                    <input name="radio1" type="radio" value="" id="enquire" checked>
+                                    <label for="enquire">Enquire</label>
+                                </li>
+                                <li>
+                                    <input name="radio1" type="radio" value="" id="bookasitevisit">
+                                    <label for="bookasitevisit">Book a site visit</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="fieldRow hide">
+                            <div class="clm1-2">
+                                <div class="inputWrap">
+                                    <input type="text" name="" placeholder="dd/mm/yyyy">
+                                </div>
+                            </div>
+                            <div class="clm2-2">
+                                <div class="inputWrap">
+                                    <input type="text" name="" placeholder="Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttonWrap flex-wrp">
+                            <button class="btn btn-gold">Submit</button>
+                            <span class="call">Call : 022 3383 6304</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Get in touch enquire popup end-->
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      console.log('Page loaded', jQuery);
+  });
+</script>

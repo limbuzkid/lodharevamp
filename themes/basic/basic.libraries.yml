@@ -1,8 +1,6 @@
 global:
   version: VERSION
   css:
-    base:
-      css/base/base.css: {}
     layout:
       css/layout/layout.css: {}
     component:
@@ -12,16 +10,25 @@ global:
       css/theme/print.css: { media: print }
       css/owl.carousel.css: {}
       css/animate.css: {}
+      css/flexslider.css: {}
       css/jquery-ui.css: {}
+      css/needsharebutton.min.css: {}
+      css/lightbox.min.css: {}
+      css/magnific-popup.css: {}
       css/style.css: {}
   js:
     js/owl.carousel.js: {}
+    js/jquery.flexslider.js: {}
     js/jquery-ui.js: {}
+    js/jquery.magnific-popup.min.js: {}
+    js/lightbox.min.js: {}
     js/jquery.ui.touch-punch.min.js: {}
     js/snap.svg.js: {}
     js/svg-and-scroll.js: {}
-    js/common.js: {}
-    
+    js/needsharebutton.min.js: {}
+    js/priva.js: {}
+    js/new-common.js: {}
+
     #js/build/scripts.js: {}
   dependencies:
     - core/drupal

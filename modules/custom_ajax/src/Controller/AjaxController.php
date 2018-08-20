@@ -4,7 +4,14 @@
   Contains \Drupal\custom_ajax\Controller\AjaxController.
    */
   namespace Drupal\custom_ajax\Controller;
+
+    /*namespace Drupal\custom_blocks\Plugin\Block;*/
+
+    use Drupal\Core\Block\BlockBase;
+    use Drupal\Component\Annotation\Plugin;
+    use Drupal\Core\Annotation\Translation;
   
+  use Drupal\Core\Ajax\AjaxResponse;
   use Drupal\Core\Controller\ControllerBase;
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,6 +35,51 @@
 
 
   class AjaxController extends ControllerBase {
+
+
+    public function load_unit_plans($arg1,$arg2) {
+
+        $query = \Drupal::entityQuery('node')
+            ->condition('status', 1)
+            ->condition('type', 'projects')
+            ->condition('title', $arg1);
+
+        $nids = $query->execute();
+        foreach($nids as $nid) {
+            $projectNid = $nid;
+        }
+
+        $query = \Drupal::entityQuery('node')
+            ->condition('status', 1)
+            ->condition('type', 'plans_prices')
+            ->condition('field_project', $projectNid);
+
+        $nids = $query->execute();
+
+        foreach($nids as $nid) {
+            $projectNid = $nid;
+        }
+
+        $am_node = Node::load($projectNid);
+        $unit_plans =$am_node->field_unit_plan->referencedEntities();
+        $output = [];
+        foreach($unit_plans as $unit_plan){
+            if($unit_plan->field_typology[0]->entity->name->value == $arg2) {
+                $output[] = array(
+                    'field_specialprice' => $unit_plan->field_specialprice->value,
+                    'field_image_alternate_text' => $unit_plan->field_image_alternate_text->value,
+                    'field_specialprice' => $unit_plan->field_specialprice->value,
+                    'field_unit_plan_images' =>  (\Drupal::request()->getHttpHost() . '/' . $unit_plan->field_unit_plan_images->value), /*TODO:this function is not returning http*/
+                    'field_unit_price' => $unit_plan->field_unit_price->value,
+                    'field_typology' => $unit_plan->field_typology[0]->entity->name->value,
+                    'field_room_type_name' => $unit_plan->field_room_type_name[0]->entity->name->value,
+                    'possetion' => $am_node->field_project[0]->entity->field_tentative_possession_date->value
+                );
+            }
+        }
+
+        return new JsonResponse($output);
+    }
 
 
 	public function load_home_world_tower() {
@@ -55,7 +107,7 @@
 			);
 		
 		return new JsonResponse(['error' => $is_error, 'errArr' => $err, 'msg' => $msg, 'tkn' => $random_str,'data' => $data]);
-		
+
 	}
 
     public function testimonial_load_more() {

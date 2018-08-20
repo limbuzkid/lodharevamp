@@ -1,0 +1,492 @@
+body.locateUs {
+    padding: 0;
+}
+
+.locateUs .mapContainer {
+    display: block;
+    min-height: 600px;
+    margin: 0 3%;
+    position: relative;
+    width: 94%;
+    z-index: 1;
+}
+
+.locateUs .locateUs {
+    padding: 50px 0 0;
+}
+
+.locateUs .container {
+    overflow: hidden;
+}
+
+.locateUs .locateUs .price-banner {
+    background: none;
+    position: relative;
+    z-index: 1;
+}
+
+.locateUs .locateUs:after {
+    background: #f6f3e4;
+    bottom: 0;
+    content: '';
+    left: 0;
+    min-height: 50%;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+.price-banner a {
+    font-weight: 600;
+    transition: color 0.1s;
+}
+
+.price-banner a:hover,
+.price-banner a.active {
+    color: #c39947;
+}
+
+.locateUs .Title p span.like {
+    display: inline-block;
+}
+
+.locateUs .lifestyleofthane .desc {
+    float: left;
+    width: 60%;
+}
+
+
+
+.locateUs .lifestyleofthane .desc .content {
+    width: 80%;
+}
+
+.locateUs .Title p:afte.liker {
+    display: none;
+}
+
+.propertyDetails {
+    background: #f6f3e4;
+    color: $black;
+    padding: 5%;
+    position: relative;
+}
+
+.propertyDetails p {
+    float: left;
+    margin: 0 5% 0 0;
+    padding: 0;
+}
+
+.propertyDetails .wrapper {
+    margin: 0 25%;
+    overflow: hidden;
+    width: 50%;
+}
+
+.propertyDetails .wrapper p:nth-child(odd) {
+    margin: 0 0 5px;
+    width: 60%;
+}
+
+.propertyDetails .wrapper p:nth-child(even) {
+    margin: 0 0 5px;
+    width: 40%;
+}
+
+.propertyMenu {
+    background: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    float: left;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 50%);
+    width: 200px;
+    z-index: 1;
+}
+
+.propertyMenu p {
+    float: left;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 33%;
+}
+
+.propertyMenu p img {
+    width: 20px;
+}
+
+.residential.like {
+    padding: 100px 0;
+}
+
+
+.locateUs .lifestyleofthane .sectionTitle p:after {
+    display: none;
+}
+
+.getinTouch {
+    background: #f6f2e3;
+    border: 1px solid $gold;
+    border-radius: 5px;
+    float: right;
+    padding: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.locateUs .sectionTitle p span {
+    //display: inline-block;
+}
+
+#getInTouch .modalBody {
+    max-width: 380px;
+}
+
+#getInTouch .getInTouchLightBox {
+    border-radius: 2px;
+    left: 0;
+    margin: 0;
+    position: relative;
+    top: 0;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 12;
+}
+
+.modalBody {
+    float: left;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+
+.modalBody .close {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    text-indent: -999px;
+    height: 20px;
+    width: 20px;
+}
+
+.modalBody .close:before,
+.modalBody .close:after {
+    content: '';
+    height: 2px;
+    width: 20px;
+    display: block;
+    background: #fff;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+}
+
+.modalBody .close:after {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+
+.mapTabs .owl-nav .owl-prev.disabled,
+.mapTabs .owl-nav .owl-next.disabled {
+    display: none;
+}
+
+.mapTabs .owl-nav .owl-prev,
+.mapTabs .owl-nav .owl-next {
+    font-size: 3em !important;
+    left: 0;
+    position: absolute;
+    top: -11px;
+}
+
+.mapTabs.owl-carousel .owl-stage-outer {
+    width: 90%;
+}
+
+.mapTabs .owl-nav .owl-prev {
+    left: -12px;
+}
+
+.mapTabs .owl-nav .owl-next {
+    left: unset;
+    right: 20px;
+}
+
+.propMap .mapPopup div div div:last-child,
+.mapPopup div div div:nth-child(2) {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.propMap .gm-style-iw>div>div strong,
+.gm-style-iw>div>div span {
+    background: rgb(216, 180, 104);
+    float: left;
+    font-weight: bold;
+    width: 100%;
+}
+
+.propMap .gm-style-iw>div>div strong {
+    font-size: 1.6rem;
+}
+
+.propMap .gm-style-iw>div>div span:last-child {
+    font-size: 1.4rem;
+}
+
+.propMap .gm-style .gm-style-iw {
+    text-align: center;
+}
+
+.propMap .gm-style-iw>div>div span:nth-child(3):after {
+    border-top: 2px dashed #fff;
+    content: '';
+    float: left;
+    margin: 10px calc((100% - 50px) / 2);
+    width: 50px;
+}
+
+.mapPopup>div>div:first-child>div:first-child {
+    border: none !important;
+    margin: -1px 0 0;
+}
+
+.mapPopup>div>div:first-child>div:first-child:after {
+    background: #000;
+    content: '';
+    float: left;
+    height: 24px;
+    transform: translateX(10px);
+    width: 1px;
+}
+
+.mapPopup>div>div:first-child>div:first-child:before {
+    background: #000;
+    content: '';
+    float: left;
+    height: 1px;
+    transform: translateX(-15px);
+    width: 50px;
+}
+
+.propMap .gm-style-iw>div>div span:first-child {
+    border: 1px solid #fff;
+    display: inline-block;
+    float: none;
+    margin: 0 0 15px;
+    padding: 5px;
+    width: auto;
+}
+
+.propMap .gm-style-iw>div>div span:first-child img {
+    float: left;
+}
+
+.propMap .mapPopup>div>div:nth-child(3) {
+    right: 35% !important;
+    top: 10px !important;
+    transform: translateX(50%);
+    opacity: 1 !important;
+}
+
+.propMap .mapPopup>div>div:nth-child(3) img {
+    display: none;
+}
+
+.propMap .mapPopup>div>div:nth-child(3):after,
+.propMap .mapPopup>div>div:nth-child(3):before {
+    background: #fff;
+    content: '';
+    height: 2px;
+    float: left;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.propMap .mapPopup>div>div:nth-child(3):after {
+    transform: rotate(45deg);
+}
+
+.propMap .mapPopup>div>div:nth-child(3):before {
+    transform: rotate(-45deg);
+}
+
+.pointerOpen .brownShade {
+    opacity: 0.9;
+}
+
+@media only screen and (max-width: 767px) {
+    .getInTouchWrap {
+        display: block;
+        .getInTouchLightBox {
+            max-width: 100%;
+        }
+    }
+    #getInTouch .modalBody {
+        width: 90%;
+    }
+    .formWrapper .fieldRow input[type="text"],
+    .formWrapper .fieldRow textarea,
+    .formWrapper .fieldRow .selectWrapper {
+        font-size: 1.3rem;
+    }
+
+    .getInTouchLightBox h3 {
+        font-size: 1.6rem;
+    }
+
+    .getInTouchLightBox .formWrapper .fieldRow ul.radioGroup li label,
+    .getInTouchLightBox .formWrapper .fieldRow ul.checkGroup li label {
+        font-size: 1.4rem;
+    }
+
+    .getInTouchLightBox .formWrapper .buttonWrap span,
+    .getInTouchLightBox .formWrapper .buttonWrap button {
+        font-size: 1.4rem;
+    }
+    .price-banner p {
+        font-size: 1.4rem;
+    }
+
+    .lifestyleofthane .topSection .sectionTitle p {
+        font-size: 1.6rem;
+        padding: 0;
+    }
+
+    .lifestyleofthane .topSection .content p {
+        font-size: 1.4rem;
+    }
+
+    .locateUs .lifestyleofthane .nearest p {
+        font-size: 1.4rem;
+    }
+
+    .accordianWrap .accordian-container p.heading {
+        font-size: 1.4rem;
+        padding: 5%;
+    }
+    .locateUs .locateUs {
+        padding: 50px 20px 0;
+    }
+
+    .locateUs .mapContainer {
+        height: 100% !important;
+        margin: 0 !important;
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .locateUs .locateUs .content {
+        width: 80%;
+    }
+
+
+    .locateUs .price-banner .wrapper {
+
+        width: 100%;
+    }
+
+    .locateUs .locateUs .price-banner {
+        width: 107%;
+    }
+
+    .locateUs .price-banner .container {
+        padding: 0 0 0 10px;
+    }
+
+    .locateUs .price-banner .container p:last-child {
+        padding: 0 10px 0 0;
+    }
+
+    .locateUs .lifestyleofthane .topSection {
+        padding: 20px 0;
+    }
+
+    .locateUs .lifestyleofthane .topSection .sectionTitle {
+        width: 100%;
+    }
+
+    .locateUs .lifestyleofthane .desc {
+        width: 100%;
+    }
+
+    .locateUs .lifestyleofthane .desc .content {
+        width: 100%;
+    }
+
+    .locateUs .lifestyleofthane .nearest {
+        width: 100%;
+    }
+
+    .locateUs .accordianWrap {
+        padding: 00px 0 50px;
+    }
+
+    .propertyDetails .wrapper {
+        margin: 0;
+        width: 100%;
+    }
+
+    .locateUs .propertyDetails .container {
+        padding: 0;
+    }
+
+    .propertyDetails p {
+        font-size: 1.3rem;
+    }
+
+    .propertyDetails {
+        padding: 10% 5%;
+    }
+
+    .propertyMenu {
+        width: 160px;
+    }
+
+    .propertyMenu p img {
+        width: 17px;
+    }
+
+    .getinTouch img {
+        width: 16px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .locateUs.locateUs .content {
+        padding: 0 0 0 5%;
+    }
+    .locateUs .locateUs .price-banner {
+        padding: 0 0 0 5%;
+    }
+    .locateUs .lifestyleofthane .desc .content {
+        padding: 0;
+    }
+}

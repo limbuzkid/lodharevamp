@@ -1,0 +1,15 @@
+
+<div class="townContent">
+    <div id="offering" class="toggleContent hidden">
+        {%for data in  content["#data_obj"] %}
+            <p>Inspired by city-centres across the world, New Cuffe Parade is Mumbai's upcoming city centre.</p> {{ data["content"] }}
+        {% endfor %}
+      {#  <p>Inspired by city-centres across the world, New Cuffe Parade is Mumbai's upcoming city centre.</p>
+        <p>Located in the heart of the city - less than 20 minutes from Fort and soon to be less than 10 mins from BKC, it provides easy commute to all key business & leisure hubs.</p>
+        <p>Inspired by city-centres across the world, New Cuffe Parade is Mumbai's upcoming city centre.</p>
+        <p>Located in the heart of the city - less than 20 minutes from Fort and soon to be less than 10 mins from BKC, it provides easy commute to all key business & leisure hubs.</p>
+        <p>Inspired by city-centres across the world, New Cuffe Parade is Mumbai's upcoming city centre.</p>
+        <p>Located in the heart of the city - less than 20 minutes from Fort and soon to be less than 10 mins from BKC, it provides easy commute to all key business & leisure hubs.</p>#}
+    </div>
+    <p class="toggleBtn"><a href="javascript:;" toggleContent="offering"><span class="more">More <span class="operators">+</span></span><span class="less">less <span class="operators">-</span></span></a></p>
+</div>

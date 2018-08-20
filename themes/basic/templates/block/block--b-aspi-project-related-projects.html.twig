@@ -1,0 +1,52 @@
+<!-- container starts-->
+
+{% for  data in content["#data_obj"] %}
+    <div class="slides">
+        <span class="slider-tag">{{ data["field_scheme_title"] }}</span> {#data.planType#}
+        <div class="res-head flex-wrp">
+            <div class="head-txt">
+                <h3>{{ data['title'] }}</h3>
+                <p>{{ data['location'] }}</p>
+            </div>
+            <div class="rating">
+                <a href="javascript:void(0);" class="viewIcon"></a>
+                <!-- <span class="sprite-star"></span> -->
+                <a href="javascript:void(0);"><img src="{{ directory }}/images/aspi/star.png" alt="star"></a>
+            </div>
+        </div>
+        <div class="inner-wrp">
+            <div class="inner-slider owl-carousel">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage" style="display: block">
+                            <div class="owl-item">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% for imageVideoCombo in data['image_video_combination'] %}
+                    <img src="{{ imageVideoCombo['image_url'] }}" alt="{{ imageVideoCombo['alt_text'] }}">
+                {% endfor %}
+
+            </div>
+            <span class="fav-icon">
+                    <img src="{{ directory }}/images/aspi/fav-icon.png" alt="fav-icon">
+                </span>
+        </div>
+        <div class="possession-wrp">
+            <p>Possession Date:
+                <b>{{ data['field_tentative_possession_date'] }}</b> date
+            </p>
+
+            <p>Typology: <b>2-3 BHK</b> | Price: <b>{#{{ }}#}</b></p>
+            <p>
+                <span>{{ data['field_scheme_title'] }}</span>
+            </p>
+        </div>
+        <div class="slide-footer">
+            <a href="javascript:;">View Details</a>
+        </div>
+    </div>
+{% endfor %}
+<!-- container ends-->

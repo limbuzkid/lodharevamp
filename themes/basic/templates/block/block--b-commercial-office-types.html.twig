@@ -1,0 +1,60 @@
+{% for data in content["#data_obj"] %}
+    <div class="pageSection" id="boutiqueOffice">
+        <div class="propertyPriceWrp">
+            <div class="container">
+                <div class="sectionTitle active">
+                    <p>BOUTIQUE  {#{{ data.name }}#}
+                        <span> OFFICES</span> {#{{ office }}#}
+                    </p>
+                    <span class="before-block"></span>
+                </div>
+                <div class="content">
+                    <p>
+                        Lodha Supremus offers future-ready offices for growing companies to take their businesses to the next level. The iconic facades
+                        and grand lobbies never fail to impress. {#{{ desc1} }}#}
+                    </p>
+                    <p>
+                        Lodha Supremus offers future-ready offices for growing companies to take their businesses to the next level. The iconic facades
+                        and grand lobbies never fail to impress. {#{{ desc2 }}#}
+                    </p>
+
+                </div>
+                <div class="showMore">
+                    <a href="javascript:void(0);" class="moreBtn">More
+                        <span class="plus-icon">+</span>
+                    </a>
+                    <a href="javascript:void(0);" class="lessBtn" style="display:none;">Less
+                        <span class="plus-icon">-</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <!-- Section residential Starts -->
+        <section id="boutique" class="residential commercial">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="resdient-slider">
+                        {#{% include '@architect/includes/commercial_office_sub_type.twig' %}#}
+                        <!-- block--b-commercial-office-type.html.twig-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section residential Ends -->
+        <!--view more detail section-->
+        <div class="container">
+            <div class="viewMoreDetails">
+                <a href="javascript:void(0);" showDivTab="boutique" class="viewMoreBtn">More
+                    <span class="plus-icon">+</span>
+                </a>
+                <a href="javascript:void(0);" showDivTab="boutique" class="viewLessBtn" style="display:none;">Less
+                    <span class="plus-icon">-</span>
+                </a>
+            </div>
+        </div>
+
+        {#//todo : if else for warehouse#}
+    </div>
+{% endfor %}

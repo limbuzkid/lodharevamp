@@ -20,8 +20,8 @@ regions:
   content_top: Content Top
   content_pillars : Content Pillars
   content_iconic_project : Content Iconic Project
+  content_commercial_project : Content Commercial Project
   content_map_header : Content Map Header
-  content_lets_workbetter_header : Content Lets WorkBetter Header
   content_lifestyle_wrap : Content Lifestyle Wrap
   content_testimonial : Content Testimonial
   content: Content
@@ -29,6 +29,83 @@ regions:
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
   footer: Footer
+  custom_test_region1: Custom Test Region 1
+  custom_test_region2: Custom Test Region 2
+
+  global_footer: Global Footer
+  global_menu: Global Menu
+  residential_enquiry_form: Residential Enquiry Form
+  residential_content_page_header: Residential Content Page Header
+  residential_content_banner: Residential Content Banner
+  residential_scheme_under_banner: Residential Scheme Under Banner
+  residential_first_statement: Residential First Statement
+  residential_amenities_slider: Residential Amenities Slider
+  residential_property_prices_slider: Residential Property Prices Slider
+  residential_life_at_project: Residential Life At Project
+  residential_our_services_grid: Residential Our Services Grid
+  residential_credentials_accordion: Residential Credentials Accordion
+  residential_amenities_accordion: Residential Ammenities Accordion
+  residential_you_may_like_listing: Residential You May Like Listing
+  residential_page_title_non_highlighted: Residential Page Title Non Highlighted
+  residential_location_proximity_block: Residential Location Proximity Block
+  residential_taxonomy_band: Residential Taxonomy Band
+  residential_page_title_highlighted: Residential Page Title Highlighted
+  residential_m_f_u_plans: Residential M F U Plans
+  residential_banking_partners: Residential Banking Partners
+  residential_internal_external_tabs: Residential Internal External Tabs
+  residential_our_gallery_tabs_block: Residential Our Gallery Tabs Block
+  residential_fixed_header_block: Residential Fixed Header Block
+  commercial_home_main_banner_or_video_block: Commercial Home Main Banner Or Video Block
+  commercial_home_mid_page_menu: Commercial Home Mid Page Menu
+  commercial_home_mid_page_section: Commercial Home Mid Page Section
+  commercial_home_warehouse_block: Commercial Home Warehouse Block
+  commercial_see_also_properties_block: Commercial See Also Properties Block
+  commercial_brochure_band: Commercial Brochure Band
+  commercial_lets_work_better_popup: Commercial Lets Work Better Popup
+  commercial_content_page_header: Commercial Content Page Header
+  commercial_project_banner_and_attributes: Commercial Project Banner And Attributes
+  commercial_project_tag_line_band: Commercial Project Tag Line Band
+  commercial_project_facts_and_figures: Commercial Project Facts And Figures
+  commercial_project_price-and-plans: Commercial Project Price And Plans
+  commercial_project_floor_plan_and_band: Commercial Project Floor Plan And Band
+  commercial_project_location: Commercial Project Location
+  commercial_project_internal_external_tabs: Commercial Project Internal External Tabs
+  commercial_project_gallery: Commercial Project Gallery
+  commercial_project_bottom_accordian: Commercial Project Bottom Accrodian
+  commercial_credentials_accordion: Commercial Credentials Accordion
+  commercial_taxonomy_band: Commercial Taxonomy Band
+  commercial_you_may_like_listing: Commercial You May Like Listing
+  township_content_page_header: Township Content Page Header
+  township_content_banner: Township Content Banner
+  township_enquiry_form: Township Enquiry Form
+  township_scheme_under_banner: Township Scheme Under Banner
+  township_project_tag_line: Township Project Tag Line
+  township_project_inner_tabs: Township Project Inner Tabs
+  township_project_our_services_grid: Township Project Our Services Grid
+  township_residential_commercial_tabs: Township Residential Commercial Tabs
+  search_property_search_area: Search Property Search Area
+  search_property_filter_area: Search Property Filter Area
+  search_property_result_area: Search Property Result Area
+  reward_lodha_header: Reward Lodha Header
+  reward_lodha_banner: Reward Lodha Banner
+  reward_lodha_earn_points: Reward Lodha Earn Points
+  reward_lodha_redeem_points: Reward Lodha Redeem Points
+  reward_lodha_why_lodhas_property: Reward Lodha Why Lodhas Property
+  reward_lodha_highlights: Reward Lodha Highlights
+  reward_lodha_giveaways: Reward Lodha Giveaways
+  reward_lodha_testimonials: Reward Lodha Testimonials
+  reward_lodha_being_lodhas_member: Reward Lodha Being Lodhas Member
+  modal_search_searchbox_withother: Modal Search Searchbox With Other
+  modal_search_mid-section: Modal Search Mid Section
+  project_commercial: Project Commercial
+
+  amenities_header: Amenities Header
+  location_header: Location Header
+  custom_location_nearest_block: Custom Location Nearest Block
+
+  scheme_header: Scheme Header
+  categorized_commercial_project: Categorized Commercial Project
+  commercial_content: Commercial Content
 
 # Information added by Drupal.org packaging script on 2018-04-28
 version: '8.x-2.0'

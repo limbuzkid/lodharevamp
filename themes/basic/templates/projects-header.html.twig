@@ -1,0 +1,28 @@
+<div class="fixedHeader">
+    <a class="menu" href="javascript:;" id="menu-icon">MENU</a>
+    <a class="logo" href="javascript:;">
+        <img src="/{{ directory ~ (node.field_project.0.entity.field_logo.value) }}" alt="{{ node.field_project.0.entity.title.value }}">
+    </a>
+    <div class="rightSec">
+        <ul>
+            <li>
+                <a href="javascript:;" class="favourite">
+                    <img src="{{ file_url(directory) }}/images/icon-search.png">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="favourite">
+                    <img src="{{ file_url(directory) }}/images/icon-favourite.png">
+                </a>
+            </li>
+            <!-- <li><a href="javascript:;" class="contact"><img src="{{ file_url(directory) }}/images/icon-contact.png"></a></li> -->
+            <!-- <li class="dropdown"><a href="javascript:;"><img src="{{ file_url(directory) }}/images/mobile-user.png"></a></li> -->
+            <li class="myLodha">
+                <a href="javascript:;">MY LODHA</a>
+            </li>
+            <li class="dropdown countryLanguage">
+                <a href="javascript:;">IND/EN</a>
+            </li>
+        </ul>
+    </div>
+</div>

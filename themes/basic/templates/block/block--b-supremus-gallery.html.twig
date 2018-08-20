@@ -1,0 +1,34 @@
+<div id="iframe" class="amenityTabs_1">
+    <div class="thumbSlider">
+        <div id="360Paging" class="paging">
+            <span class="currentSlide">1</span> /
+            <span class="totalSlides"></span>
+        </div>
+        <div id="360Slider" class="sliderGallery flexslider" navFor="360Paging" syncfor="360Thumb">
+            <ul class="slides flexImg">
+                <li>
+                    <iframe src="iframe.html" frameborder="0"></iframe>
+                </li>
+                <li>
+                    <iframe src="iframe.html" frameborder="0"></iframe>
+                </li>
+                <li>
+                    <iframe src="iframe.html" frameborder="0"></iframe>
+                </li>
+            </ul>
+        </div>
+        <div id="360Thumb" syncTo="360Slider" class="galleryThumb flexslider thumbComp">
+            <ul class="slides">
+                <li>
+                    <img src="{{ directory }}/images/floor-plan-tb.jpg" />
+                </li>
+                <li>
+                    <img src="{{ directory }}/images/floor-plan-tb.jpg" />
+                </li>
+                <li>
+                    <img src="{{ directory }}/images/floor-plan-tb.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

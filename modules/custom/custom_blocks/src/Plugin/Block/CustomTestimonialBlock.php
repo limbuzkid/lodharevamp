@@ -32,6 +32,7 @@
 							->condition('status', NODE_PUBLISHED)				
 							->condition('type', "testimonials");
 			$nids 	= $query->execute();
+            $data = [];
 					$nodes 	= entity_load_multiple('node', $nids);
 					foreach($nodes as $node) { 
 						$data[] = array(

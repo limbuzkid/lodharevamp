@@ -1,0 +1,1067 @@
+@media screen and (max-width: 1440px) {
+    // ------------Aspi Page Starts------------
+    .innerMainBanner .bannerCarousel .item {
+        height: 530px;
+    }
+    // ------------Aspi Page Ends------------
+}
+
+@media screen and (max-width: 1366px) {
+    // ------------Aspi Page Starts------------
+    .lifestyleofthane .topSection {
+        padding: 80px 0;
+    }
+    .innerMainBanner .bannerCarousel .item {
+        height: 450px;
+    }
+    .price-banner {
+        padding: 12px 0;
+    }
+    .getInTouchLightBox {
+        /*max-width: 330px;
+        padding: 20px;
+        margin-top: 50px;*/
+    }
+    .getInTouchLightBox .formWrapper .fieldRow {
+        padding-bottom: 20px;
+    }
+    section.scheme {
+        margin-top: 10px;
+    }
+    section.scheme p {
+        font-size: 1.6rem;  
+    }
+    section.scheme p span {
+        font-size: 1.8rem;
+    }
+    .getInTouchLightBox h3 {
+        font-size: 1.8rem;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content p {
+        font-size: 4rem;
+        width: 350px;
+    }
+    .formWrapper .fieldRow input[type="text"], 
+    .formWrapper .fieldRow textarea, 
+    .formWrapper .fieldRow .selectWrapper,
+    .getInTouchLightBox .formWrapper .fieldRow ul.radioGroup li label, 
+    .getInTouchLightBox .formWrapper .fieldRow ul.checkGroup li label,
+    .formWrapper .fieldRow .selectWrapper select,
+    .getInTouchLightBox .formWrapper .fieldRow .selectWrapper .selectedvalue {
+        font-size: 1.4rem;
+    }
+    .getInTouchLightBox .formWrapper .buttonWrap span, 
+    .getInTouchLightBox .formWrapper .buttonWrap button {
+        font-size: 1.6rem;
+    }
+    .getInTouchLightBox .formWrapper .buttonWrap button {
+        min-width: 100px;
+        padding: 8px 20px;
+    }
+    // ------------Aspi Page Ends------------
+
+
+}
+
+@media  screen and (max-width:1280px) {
+    // ------------Aspi Page Ends------------
+    // .breadcrumb ul li {
+    //     font-size: 
+    // }
+    .price-banner .wrapper,
+    section.scheme .wrapper  {
+        max-width: 650px;
+    }
+    .getInTouchLightBox .formWrapper .buttonWrap span, 
+    .getInTouchLightBox .formWrapper .buttonWrap button {
+        font-size: 1.4rem;
+    }
+    .getInTouchLightBox {
+        max-width: 300px;
+        padding: 15px;
+        margin-top:30px;
+    }
+    .getInTouchLightBox .formWrapper .fieldRow ul.radioGroup li label:before, 
+    .getInTouchLightBox .formWrapper .fieldRow ul.checkGroup li label:before {
+        height: 15px;
+        width: 15px;
+    }
+    .getInTouchLightBox .formWrapper .fieldRow ul.radioGroup li label:after, .getInTouchLightBox .formWrapper .fieldRow ul.checkGroup li label:after{
+        height: 7px;
+        left: 5px;
+        top: 5px;
+        width: 7px;
+
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content p {
+        font-size: 3.5rem;
+        width: 300px;
+    }
+    .ourAmenities .contentWrap .content {
+        padding: 30px 0;
+    }
+    .ourAmenities .contentWrap .content p {
+        font-size: 1.6rem;
+        padding: 0;
+    }
+    .ourAmenities .contentWrap {
+        width: 330px;
+        left: 150px;
+        padding: 30px;
+    }
+    .propertyPrice .sectionTitle span.icon,
+    .propertyPrice .sectionTitle p {
+        float: none;
+        margin: inherit;
+    }
+    .propertyPrice .sectionTitle {
+        width: 30%;
+        padding: 20px;
+    }
+    .propertyPrice .carousel {
+        margin-top: -140px;
+    }
+    #residential .resdient-slider > .owl-nav {
+        margin: 0;
+        text-align: center;
+    }
+    // ------------Aspi Page Ends------------
+
+}
+
+@media only screen and (max-width : 1024px) {
+    .leftPadding {padding-left: 0}
+    .paddingBoth { padding-left: 20px !important; padding-right: 20px !important; }
+    .homeBanner .content > img {width: 150px}
+    .homeBanner .content p {@include font-size(3); margin-bottom: 20px; padding: 20px 0}
+    .pillarsWrap .topSection {padding: 70px 0 40px}
+    .pillarsWrap .pillarsCarousel {padding: 50px 0 0}
+    .iconicProjects {padding: 50px 0}
+    .locateUs {padding: 50px 5%}
+    .letsWorkBetter, .lifestyleWrap, .reviewsWrap {padding: 50px 5%}
+    .reviewsWrap .imgWrap .profilePicFrame, .reviewsWrap .imgWrap .profilePic.profilePicMain {height: 250px; width: 250px}
+    .reviewsWrap:before {height: 80%}
+    .reviewsWrap .imgWrap .profilePic.picPos-02 {left: -10px}
+    .reviewsWrap .imgWrap .profilePic.picPos-03 {left: -40px}
+    .blogsWrap {padding: 50px 0 30px}
+    .getInTouch {padding: 30px 0 50px}
+    footer .midSec {padding-left: 50px}
+    // footer .rightSec {width: 175px}
+    .lifestyleWrap .sliderWrap .galleryWrap .slider .wrap .steps.step2 {margin-left: -8px; &:after {right: -9px}}
+    .formWrapper ul.radioGroup li, .formWrapper ul.checkGroup li {padding: 0 25px 0 0}
+
+    // ------------Aspi Page Starts------------
+    .breadcrumb {
+        padding: 8px 20px;
+    }
+    .enquire-block a {
+        font-size: 1.6rem;
+    }
+    .enquire-block .fav-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .subHeader .topNav ul li a {
+        font-size: 1.4rem;
+        padding: 10px 0;
+    }
+    .fixedHeader .menu {
+        font-size: 1.4rem;
+    }
+    .getInTouchLightBox h3 {
+        font-size: 1.6rem;
+        padding: 0 0 15px 30px;
+    }
+    .price-banner {
+        padding: 8px 0;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content {
+        left: 10px;
+        @include transform-all(translateY(-50%));
+        width: initial;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content p {
+        font-size: 3rem;
+        width: 260px;
+    }
+    .getInTouchLightBox {
+        /*max-width: 250px;
+        padding: 15px;*/
+    }
+    .getInTouchLightBox .formWrapper .buttonWrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .getInTouchLightBox .formWrapper .buttonWrap span, {
+        margin-top: 10px;
+    }
+    .getInTouchLightBox .formWrapper .buttonWrap button {
+        min-width: 90px;
+        padding: 6px 20px;
+    }
+    .getInTouchLightBox .formWrapper .fieldRow ul.radioGroup li {
+        margin-bottom: 10px;
+    }
+    .getInTouchLightBox .formWrapper .fieldRow ul.radioGroup li label:after, 
+    .getInTouchLightBox .formWrapper .fieldRow ul.checkGroup li label:after {
+        height: 7px;
+        left: 5px;
+        top: 5px;
+        width: 7px;
+    }
+    .fixedHeader .logo img {
+        width: 80%;
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .fixedHeader {
+        padding: 30px 3%;
+    }
+    .fixedHeader .rightSec ul li a {
+        font-size: 1.4rem;
+    }
+    .sectionTitle p {
+        font-size: 2.2rem;
+    }
+    .price-banner .wrapper, section.scheme .wrapper {
+        max-width: 430px;
+    }
+    .price-banner p {
+        font-size: 1.3rem;
+    }
+    section.residential .resdient-slider .inner-slider {
+        margin: 15px 0;
+    }
+    section.residential .resdient-slider .slides .head-txt h3 {
+        font-size: 1.4rem;
+    }
+    section.residential .resdient-slider .slides .head-txt p,
+    .possession-wrp p, .slide-footer p {
+        font-size: 1.3rem;
+    }
+    section.residential .resdient-slider .slides {
+        padding: 30px 15px;
+        margin: 0 auto;
+    }
+    section.residential .resdient-slider .slide-footer p {
+        padding: 4px 15px;
+    }
+    .propertyPrice .carousel .slide p {
+        font-size: 2rem;
+    }
+    .propertyPrice .carousel .slide .box ul li span {
+        font-size: 1.8rem;
+    }
+    .ourAmenities .contentWrap {
+        width: 300px;
+        left: 100px;
+        padding: 20px;
+    }
+    .getInTouchLightBox .formWrapper .fieldRow {
+        padding-bottom: 15px;
+    }
+    // ------------Aspi Page Ends------------
+    // ------------Township Page Starts------------
+    section.residential .container { padding:0 20px; }
+    // ------------Township Page Ends------------
+    .propertyPrice .carousel .slide {
+        .box ul li a.knowMoreMob {
+                display:block;
+        }
+        .hover {
+            display:none !important;
+        }
+    }    
+}
+
+
+@media only screen and (max-width : 1023px) {
+    .fixedHeader {padding: 20px 3%;
+        .logo {width: 115px}
+        .rightSec ul li {
+            padding: 0 5px 0 10px;
+            &.dropdown{padding: 0 0 0 10px}
+        }
+    }
+    .homeBanner .scroll {left: 10px}
+    .searchWrap .search{width: 90%}
+    .sectionTitle p {padding: 15px 0}
+    .pillarsWrap .topSection .content p {padding-bottom: 15px}
+    .pillarsWrap .pillarsCarousel {padding-top: 30px;
+        .slide .item {padding-left: 5px;
+            .wrapper {width: 210px;
+                p {
+                    padding: 15px;
+                    &.title strong {left: -27px;}
+                }
+            }
+        }
+    }
+    .iconicProjects .carousel .slide .content {padding: 120px 5% 0 3.2%;
+        p {padding-bottom: 20px;
+            &.title {padding-bottom: 15px}
+        }
+    }
+    .iconicProjects .carousel .owl-controls {bottom: 23%; left: 55%;}
+    .letsWorkBetter .carousel {margin-top: -50px;
+        .slide {margin-left: 1px;
+            .tabContentWrap .tabContent .content {padding: 65px 15px 0 3%;
+                p {padding-bottom: 12px;
+                    &.title {@include font-size(2.6); padding-bottom: 5px}
+                }
+            }
+        }
+    }
+    .reviewsWrap .imgWrap {width: 50%}
+    .reviewsWrap {
+        &:before {height: 85%}
+        .sectionTitle {padding-bottom: 20px; padding-left: 53%}
+        .content {padding-left: 3%; width: 50%;
+            
+            .profileWrap .profileBox p {@include font-size(1.6); padding-bottom: 10px;
+                 &.name {@include font-size(3);}
+             }
+         }
+    }
+    .reviewsWrap .imgWrap .profilePicFrame, .reviewsWrap .imgWrap .profilePic.profilePicMain {height: 190px; width: 190px}
+    .reviewsWrap .imgWrap .profilePic.picPos-03 {height: 120px; left: -25px; top: 60px; width: 120px}
+    .reviewsWrap .imgWrap .profilePic.picPos-02 {top: -60px}
+    .reviewsWrap .imgWrap .profilePic.profilePicMain {top: 15px}
+    footer {padding: 15px 3%;
+        .copy {padding-left: 0; width: 140px}
+        .midSec {padding-left: 0;
+            ul {
+                li {padding: 0 5px;
+                    a {@include font-size(1.1);}
+                }
+            }
+        }
+        // .rightSec {width: 140px}
+    }
+    .lifestyleWrap .sliderWrap .galleryWrap .banner {height: 400px}
+    .lifestyleWrap .sliderWrap .selectCat {top: 320px}
+    .searchLightbox .lastSearchList .box {float: left; width: 100%}
+    .searchLightbox .formWrapper .accordianBox .fieldRow .field {
+        margin: 0 0 15px; width: 48%;
+        &:nth-child(1), &:nth-child(3) {margin-right: 4%}
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .fixedHeader {
+        padding: 20px 5%;
+        .rightSec ul li {
+            padding: 0 0 0 20px;
+            &.dropdown {display: none}
+        }
+    }
+    .sectionTitle {
+        float: left; padding-bottom: 15px; width: 100%;
+        p span {display: inline}
+    }
+    section.residential .sectionTitle p {
+        padding:20px 0 0 0;
+    }
+    .pillarsWrap .topSection {padding: 65px 0 10px;
+        .sectionTitle {width: 100%}
+    }
+    .pillarsWrap .pillarsCarousel .slide {
+        padding: 0;
+        .item {
+            padding-left: 10%; padding-bottom: 25px; width: 75%;
+            .wrapper {
+                min-height: auto; width: 100%;
+                p {float: left; position: relative;
+                    &.title {float: left; padding: 65px 20px 0 0;}
+                    &.details {color: $black; @include opacity(1); padding-left: 0; position: static }
+                }
+                img {position: relative}
+            }
+            &:nth-child(2) {float: right}
+        }
+    }
+    .iconicProjects {padding-top: 75px;}
+    .iconicProjects .sectionTitle, .letsWorkBetter .sectionTitle {float: left; padding: 25px 20px; width: 100%}
+    .iconicProjects .carousel, .letsWorkBetter .carousel {margin: 0}
+    .iconicProjects .carousel .slide .imgwrap, .letsWorkBetter .carousel .slide .imgwrap {width: 100%}
+    .iconicProjects .carousel .slide .content, .letsWorkBetter .carousel .slide .content {background-color: $bgLightGold; padding: 25px 5% 60px; width: 100%}
+    .iconicProjects .carousel .owl-controls, .letsWorkBetter .carousel .owl-controls {bottom: 20px; left: auto; right: 5%; z-index: 3}
+    .locateUs {
+        .content {padding: 0; width: 100%;
+            .sectionTitle {padding-bottom: 15px}
+            > p {float: left; width: 100%}
+        }
+        .mapSec {width: 100%}
+    }
+    .letsWorkBetter {padding: 25px 0 20px;
+        .appendedTabsWrap {display: block; 
+            .tabsWrap {display: block; overflow-x: auto; position: relative;
+                ul {width: max-content;
+                    li {@include font-size(1.5); padding: 15px 15px;}
+                }
+            }
+        }
+        
+        .carousel {
+            .slide {
+                .tabsWrap {display: none;}
+                .tabContentWrap {padding-bottom: 0;
+                    .tabContent {float: left; width: 100%;
+                        .imgwrap {width: 100%;}
+                        .content {padding: 25px 5% 60px; width: 100%;
+                            p {
+                                padding-bottom: 35px;
+                                &.title {color: $gold; @include font-size(3.5); padding-bottom: 25px}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .lifestyleWrap .topSection {padding-bottom: 5px;
+        .sectionTitle {float: left; padding-bottom: 15px; width: 100%}
+        .content p {padding-bottom: 15px}
+    }
+    
+    .lifestyleWrap .sliderWrap .galleryWrap .slider .wrap em:first-child {display: none}
+    .reviewsWrap .sectionTitle {padding-left: 0}
+    .reviewsWrap:before {height: 60%}
+    .reviewsWrap .imgWrap, .reviewsWrap .content {width: 100%}
+    .reviewsWrap .content {padding: 40px 0 0}
+    .reviewsWrap .imgWrap .profilePicFrame {margin-top: 70px;}
+    .reviewsWrap .imgWrap .profilePicFrame, .reviewsWrap .imgWrap .profilePic.profilePicMain {float: left; height: 288px; width: 288px}
+    .reviewsWrap .imgWrap .profilePic.profilePicMain {left: 0; top: 70px}
+    .reviewsWrap .imgWrap .profilePic.picPos-03 {
+        height: 115px;
+        left: 70%;
+        top: 245px;
+        width: 115px;
+    }
+    .reviewsWrap .imgWrap .profilePic.picPos-01 {
+        height: 90px;
+        left: 70%;
+        top: -5px;
+        width: 90px;
+    }
+    .reviewsWrap .imgWrap .profilePic.picPos-02 {left: 58%; top: 120px}
+    .blogsWrap .sectionTitle, .blogsWrap .blogsContainer, .getInTouch .sectionTitle, .getInTouch .formWrapper, .formWrapper .fieldRow .clm-3 {width: 100%}
+    .getInTouch .formWrapper {padding-top: 10px}
+    .formWrapper p.title {padding-bottom: 15px}
+    .blogsWrap .blogsContainer .blog {padding: 15px 0; width: 100%}
+    .blogsWrap .blogsContainer .buttonWrap .btn {float: left}
+    .formWrapper .fieldRow .clm-3 {margin: 0 0 10px}
+    .getInTouch .formWrapper .buttonWrap {float: left}
+    .searchLightbox .lastSearchList .box {padding: 0 0 10px}
+    .searchLightbox .lastSearchList .box ul {padding-bottom: 20px}
+    .searchLightbox .lastSearchList .box ul li {border-right: 1px solid $black; display: inline-block; float: none; padding: 0 10px; width: auto; &:last-child{border-right: 0}}
+    .formWrapper ul.checkGroup li {padding-bottom: 20px}
+
+    // ------------Menu Starts------------
+    .menuOverlay .subMenu .menuLogo img, 
+    .menuOverlay .mainMenu .menuLogo img {
+        width: 120px;
+    }
+    // ------------Menu Ends------------
+
+
+    // ------------Aspi Page Starts------------
+    // .subHeader.active .topNav .owl-stage {
+    //     width: inherit !important;
+    // }
+    section.contact-bottom  {
+        display: block;
+    }
+    .subHeader .topNav ul li {
+        padding: 0;
+    }
+    .pillarsWrap .pillarsCarousel .item {
+        padding: 0;
+        width: inherit;
+    }
+    section.pillar-services .pillarsCarousel .item .wrapper {
+        margin: 0 auto;
+    }
+    .fixedHeader {
+        padding: 20px 20px;
+    }
+    .enquire-block {
+        display: none !important;
+    }
+    .price-banner .wrapper, section.scheme .wrapper {
+        max-width: 100%;
+    }
+    section.residential .resdient-slider .owl-item {
+        @include transform-all(scale(0.9));
+        opacity: 0.7;
+    }
+    section.residential .resdient-slider .owl-item.active {
+        @include transform-all(scale(1));
+        opacity: 1;
+    }
+    .accordianWrap .accordian-container p.heading {
+        font-size: 1.6rem;
+    }
+    .accordianWrap .accordian-container .accordCont p {
+        font-size: 1.4rem;
+    }
+    .ourAmenities .contentWrap {
+        // width: 100%;
+        // position: static;
+        left: 50%;
+        @include transform-all(translateX(-50%));
+        top: inherit;
+        bottom: -20px;
+        height: inherit;
+        width: 88%;
+        padding: 30px;
+        background-color: #f6f3e3;
+        z-index: 4;
+    }
+    .ourAmenities .contentWrap .sectionTitle {
+        display: none;
+    }
+    .ourAmenities > .sectionTitle {
+        display: block;
+        padding-left: 20px;
+    }
+    .ourAmenities .contentWrap .content {
+        padding: 0;
+        padding-bottom: 30px;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .pagination, {
+        padding: 7px;
+    }
+    .ourAmenities .bannerCarousel .item img.bannerImage {
+        min-height: inherit;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap {
+        position: absolute;
+        text-align: right;
+        bottom: -10px;
+        right: 25px;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .pagination,
+    .ourAmenities .contentWrap .owlCustomWrap .customNextBtn {
+        float: none;
+        padding: 0;
+        padding-bottom: 18px;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .customNextBtn {
+        font-size: 1.4rem;
+        padding: 10px 40px;
+        // position: absolute;
+        // right: 20px;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .customNextBtn:before {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .lifestyleofthane .topSection .sectionTitle {
+        width: inherit;
+        margin-bottom: 12px;
+        p:after{
+            bottom:-10px;
+        }
+    }
+    .lifestyleofthane .topSection .content {
+        width: inherit;
+        margin-top:10px;
+    }
+    .propertyPrice .carousel {
+        margin-top: -50px;
+    }
+    .propertyPrice .carousel {
+        width: 100%;
+    }
+    .propertyPrice .carousel .slide {
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+    .propertyPrice .carousel .owl-stage {
+        padding-bottom: 10px;
+    }
+    .propertyPrice .propertypricecarousel .owl-nav {
+        text-align: center;
+    }
+    .propertyPrice .sectionTitle {
+        width: 50%;
+    }
+    .innerMainBanner .bannerCarousel, 
+    .innerMainBanner .bannerCarousel .item {
+        width: 100%;
+    }
+    // .getInTouchWrap {
+    //     display: none;
+    // }
+    .getInTouchLightBox.about-form, .getInTouchLightBox {
+        display: none;
+    }
+    section.scheme .wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    section.scheme p {
+        display: inline;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content {
+        top: inherit;
+        bottom: 10%;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content p {
+        width: 80%;
+    }
+    .scroll {
+        display: none;
+    }
+    .innerMainBanner .bannerCarousel .item {
+        background-position: center center !important;
+    }
+    .section-logo img {
+        width: 80%;
+    }
+    section, .lifestyleWrap, .accordianWrap {
+        padding: 40px 0;
+    }
+    .lifestyleofthane .topSection {
+        padding: 0;
+    }
+    .lifestyleWrap .sliderWrap {
+        padding: 0 20px;
+    }
+    .btn {
+        min-width: 90px;
+        padding: 7px 10px;
+    }
+    .propertyPrice .propertypricecarousel .owl-nav {
+        top: 50%;
+        position: absolute;
+        width: 100%;
+    }
+    .propertyPrice .propertypricecarousel .owl-nav button {
+        position: absolute;
+
+        span {
+            margin-left: 0;
+        }
+        &.owl-prev {
+            left: 9%;
+        }
+        &.owl-next {
+            right: 9%;
+        }
+    }
+    .breadcrumb {
+        display: none !important;
+    }
+    // ------------Aspi Page Ends------------
+
+
+    // ------------Home Page Starts------------
+    .letsWorkBetter .carousel .owl-nav {
+        bottom: -3%;
+        left: 60%;
+    }
+    .letsWorkBetter .carousel .owl-dots {
+        bottom: 3%;
+        left: 60%;
+    }
+    .customOwlConrtol .owl-nav .owl-next, .iconicProjects .carousel .owl-controls .owl-nav .owl-next,
+     .letsWorkBetter .carousel .owl-controls .owl-nav .owl-next, .iconicProjects .owl-carousel .owl-nav .owl-next,
+      .letsWorkBetter .owl-carousel .owl-nav .owl-next,
+       .letsWorkBetter .owl-carousel .owl-nav .owl-next {
+        background-color: $white;
+        color: $black;
+        font-size: 1.4rem;
+        padding: 15px 65px 15px 30px;
+    }
+    // ------------Home Page Ends------------
+
+
+    // ------------Footer Starts------------
+    footer {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        > div.col-footer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+           
+        }
+        .midSec {
+            padding: 20px 0;
+            ul li a {
+                font-size: 1.2rem;
+            }
+        }
+        .rightSec {
+            display: flex;
+            flex-direction: column;
+            .social-icons {
+                width: 100%;
+                float: none;
+                padding-left: 0;
+                text-align: center;
+            }
+            .moreLink {
+                text-align: center;
+                margin: 20px 0;
+                padding: 0;
+                &:after {
+                    right: inherit;
+                    left: 50%;
+                    @include transform-all(translateX(-50%));
+                }
+            }
+        }
+        .rightSec li img {
+            width: 30px;
+        }
+
+    }
+    // ------------Footer Ends------------
+    .getInTouchWrap { display: none; }
+    .container { padding: 0 20px; }
+
+    .iconicProjects .carousel .owl-nav, .letsWorkBetter .carousel .owl-nav {
+        bottom:-23px;
+        left:initial;
+        right:50px;
+    }
+    .customOwlConrtol .owl-nav .owl-next:before, 
+    .iconicProjects .carousel .owl-controls .owl-nav .owl-next:before, 
+    .letsWorkBetter .carousel .owl-controls .owl-nav .owl-next:before, 
+    .iconicProjects .owl-carousel .owl-nav .owl-next:before, 
+    .letsWorkBetter .owl-carousel .owl-nav .owl-next:before, 
+    .letsWorkBetter .owl-carousel .owl-nav .owl-next:before{
+        top:16px;
+    }
+    .customOwlConrtol .owl-dots,
+    .iconicProjects .owl-carousel .owl-dots,
+    .letsWorkBetter .owl-carousel .owl-dots {
+        left: initial;
+        right:50px;
+        bottom:2%;
+    }
+    .lifestyleWrap{
+        padding: 0;
+        &:after {
+            bottom: -100px;
+        }
+    }
+    .smallScreen  section.pillarsWrap,  .locateUs.locateUs .content{
+        padding:0;
+        }
+        .letsWorkBetter .carouCont {
+      
+            padding: 25px 20px;
+      
+        }
+        .letsWorkBetter .custom-navigation {
+  
+            margin: 0 20px 0 0;
+        }
+       section.lifestyleWrap {
+            padding: 25px 0;
+       .sliderWrap {
+                padding: 20px 0;
+            }
+        }
+        .lifestyleWrap .sliderWrap .galleryWrap .banner ul.rhs li {
+            margin-left: 0;
+        }
+        .pillarsCarousel{
+            .owl-nav{
+                display:none;
+               
+            }
+            .owl-dots{
+                text-align: center;
+                .owl-dot{
+                    border: 1px solid #bd9234;
+                    width: 10px;
+                    height: 10px;
+                    margin: 8px;
+                    &.active{
+                        background: $gold;
+                    }
+    
+                }
+
+            } 
+            .item .wrapper p.title strong {
+           
+                color: rgba(0, 0, 0, 0.4);
+                font-weight: normal;
+            }
+        }
+        .homepage .locateUs .mapContainer {
+            height: calc(100% - 270px);
+            margin: 270px 0;
+        }
+        .iconicProjects {
+        
+            .owl-carousel {
+                .owl-dots, .owl-nav{
+                    right:20px;
+                }
+            }
+           
+        }
+        .contact-section .container{margin-top: 0; padding: 0;}    
+        .contact-section .container .box{max-width: 100%; width: 100%; margin-bottom: 0; border:none;}
+        .contact-section .container .widebox .body {width: 80%; border-bottom: 1px solid #e3e3e3; border-right: none; margin: 0 auto;}
+        .contact-section .container .box .head .left-slot{width: 6%;}
+        .contact-section .container .box .body .address{padding-bottom: 8px;}
+        .contact-section .container .box .body .address:before{top: -3px;}
+        
+
+    
+}
+@media only screen and (max-width : 639px) {
+    .btn {@include font-size(1.5); line-height: 1.5rem; min-width: 100px; padding: 5px 15px;}
+    .fixedHeader.fixed {padding: 12px 5%}
+    .fixedHeader .rightSec ul li {padding: 0 0 0 12px}
+    .homeBanner .content > img, .fixedHeader .logo {width: 90px}
+    .homeBanner .content p {@include font-size(2); }
+    .searchWrap .search {height: 40px; top: -20px}
+    .searchWrap .micIcon, .searchWrap .searchIcon {height: 40px; width: 40px}
+    .searchWrap .inputWrap {height: 40px; padding: 1% 45px}
+    .searchWrap .inputWrap input {@include font-size(1.3); line-height: 13px}
+    .sectionTitle {
+        span.icon {height: 50px; width: 50px; img {max-width: 100%}}
+        p {@include font-size(1.8); padding: 10px 0}
+    }
+    .pillarsWrap .topSection {padding-top: 40px}
+    .pillarsWrap .topSection .content p, .locateUs .content > p {@include font-size(1.4);}
+    .pillarsWrap .pillarsCarousel .slide .item .wrapper p.title {@include font-size(2); padding: 30px 10px 0 0}
+    .pillarsWrap .pillarsCarousel .slide .item {padding: 0 12%; width: 100% }
+    .pillarsWrap .pillarsCarousel .slide .item:nth-child(2) {padding-right: 0; padding-left: 20%}
+    .pillarsWrap .pillarsCarousel .slide .item .wrapper p.details {@include font-size(1.4); padding: 10px; padding-left: 0}
+    .pillarsWrap .pillarsCarousel .slide .item .wrapper .svgBox {width: 70px}
+    .pillarsWrap .pillarsCarousel .slide .item .wrapper .svgBox svg {max-height: 70px; max-width: 70px}
+    .pillarsWrap .pillarsCarousel .owl-controls .owl-dots .owl-dot {padding: 0 5px; span {height: 7px; width: 7px}}
+
+    .lifestyleWrap .sliderWrap .selectCat {right: -10px}
+    .reviewsWrap .imgWrap .profilePicFrame, .reviewsWrap .imgWrap .profilePic.profilePicMain {height: 150px; width: 150px}
+    .reviewsWrap .imgWrap .profilePic.picPos-01 {height: 60px; width: 60px}
+    .reviewsWrap .imgWrap .profilePic.picPos-02 {height: 65px; top: 70px; width: 65px}
+    .reviewsWrap .imgWrap .profilePic.picPos-03 { height: 70px; top: 150px; width: 70px;}
+    .iconicProjects {padding-top: 40px}
+    .letsWorkBetter,.blogsWrap {padding-top: 30px}
+    .lifestyleWrap { &:before {height: 50%}}
+    .reviewsWrap:before {height: 55%}
+    .reviewsWrap {padding: 35px 0 0}
+    .iconicProjects .carousel {background-color: $bgLightGold}
+    .iconicProjects .carousel .slide .content, .letsWorkBetter .carousel .slide .content, .letsWorkBetter .carousel .slide .content {padding: 15px 20px 60px}
+    .customOwlConrtol .owl-dots:after, .customOwlConrtol .owl-dots .owl-dot.active:before {@include font-size(1.4)}
+    .customOwlConrtol .owl-nav .owl-next {@include font-size(1.5); padding: 10px 50px 10px 30px;
+        &:before{left: 70px; top: 15px; @include transform-scale(.8);}
+        &:hover {
+            &:before{left: 75px}
+        }
+    }
+    .iconicProjects .carousel .slide .content p.title, .letsWorkBetter .carousel .slide .tabContentWrap .tabContent .content p.title {@include font-size(2.2); padding-bottom: 10px}
+    .iconicProjects .carousel .slide .content p, .letsWorkBetter .carousel .slide .tabContentWrap .tabContent .content p, .lifestyleWrap .topSection .content p {@include font-size(1.4); padding-bottom: 12px}
+    .locateUs {padding: 0 0}
+    .lifestyleWrap .sliderWrap .galleryWrap .banner {height: 175px}
+    .lifestyleWrap .sliderWrap p {@include font-size(1.6); }
+    .lifestyleWrap .sliderWrap .galleryWrap .slider .ui-slider-handle {background-size: 100%; height: 20px; margin-left: -10px; margin-top: 12px; width: 20px}
+    .lifestyleWrap .sliderWrap .selectCat {
+        top: 130px;
+        width: 150px;
+        span.icon {
+            height: 30px;
+            padding: 6px;
+            width: 30px;
+            ul {
+                li {
+                    height: 7px; width: 7px;
+                }
+            }
+        }
+        .dropdown {
+            width: 120px;
+          }
+          .dropdown .select {
+            background-position: right 5px center;
+            @include font-size(1);
+            line-height: 30px;
+            padding: 0 20px 0 5px;
+          }
+          .dropdown .dropdown-menu li {
+            @include font-size(1);
+              padding: 4px 5px;
+          }
+    }
+    .lifestyleWrap .sliderWrap .galleryWrap .slider {margin-top: 15px}
+    .reviewsWrap .content {padding-top: 20px; }
+    .reviewsWrap .content .profileWrap .profileBox p { @include font-size(1.4);&.name {@include font-size(2.5)}}
+    .blogsWrap .blogsContainer .blog {
+        p {@include font-size(1.4); padding-bottom: 7px;
+            &.date {@include font-size(1.4);padding-bottom: 7px;}
+            &.title {@include font-size(2); padding-bottom: 7px;}
+        }
+    }
+    .blogsWrap .blogsContainer .buttonWrap {padding-bottom: 15px}
+    .searchLightbox {padding: 10px 5%;
+        .container {padding-top: 40px}
+    }
+    .searchLightbox .lastSearchList .box p, .searchLightbox .lastSearchList .box ul li a {@include font-size(1.4)}
+    .searchLightbox .sliderWrap {padding: 10px 0}
+    .formWrapper .fieldRow label {@include font-size(1.5)}
+    .searchLightbox .formWrapper p.heading {padding: 7px 40px 7px 10px}
+    .searchLightbox .formWrapper .accordianBox .fieldRow .field {margin: 0 0 10px; width: 100%}
+    .formWrapper ul.radioGroup li {padding-bottom: 7px}
+    .formWrapper .fieldRow label {padding-bottom: 10px}
+    
+}
+@media only screen and (max-width : 480px) {
+    // ------------Aspi Page Starts------------
+    section.pillar-services .pillarsCarousel .owl-nav {
+        top: 40%;
+        button.owl-prev {
+            left: 0;
+        }
+        button.owl-next {
+            right: 0;
+        }
+    }
+    .know-btn .btn {
+        padding: 5px 12px;
+    }
+    section.pillar-services .pillarsCarousel .item .wrapper .pillar-img {
+        max-width: 80px;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content p {
+        font-size: 2.5rem;
+    }
+    section.residential .resdient-slider .slides {
+        margin: 0 auto;
+    }
+    .price-banner .wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 19px;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content p {
+        width: 100%;
+        font-size: 2.2rem;
+    }
+    .innerMainBanner .bannerCarousel .owl-item .content {
+        bottom: 17%;
+    }
+    .ourAmenities .contentWrap {
+        padding: 10px;
+    }
+    .ourAmenities .contentWrap .content  p {
+        font-size: 1.4rem;
+    }
+    .btn {
+        font-size: 1.4rem;
+        min-width: 80px;
+        padding: 8px 10px;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .customNextBtn:before {
+        right: 10px;
+        left: inherit;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .customNextBtn {
+        padding: 8px 40px 8px 10px;
+    }
+    .ourAmenities .contentWrap {
+        bottom: -50px;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .pagination span {
+        font-size: 1.4rem;
+    }
+    .propertyPrice .carousel .slide {
+        max-width: 80%;
+    }
+    .propertyPrice .propertypricecarousel .owl-nav button.owl-prev {
+        left: 1%;
+    }
+    .propertyPrice .propertypricecarousel .owl-nav button.owl-next {
+        right: 1%;
+    }
+    .accordianWrap .accordian-container p.heading {
+        font-size: 1.4rem;
+    }   
+    .accordianWrap .accordian-container .accordCont p {
+        font-size: 1.3rem;
+    }
+    .sectionTitle p {
+        font-size: 1.6rem;
+    } 
+    section, .lifestyleWrap, .accordianWrap {
+        padding: 25px 0;
+    }
+   
+    .lifestyleofthane .topSection .content p {
+        padding-bottom: 15px;
+    }
+    section.scheme .scehme-txt {
+        line-height: 22px;
+    }
+    .lifestyleWrap .sliderWrap {
+        padding: 20px;
+    }
+    .propertyPrice .carousel .slide p {
+        font-size: 1.8rem;
+    }
+    .propertyPrice .carousel .slide .box ul li span {
+        font-size: 1.6rem;
+    }
+    .propertyPrice .sectionTitle {
+        width: 60%;
+        padding-bottom: 50px;
+    }
+    .lifestyleofthane .topSection .content p {
+        font-size: 1.4rem;
+    }
+    section.scheme p {
+        font-size: 1.4rem;
+    }
+    .ourAmenities .bannerCarousel .owl-item {
+        right: 0;
+    }
+    .ourAmenities .contentWrap .owlCustomWrap .customNextBtn:hover:before {
+        left: inherit;
+    }
+    section.contact-bottom .contact-wrp a {
+        font-size: 1.4rem;
+        margin-left: 10px;
+    }
+    section.contact-bottom .contact-wrp span {
+        width: 17px;
+    }
+    section.contact-bottom .contact-wrp {
+        padding: 10px 0;    
+    }
+    // ------------Aspi Page Ends------------}
+    .contact-section .container .box .head .left-slot{width: 10%;}
+}
+
+@media only screen and (max-width: 359px){
+    .reviewsWrap .imgWrap{
+        .profilePicFrame, .profilePic.profilePicMain {
+            height: 130px;
+            width: 130px;
+        }
+    }
+    .profilePic.profilePicMain{
+        top:80px;
+    }
+    .profileWrap .profileBox p {
+     
+        margin-top: 12px;
+    }
+    .contact-section .container .box .head .left-slot {
+        width: 16%;
+    }  
+}

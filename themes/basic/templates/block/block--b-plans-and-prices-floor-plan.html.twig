@@ -1,0 +1,31 @@
+<div id="floorPlan" class="planTabs">
+    <div class="thumbSlider">
+        <div id="floorPaging" class="paging">
+            <span class="currentSlide">1</span> /
+            <span class="totalSlides"></span>
+        </div>
+        <div id="sliderFloor" class="flexslider" navFor="floorPaging">
+            <ul class="slides">
+                {{ for data in  content["#data_obj"] }}
+                <li>
+                    <img src="{{ directory }}/images/floor-plan.jpg" /> {#{data.floorplan}#}
+                </li>
+                {{% endFor %}}
+            </ul>
+        </div>
+        <div id="carouselFloor" class="flexslider thumbComp">
+            <ul class="slides">
+                {{ for data in  content["#data_obj"] }}
+                <li>
+                    <img src="{{ directory }}/images/floor-plan.jpg" /> {#{data.floorplan}#}
+                </li>
+                {{% endFor %}}
+            </ul>
+        </div>
+        <div class="priceContent content">
+            <div class="richTxt">
+                <p>lorem Lipsum lorem Lipsum lorem Lipsum </p>
+            </div>
+        </div>
+    </div>
+</div>

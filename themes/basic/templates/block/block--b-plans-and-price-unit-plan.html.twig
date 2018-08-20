@@ -1,0 +1,98 @@
+
+
+
+<div class="planTabContent">
+    <div id="masterPlan" class="planTabs">
+        {#<div><img src="{{ directory }}/images/unit-plan.jpg"></div> #}{#data.masterPlanImage#}
+        <div><img src="{{ content['$data_obj']['masters']['master_images'] }}"></div>
+        <div class="priceContent content">
+            <div class="richTxt">
+                <p>{{ content['$data_obj']['masters']['master_desc'] }}</p>  {#data.masterPlanText#}
+            </div>
+        </div>
+    </div>
+    <div id="floorPlan" class="planTabs">
+        <div class="thumbSlider">
+            <div id="floorPaging" class="paging">
+                <span class="currentSlide">1</span> /
+                <span class="totalSlides"></span>
+            </div>
+            <div id="sliderFloor" class="flexslider" navFor="floorPaging">
+                <ul class="slides">
+                    {{ for data in content["#data_obj"]['floors']}}
+                    <li>
+                        <img src="{{ data['field_floor_plan_images'] }}" />
+                    </li>
+                    {{ endfor }}
+                </ul>
+            </div>
+            <div id="carouselFloor" class="flexslider thumbComp">
+                <ul class="slides">
+                    {{ for data in content["#data_obj"]}}
+                    <li>
+                        <img src="{{ data['field_floor_plan_images'] }}" />
+                    </li>
+                    {{ endfor }}
+                </ul>
+            </div>
+            <div class="priceContent content">
+                <div class="richTxt">
+                    <p>{{ content['#data_obj']['floors']['floor_desc'] }} </p> {#data.floorPlanText#}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="unitPlan" class="planTabs">
+        <p class="selectBhkText">Select unit here to see plans & price</p>
+        <div class="planTabsInner bhkdrop" style="/* border: 1px solid #000; */"><div class="selectPlan">
+                <span class="prevPlan">Previous</span>
+                <span class="nextPlan">Next</span>
+                <div class="planUnitHolder" style="width: 302px;top: 0;left: 23%;">
+                    <div class="planUnits" style="width: 232px;height: 50px;">
+                        <span style="font-size: 2.5rem;text-align: left;padding: 7px 12px;">2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="newDropdown" style=""><div class="propertyPlans" style="margin-top: 0;">
+                <div class="typedropdown">
+                    <select name="" id="ptype" >
+                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2019">WEST WING</option>
+                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2021">EAST WING</option>
+                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2033">SOUTH WING</option>
+                        <option value="images/plan.jpg|images/plan.jpg|₹69.3 Lacs onwards|Oct 2045">NORTH WING</option>
+                    </select>
+                </div></div>
+        </div>
+        <div class="propertyTypeHolder">
+            <div class="planCarousel zoom-gallery">
+                <div class="unitplanCarousel owl-carousel">
+                    <div class="item">
+                        {{ for data in content["#data_obj"]['units'] }}
+                        <a class="zoom" href="{{ data['unit_images'] }}"> {#images/unit-plan-big.jpg#}
+                            <img src="{{ data['unit_images'] }}"> {#images/unit-plan.jpg#}
+                            <span>Zoom</span>
+                        </a>
+                        <div class="priceContent">
+                            <p>Price :
+                                <span>₹91.28 Lacs</span>
+                                <span class="divider">|</span> Savings :
+                                <span>₹2.16 Lacs</span>
+                            </p>
+                            <p>
+                                <span class="special">Special Price: ₹89.12 Lacs</span>
+                            </p>
+                            <p>Possession:
+                                <span>OC as well as under construction</span>
+                            </p>
+                            <p>
+                                <a href="#">View all prices</a>
+                            </p>
+                        </div>
+                        {{ endfor }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

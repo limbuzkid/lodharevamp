@@ -13,7 +13,7 @@ var svgmin = require('gulp-svgmin');
 var uglify = require('gulp-uglify');
 
 var paths = {
-	sassSrc: 'sass/**/*.{scss,sass}',
+	sassSrc: 'scss/**/*.{scss,sass}',
 	sassDest: 'css',
 	jsSrc: 'js/source/*.js',
 	jsDest: 'js/build',

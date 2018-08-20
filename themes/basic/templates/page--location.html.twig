@@ -1,0 +1,746 @@
+{% set path_url = path('entity.node.canonical', {'node': node.id})|split('/',-1)|join('/') %}
+<body class="themeGreen locateUs largeScreen tabFixed">
+<div class="outerWrap">
+    <!-- Header starts -->
+    <div class="fixedHeader">
+        <a class="menu" href="javascript:;" id="menu-icon">MENU</a>
+        <a class="logo" href="javascript:;">
+            <!--<img src="/{{ directory ~ (node.field__project.0.entity.field_logo.value)}}" alt="{{ node.field__project.0.entity.title.value }}">-->
+            <img src="{{ file_url(node.field__project.0.entity.field_image_path.value) }}" alt="{{ node.field__project.0.entity.title.value }}">
+        </a>
+        <div class="rightSec">
+            <ul>
+                <li><a href="javascript:;" class="favourite"><img src="{{ file_url(directory) }}/images/icon-search.png"></a></li>
+                <li><a href="javascript:;" class="favourite"><img src="{{ file_url(directory) }}/images/icon-favourite.png"></a></li>
+                <!-- <li><a href="javascript:;" class="contact"><img src="{{ directory }}/images//icon-contact.png"></a></li> -->
+                <!-- <li class="dropdown"><a href="javascript:;"><img src="{{ directory }}/images//mobile-user.png"></a></li> -->
+                <li class="myLodha"><a href="javascript:;">MY LODHA</a></li>
+                <li class="dropdown countryLanguage"><a href="javascript:;">IND/EN</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Header ends -->
+    <div class="subHeader">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="javascript:;">Home</a></li>
+                <li><a href="javascript:;">Residential Properties</a></li>
+                <li><a href="javascript:;">Amara</a></li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="topNav">
+            <ul>
+              {#  <li><a href='{{ ('/projects/' ~ node.field__project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field__project.0.entity.title.value ~ '/about') |lower  }}'>About</a></li>
+                <li><a href={{ ('/projects/' ~ node.field__project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field__project.0.entity.title.value ~ '/location') |lower }} class="active">Location</a></li>
+                <li><a href={{ ('/projects/' ~ node.field__project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field__project.0.entity.title.value ~ '/price-plans') |lower }}>Plans & Price</a></li>
+                <li><a href={{ ('/projects/' ~ node.field__project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field__project.0.entity.title.value ~ '/amenities') |lower }}>Amenities</a></li>
+                <li><a href={{ ('/projects/' ~ node.field__project.0.entity.field_project_category.0.entity.name.value ~ '/' ~ node.field__project.0.entity.title.value ~ '/gallery') |lower }}>Gallery</a></li>#}
+                <li><a href={{path_url ~ '/about' }} >About</a></li>
+                <li><a href={{path_url ~ '/location' }} class="active">Location</a></li>
+                <li><a href={{path_url ~ '/plans-prices' }}>Plans & Price</a></li>
+                <li><a href={{path_url ~ '/amenities' }}>Amenities</a></li>
+                <li><a href={{path_url ~ '/gallery' }}>Gallery</a></li>
+            </ul>
+            <div class="enquire-block">
+                <a href="javascript:;" class="modalOpen" data-modal-id="getInTouch">
+                    <span class="fav-icon">
+                        <img src="{{ file_url(directory) }}/images/icon-enquire.png" alt="">
+                    </span>
+                    <span>Enquire</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Header ends -->
+    <section class="locateUs">
+        <div class="container leftPadding">
+            <div class="content">
+                {{ page.location_header }}
+            </div>
+            {#<a href="javascript:;" class="getinTouch modalOpen" data-modal-id="getInTouch"><img src="{{ directory }}/images//icon-enquire.png" alt=""></a>#}
+        </div>
+        <div class="mapContainer">
+            <input type="hidden" name="location_lat"  id="prop_lat" value="{{ node.field_location_latitude.value }}">
+            <input type="hidden" name="location_lon"  id="prop_lon" value="{{ node.field_location_longitude.value }}">
+            <div id="map"></div>
+        </div>
+        <div class="price-banner">
+            <div class="container">
+                  <div class="wrapper flex-wrp mapTabs owl-carousel" datafld="near_by_places">
+                    <p datafld="{{ "place_category_0" }}">
+                      <a href="javascript:;" class="active" id="link-maps" data-change-map="0">Map</a>
+                        <span datafld="0">
+                          <input type="hidden" datafld="title" value="{{ node.field__project.0.entity.title.value }}">
+                          <input type="hidden" datafld="desc" value="{{ node.field_location_address.value | raw }}">
+                          <input type="hidden" datafld="lat" value="{{ node.field_location_latitude.value }}">
+                          <input type="hidden" datafld="lon" value="{{ node.field_location_longitude.value }}">
+                          <input type="hidden" datafld="img" value="{{ file_url(node.field_location_image.value) }}">
+                        </span>
+                    </p>
+                    {% for place_category in node.field_near_by_places %}
+                        <p datafld="{{ "place_category_" ~ (loop.index+1) }}">
+                          <a href="javascript:;" id="link-maps" data-change-map={{ (loop.index+1) }}>{{ place_category.entity.field_location_tab_name.value }}</a>
+                          {% for places in place_category.entity.field_marker_field %}
+                            {#{{ dump(places.entity.field_marker_thumbnail_url.value) }}#}
+                            {% set imgPath='' %}
+                            {% if places.entity.field_marker_thumbnail_url.value|length > 0 %}
+                                {% set imgPath=file_url(places.entity.field_marker_thumbnail_url.value) %}
+                            {% else %}
+                                {% set imgPath='' %}
+                            {% endif %}
+                            <span datafld="{{loop.index }}">
+                              <input type="hidden" datafld="title" value="{{ places.entity.field_marker_title.value }}">
+                              <input type="hidden" datafld="desc" value="{{ places.entity.field_marker_desc.value }}">
+                              <input type="hidden" datafld="lat" value="{{ places.entity.field_marker_latitude.value }}">
+                              <input type="hidden" datafld="lon" value="{{ places.entity.field_marker_longitude.value }}">
+                              <input type="hidden" datafld="img" value="{{ imgPath }}">
+                            </span>
+                          {% endfor %}
+                        </p>
+                    {% endfor %}
+                    {#<p><a href="javascript:;" id="link-maps" data-change-map="propLoc">Map</a></p>#}
+                    {#<p><a href="javascript:;" id="link-schools" data-change-map="schools">Schools</a></p>#}
+                    {#<p><a href="javascript:;" id="link-restaurants" data-change-map="restaurant">Restaurants</a></p>#}
+                    {#<p><a href="javascript:;" id="link-commute" data-change-map="train_station">Commute</a></p>#}
+                    {#<p><a href="javascript:;" id="link-park" data-change-map="park,amusement_park">Park</a></p>#}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="lifestyleofthane">
+        <div class="topSection">
+            <div class="container paddingBoth">
+                <div class="sectionTitle">
+                    <!-- <span class="icon"><img src="images/upload/icon-pillars.png"></span> -->
+                    <p><span>{{ node.field_location_name.value }}</span></p>
+                </div>
+                <div class="desc">
+                    <div class="content">
+                            {{ node.body.value | raw }}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="nearest">
+                    {% for stations_distance in node.field_near_by_stations_distance %}
+                        <p>{{ stations_distance.entity.field_station_name.value }} <span>{{ stations_distance.entity.field_station_distance.value }}</span></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="accordianWrap">
+        <div class="container">
+            <div class="accordian-container">
+                {% for data in node.field_location_accordians %}
+                    <p class="heading">{{ data.entity.field_title_.value }}</p>
+                    <div class="accordCont">
+                        {{ data.entity.field_accordian_details.value | raw }}
+                    </div>
+                {% endfor %}
+            </div>
+            {#{{ page.residential_amenities_accordion }}#}
+        </div>
+    </section>
+    <section class="propertyDetails">
+        <div class="container">
+            <div class="wrapper">
+                <p>Price: <strong>₹69.3 Lacs onwards</strong></p>
+                <p>Typology: <strong>2, 3 BHK</strong></p>
+                <p>Possession Date: <strong>{{ node.field__project.0.entity.field_tentative_possession_date.value|date("M Y") }}</strong></p>
+                <p>Location: <strong>{{ node.field__project.0.entity.field_city.0.entity.name.value }}</strong></p>
+            </div>
+        </div>
+        <div class="propertyMenu">
+            <p class="fav"><a href="javascript:;">
+                <!--<img src="{{ directory }}/images//icon-favourite-gold.png" alt="">-->
+                <img src="{{ file_url(directory) }}/images/icon-favourite-gold.png" alt=""><!-- Don't push this on server, delete or comment before pushing-->
+              </a></p>
+            <p id="share-button-2" class="need-share-button-default" data-share-icon-style="box" data-share-networks="Mailto,Twitter,Facebook,Linkedin"></p>
+            <p class="download"><a href="javascript:;" target="_blank">
+                <!--<img src="{{ directory }}/images//icon-download.png" alt="">-->
+                <img src="{{ file_url(directory) }}/images/icon-download.png" alt="">
+              </a></p>
+        </div>
+    </section>
+    <!-- Section residential Starts -->
+    <section class="residential">
+    <div class="container">
+      <div class="wrapper">
+        <div class="sectionTitle">
+          <p>YOU MAY <span>ALSO LIKE</span></p>
+        </div>
+        <div id="residential" class="resComTabs">
+          <div class="resdient-slider owl-carousel">
+            {% for data in node.field__project.0.entity.field_related_projects %}
+              <div class="slides">
+                <span class="slider-tag">{{ data.entity.field_project_category.0.entity.name.value }}</span>
+                <div class="res-head flex-wrp">
+                  <div class="head-txt">
+                    <h3>{{ data.entity.title.value }}</h3>
+                    <p>{{ data.entity.field_specific_location.value ~ ', ' ~  data.entity.field_city.0.entity.name.value}}</p>
+                    {#<p>Ghodbunder Road, Thane</p>#}
+                  </div>
+                  <div class="rating">
+                    {#<a href="javascript:void(0);" class="viewIcon"></a>#}
+                    <!-- <span class="sprite-star"></span> -->
+                    {#<a href="javascript:void(0);"><img src="/{{ file_url(directory) }}/images/aspi/star.png"
+					alt="star"></a>#}
+                  </div>
+                </div>
+                <div class="inner-wrp">
+                  <div class="inner-slider owl-carousel" >
+                    {% for data2 in data.entity.field_minimized_images_ %}
+                      <img src={{  file_url(data2.entity.field_image_url.value) }}  alt={{ data2.entity.field_image_alternate_text.value }} />
+                    {% endfor %}
+                  </div>
+                  <span class="fav-icon">
+                        <img src="{{ file_url(directory) }}/images/aspi/fav-icon.png" alt="fav-icon">
+                    </span>
+                </div>
+                <div class="possession-wrp">
+                  <p>Possession Date: <b>{{ data.entity.field_tentative_possession_date.value|date("M Y")}}</b></p>
+                  <p>Typology: <b>2, 3 BHK</b> | Price: <b>2.5 to 5 Cr</b></p>
+                  <p>
+                                            <span>Offer :
+                                              {{ data.entity.field_scheme_title.value }}</span>
+                  </p>
+                </div>
+                <div class="slide-footer">
+                  <a href="javascript:;">View Details</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    </div>
+
+<div class="menuOverlay">
+    <a href="javascript:void(0);" class="closeBtn"></a>
+    <div class="menuWrap">
+        <div class="leftMenuBox animated ">
+            <div class="topMenu  mobileMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" class="favourite">
+                                <img src="{{ directory }}/images//icon-favourite.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img src="{{ directory }}/images//mobile-user.png" alt="mobile-user">
+                            </a>
+                        </li>
+                        <li class="dropdown countryLanguage">
+                            <a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li>
+                                    <a href="javascript:void(0);">Country1</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country2</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="mainMenu">
+                <div class="menuLogo">
+                    <a href="javascript:void(0);">
+                        <img src="{{ file_url(directory) }}/images/logo-lodha-black.png" alt="logo-lodha-black" />
+                    </a>
+                </div>
+                <li class="menuActive">
+                    <a href="/projects/residential/amara/about">Residential Properties</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Commercial Properties</a>
+                </li>
+                <li>
+                    <a href="/priva" class="subMenuDropdown">Services
+                        <span class="dropdownArrow"></span>
+                    </a>
+                    <ul class="subMenu" style="display:none;">
+                        <li>
+                            <a href="javascript:void(0);">Easy lease</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Priva</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Home loan support</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Registration support</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Hospitality and facilities management</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"> NRI services</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />Investor Corner</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />NRI Corner</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />About Lodha</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" />Careers</a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="rightMenuBox animated">
+            <div class="topMenu">
+                <div class="rightSec">
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="favourite">
+                                <img src="{{ file_url(directory) }}/images//icon-search.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="favourite">
+                                <img src="{{ file_url(directory) }}/images//icon-favourite.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img src="{{ file_url(directory) }}/images//mobile-user.png" alt="mobile-user" />
+                            </a>
+                        </li>
+                        <li class="dropdown countryLanguage">
+                            <a href="javascript:void(0);">IND</a>
+                            <ul class="contryDropdown" style="display:none;">
+                                <li>
+                                    <a href="javascript:void(0);">Country1</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country2</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Country3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottomMenu">
+                <ul class="footerLinks">
+                    <li>
+                        <a href="javascript:void(0);" class="favourite">Events at Lodha</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="contact">Blogs</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Buying Guides</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Maharera Regulations</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Feedback</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Feedback</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">contact Us</a>
+                    </li>
+                </ul>
+                <div class="menuFooter">
+
+                    <div class="social-icons">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//twitter.png" alt="twitter" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//fb.png" alt="fb" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//youtube.png" alt="youtube" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//insta.png" alt="insta" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ file_url(directory) }}/images//linkedin.png" alt="linkedin" />
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        <p class="yellowText">&copy; LODHAGroup 2018</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer elements-->
+</div>
+<!--menu end elements-->
+<!-- Get in touch enquire popup start -->
+<div class="modal" id="getInTouch">
+    <div class="modalBody">
+        <div class="close">Close</div>
+        <div class="getInTouchWrap">
+            <div class="getInTouchLightBox">
+                <div class="container">
+                    <h3>GET IN TOUCH</h3>
+                    <div class="formWrapper">
+                        <div class="fieldRow">
+                            <div class="inputWrap">
+                                <input type="text" name="" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="inputWrap">
+                                <input type="text" name="" placeholder="Email-Id">
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="inputWrap">
+                                <input type="text" name="" placeholder="Mobile No.">
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>Country</option>
+                                    <option>India</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <div class="selectWrapper">
+                                <div class="selectedvalue"></div>
+                                <select name="">
+                                    <option value="" selected>City</option>
+                                    <option>Mumbai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fieldRow">
+                            <ul class="radioGroup">
+                                <li>
+                                    <input name="radio1" type="radio" value="" id="enquire" checked>
+                                    <label for="enquire">Enquire</label>
+                                </li>
+                                <li>
+                                    <input name="radio1" type="radio" value="" id="bookasitevisit">
+                                    <label for="bookasitevisit">Book a site visit</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="fieldRow hide">
+                            <div class="clm1-2">
+                                <div class="inputWrap">
+                                    <input type="text" name="" placeholder="dd/mm/yyyy">
+                                </div>
+                            </div>
+                            <div class="clm2-2">
+                                <div class="inputWrap">
+                                    <input type="text" name="" placeholder="Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttonWrap flex-wrp">
+                            <button class="btn btn-gold">Submit</button>
+                            <span class="call">Call : 022 3383 6304</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Get in touch enquire popup end-->
+
+</body>
+<script>
+  // This example requires the Places library. Include the libraries=places
+  // parameter when you first load the API. For example:
+  // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+  //https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
+
+  var themeJSON = [
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#f5f5f5"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#616161"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#f5f5f5"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#bdbdbd"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#e5e5e5"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9e9e9e"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dadada"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#616161"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9e9e9e"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#e5e5e5"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.station",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#c9c9c9"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9e9e9e"
+        }
+      ]
+    }
+  ];
+
+  function applyStyleOnMap(){
+    let elem = document.querySelector('#map .gm-style-pbc');
+    if(elem!==null && jQuery){
+      elem.classList.add('__brownShade');
+      jQuery('#map .gm-style-pbc').next().find('div').eq(0).append("<span class='brownShade'></span>");
+    }
+    else{
+      setTimeout(function(){
+        applyStyleOnMap();
+      },500);
+    }
+  }
+  function applyMarkers(map, locations){
+    for (i = 0; i < locations.length; i++) {
+      // console.log('applying marker: ', locations[i]);
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i]['lat'], locations[i]['lon']),
+        map: map,
+        icon:'/themes/basic/images/placeholder.png'
+      });
+
+      (function(marker,location){
+        var img = (location['img']) ? '<img src="'+location['img']+'" height="115" width="83" /><br>\r' : '';
+        google.maps.event.addListener(marker, 'click', function () {
+          var infowindow = new google.maps.InfoWindow({});
+          infowindow.setContent('<strong>'+location['title'] + '</strong><br>\r' + img + location['desc']);
+          infowindow.open(map, marker);
+        });
+      })(marker,locations[i]);
+    }
+  }
+  var retryCount = 0;
+  function initMap(search_type) {
+    let pTag = document.querySelector('[datafld="place_category_'+search_type+'"]');
+    let locations = [];
+    let prop_lon = document.querySelector('#prop_lon').value;
+    let prop_lat = document.querySelector('#prop_lat').value;
+    if(prop_lat && prop_lon){
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        maptype:'roadmap',
+        size:'480x360',
+        styles:themeJSON,
+        center: new google.maps.LatLng(prop_lat, prop_lon),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      applyStyleOnMap();
+
+      if(!search_type){
+        let child = document.querySelector('[datafld="place_category_0"]').children[1];
+        if(child.getAttribute('datafld')){
+          locations.push([]);
+          for(let j=0; j<child.children.length; j++){
+            let grandChild = child.children[j];
+            locations[locations.length-1][grandChild.getAttribute('datafld')] = grandChild.value;
+          }
+        }
+      }
+      else{
+        if(pTag && pTag.children){
+          for(let i=0; i<pTag.children.length; i++){
+            let child = pTag.children[i];
+            if(child.getAttribute('datafld')){
+              locations.push([]);
+              for(let j=0; j<child.children.length; j++){
+                let grandChild = child.children[j];
+                locations[locations.length-1][grandChild.getAttribute('datafld')] = grandChild.value;
+              }
+            }
+          }
+        }
+      }
+      applyMarkers(map, locations);
+    }
+    else{
+      if(retryCount<3){
+        setTimeout(function(){
+          initMap();
+        },500);
+      }
+      else{
+        console.log('Retried a lot of times, check what\'s wrong');
+      }
+      retryCount++;
+    }
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWus3m2h3YdxBOz9XPyzqgATz-hzBklLo&libraries=places&callback=initMap"></script>

@@ -34,6 +34,9 @@ function basic_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'section-' . $section;
       }
     }
+      $variables['base_path'] = base_path();
+      $variables['site_url'] = $GLOBALS['base_url'];
+//      $variables['asset_path'] = '/assets'; //this could also be a sub-domain.
   }
 
   // Add cachability metadata.
@@ -46,10 +49,50 @@ function basic_preprocess_html(&$variables) {
   $variables += $theme_settings->getOriginal();
 }
 
+function basic_preprocess_node(&$variables) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $variables['node'];
+    $variables['url'] = $node->toUrl('canonical', [
+        'absolute' => TRUE,
+        'language' => $node->language(),
+    ])->toString();
+}
 /**
  * Prepares variables for the field.html.twig template.
  */
 function basic_preprocess_field(&$variables, $hook) {
   // Make additional variables available to the template.
   $variables['bundle'] = $variables['element']['#bundle'];
+}
+
+
+/**
+
+* Implements hook_theme_suggestions_HOOK_alter().
+
+*/
+
+function basic_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    //echo '<pre>'; print_r($node); echo '</pre>';
+    $content_type = $node->bundle();
+    //echo $content_type;
+    //exit;
+    if($node->nid->value == 5) {
+      $suggestions[] = 'page__featured_alumni';
+    } else {
+      $suggestions[] = 'page__'.$content_type;
+    }
+  }
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+    $term = Term::load($tid);
+    if(trim($term->getVocabularyId())=='special_interest'){
+      $suggestions[] = 'page__vocabulary__special_interest';
+    }
+  }
+}
+
+function basic_preprocess_page(&$variables) {
+
+    $variables['image_base_path'] = \Drupal::config('assets_path')->get('url');
 }

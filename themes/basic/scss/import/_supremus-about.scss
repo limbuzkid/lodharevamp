@@ -1,0 +1,409 @@
+.supremusabout .tabsComponent {
+    padding: 35px 0 0;
+}
+
+.supremusabout .tabsComponent ul {
+    float: left;
+    width: 100%;
+}
+.supremusabout .lifestyleWrap:after {
+    display: none;
+}
+
+.lifestyleWrap .topSection .content {
+    padding: 80px 0 0;
+    /*vertical-align: top;*/
+}
+
+a.more {
+    border-bottom: 1px solid $gold;
+    color: $gold;
+    font-size: 1.7rem;
+}
+
+.factsfiguresWrap {
+    padding: 90px 0;
+    position: relative;
+}
+
+.factsfiguresWrap .sectionTitle p:after {
+    display: none;
+}
+
+.factsfiguresWrap .topSection .sectionTitle {
+    display: inline-block;
+    width: 31%;
+}
+
+.factsfiguresWrap .topSection .content {
+    display: inline-block;
+    margin: 14px 0 0;
+    vertical-align: top;
+    width: 68%;
+}
+
+.factsfiguresWrap .topSection .content p {
+    float: left;
+    width: 50%;
+}
+
+.factsfiguresWrap .topSection .content .figure {
+    color: $gold;
+    display: block;
+    font-size: 5rem;
+    font-weight: 900;
+}
+
+.factsfiguresWrap .topSection .content .fact {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;
+    width: 80%;
+}
+
+.factsfiguresWrap .topSection .content .fact:before {
+    background: $gold;
+    content: '';
+    float: left;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 12px;
+    transform: translateX(-120%);
+    width: 50px;
+}
+
+
+.mainbanner {
+    margin: 15px 0;
+    padding: 0 50px;
+}
+
+.mainbanner .bannerImg {
+    background: url("#{$assetPath}/upload/banner-supremus-about.jpg") no-repeat center;
+    background-size: cover;
+    float: left;
+    min-height: 600px;
+    width: 100%;
+}
+
+.supremusabout .mainbanner .price-banner {
+    float: left;
+    position: relative;
+}
+
+.zoom span {
+
+    width: 35px;
+    height: 35px;
+    background: url(#{$assetPath}/zoom.gif) no-repeat;
+    float: right;
+    text-indent: -9999px;
+}
+
+.propertyPlans {
+    float: left;
+    margin: 30px 0 0;
+    text-align: center;
+    width: 100%;
+
+
+    .selectPlan {
+        float: left;
+        margin: 0 0 0 24%;
+        position: relative;
+        width: 200px;
+        .floor {
+            font-weight: bold;
+        }
+        .prevPlan,
+        .nextPlan {
+
+            width: 18px;
+            height: 32px;
+            background: url(#{$assetPath}/arrow-sprite.png) no-repeat;
+            display: inline-block;
+            text-indent: -9999px;
+            cursor: pointer;
+            transform: translateY(-26px);
+            &.inActive {
+                @include opacity(0.5);
+            }
+        }
+        .prevPlan {
+            background-position: 0 0;
+        }
+        .nextPlan {
+            background-position: right 0;
+        }
+        .planUnitHolder {
+            display: inline-block;
+
+            p {
+                font-family: $medium;
+                @include font-size(2.1);
+                padding: 5px 0;
+                text-align: center;
+                color: #000000;
+                text-transform: uppercase;
+            }
+            .planUnits {
+                margin: 0 calc((100% - 150px) / 2);
+                overflow: hidden;
+                position: relative;
+                padding: 0 15px;
+                span {
+                    position: relative;
+
+                    text-align: center;
+                    left: 0;
+                    top: 0;
+                    display: block;
+                    font-family: $medium;
+                    @include font-size(4);
+                    color: #000000;
+                }
+            }
+        }
+    }
+    .planTypes {
+        border: 2px solid #bd9234;
+        float: right;
+        margin: 40px 13% 40px 0;
+        width: 340px;
+    }
+    .typedropdown {
+        float: left;
+        position: relative;
+        width: calc(100% - 38px);
+        &:after {
+            background: url(#{$assetPath}/arrow-select.png) no-repeat center;
+            content: '';
+            height: 38px;
+            position: absolute;
+            pointer-events: none;
+            right: 0;
+            top: 0;
+            width: 38px;
+        }
+        select {
+            border: none;
+            cursor: pointer;
+            float: left;
+            font-size: 1.6rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            width: 100%;
+        }
+    }
+    .info[data-tooltip] {
+        background: url(#{$assetPath}/icon-info.gif) no-repeat center #f2f2f2;
+        border-left: 2px solid $gold;
+        cursor: pointer;
+        float: right;
+        height: 38px;
+        position: relative;
+        width: 38px;
+        &:after {
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+            bottom: 120%;
+            content: attr(data-tooltip);
+            display: none;
+            font-size: 1.4rem;
+            position: absolute;
+            right: 0;
+            width: 250px;
+        }
+        &:hover:after {
+            display: block;
+        }
+    }
+
+    .planImg {
+        float: left;
+        width: 100%;
+    }
+    .planControls {
+        float: left;
+        margin: 40px 25% 0;
+        width: 50%;
+        .masterPlan {
+            border-bottom: 1px solid $gold;
+            color: $gold;
+            float: left;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.propprice {
+    background: #f6f2e3;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+.propprice p {
+    font-size: 1.6rem;
+    padding: 20px 0;
+}
+
+.propprice p span {
+    padding: 0 25px;
+}
+
+.supremusabout .lifestyleWrap {
+    padding: 0;
+}
+
+.supremusabout .factsfiguresWrap {
+    padding: 50px;
+}
+
+.supremusabout .locateUs {
+    padding: 100px 0 50px;
+}
+
+.supremusabout .locateUs:after {
+    background: #f6f3e4;
+    bottom: 0;
+    content: '';
+    left: 0;
+    min-height: 50%;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+.supremusabout .accordianGoldView {
+    background: #f6f3e4;
+    margin: 0 0 90px;
+    padding: 0 0 50px;
+}
+
+.supremusabout .richTxt {
+    /*height: 100px;*/
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.5s;
+}
+
+.supremusabout .richTxt:after {
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); 
+    bottom: 0;
+    content: '';
+    float: left;
+    height: 20px;
+    position: absolute;
+    width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .lifestyleWrap .topSection .content {
+        padding: 0;
+    }
+    a.more {
+        font-size: 1.4rem;
+    }
+    .factsfiguresWrap .topSection .sectionTitle,
+    .factsfiguresWrap .topSection .content {
+        width: 100%;
+    }
+    .factsfiguresWrap .topSection .content .figure {
+        font-size: 3rem;
+        margin: 0 0 0 60px;
+    }
+
+    .factsfiguresWrap .topSection .content .fact {
+        width: 100%;
+        font-size: 1.4rem;
+    }
+
+    .factsfiguresWrap .topSection .content .fact:before {
+        position: relative;
+        margin: 0 10px 0 0;
+        top: 9px;
+        transform: none;
+    }
+
+    .factsfiguresWrap .topSection .content p {
+        width: 100%;
+    }
+    .propertyPlans .selectPlan {
+        margin: 0 calc((100% - 200px) / 2) !important;
+    }
+    .propertyPlans .planTypes {
+        margin: 40px calc((100% - 340px) / 2) !important;
+    }
+    .propertyPlans .planImg img {
+        width: 100%;
+    }
+
+
+    .propertyPlans .planControls {
+        margin: 40px 0 0;
+        width: 100%;
+    }
+
+    .propertyPrice {
+        padding: 25px 0 0;
+    }
+    .propprice {
+        margin: 0 0 25px;
+    }
+    .propprice p {
+        font-size: 1.4rem;
+    }
+
+    .propprice p span {
+        padding: 0 15px;
+    }
+    .mainbanner .bannerImg {
+        min-height: 400px;
+    }
+
+    .mainbanner {
+        padding: 0;
+    }
+
+    .plansWrap .container {
+        padding: 25px 5%;
+    }
+
+    .factsfiguresWrap {
+        padding: 25px 0;
+    }
+
+    .propertyPlans .selectPlan .planUnitHolder .planUnits span {
+        font-size: 2.5rem;
+    }
+
+    .propertyPlans .selectPlan .prevPlan,
+    .propertyPlans .selectPlan .nextPlan {
+        transform: translateY(-60%);
+    }
+
+    .propertyPlans .typedropdown select {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .factsfiguresWrap {
+        padding: 50px 5%;
+    }
+
+    .supremusabout .mapContainer {
+        margin: 0;
+        width: 100%;
+    }
+    .propertyPlans .planTypes {
+        margin: 0 0 0 14%
+    }
+}

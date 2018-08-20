@@ -33,15 +33,19 @@
 			$nodes = entity_load_multiple('node', $nids);
 
 			foreach($nodes as $node) {
-				
+
 				$data[] = array(
 					'title' => $node->title->value,
-					'body' => $node->body->value,
+					'body' => $node && $node->body?$node->body->value:'',
 					'fieldSequence' => sprintf("%02d", $node->field_sequence->value),
-					'imagePath' => $base_path.$node->field_image_path->value,
-					'iconImageHover' => $base_path.$node->field_imagfield_icon_image_hovere_path->value,
-					// 'imagePath' =>$node->field_image_path->value,
-					// 'iconImageHover' => $node->field_imagfield_icon_image_hovere_path->value,
+//					'imagePath' => $base_path.$node->field_image_path->value,
+//					'iconImageHover' => $base_path.$node->field_imagfield_icon_image_hovere_path->value,
+					 'imagePath' =>$node->field_image_path->value,
+					 'iconImageHover' => (
+					     $node->field_imagfield_icon_image_hovere_path?
+                             $node->field_imagfield_icon_image_hovere_path->value:
+                             ''
+                     )
 					// 'alias' => $path,
 				  );
 			}
@@ -52,6 +56,5 @@
 				'#test_var' => $this->t('Test Value'),
 				'#data_obj' => $data,
 			];
-
 		}
   }

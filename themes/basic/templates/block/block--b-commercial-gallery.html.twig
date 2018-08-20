@@ -1,0 +1,102 @@
+<section class="amenities">
+    <div class="container">
+        <div class="sectionTitle">
+            <p>Our <span>Gallery</span>
+            </p>
+            <div class="customTabs galTabs">
+                <ul commonTab="amenityTabs_1">
+                    <li tabName="iframe" gallerySlider="true">360</li>
+                    <li tabName="photos" gallerySlider="true">Photos</li>
+                    <li tabName="videos" gallerySlider="true">Videos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="gallerySlider">
+<div class="amenityTabsHolder flexgallery">
+    <div id="iframe" class="amenityTabs_1" style="display:none;">
+        <div class="thumbSlider">
+            <div id="360Paging" class="paging">
+                <span class="currentSlide">1</span> /
+                <span class="totalSlides"></span>
+            </div>
+            <div id="360Slider" class="sliderGallery flexslider" navFor="360Paging" syncfor="360Thumb">
+                <ul class="slides flexImg">
+                    {% for gallery_img in content["#data_obj"]["panorama"] %}
+                        <li>
+                            <iframe style="background: linear-gradient(to right, #ffe288, #fce6b5);" frameborder="0" content=""></iframe>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="360Thumb" syncTo="360Slider" class="galleryThumb flexslider thumbComp">
+                <ul class="slides">
+                    {% for data in content["#data_obj"]["panorama"] %}
+                        <li>
+                            <img src="{{ file_url(data["thumbnail"]) }}" />
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="photos" class="amenityTabs_1">
+        <div class="thumbSlider">
+            <div id="photosPaging" class="paging">
+                <span class="currentSlide">1</span> /
+                <span class="totalSlides"></span>
+            </div>
+            <div id="photoSlider" class="sliderGallery flexslider" navFor="photosPaging" syncfor="photosThumb">
+                <ul class="slides flexImg">
+                    <ul class="slides flexImg">
+                        {% for data in content["#data_obj"]["images"] %}
+                            <li>
+                                <img src="{{ file_url(data["url"]) }}" alt ="{{ data["caption"] }}"/>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+            <div id="photosThumb" syncTo="photoSlider" class="galleryThumb flexslider thumbComp">
+                <ul class="slides">
+                    <ul class="slides">
+                        {% for data in content["#data_obj"][["images"]] %}
+                            <li>
+                                <img src="{{ file_url(data["url"]) }}"/>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="videos" class="amenityTabs_1">
+        <div class="thumbSlider">
+            <div id="videosPaging" class="paging">
+                <span class="currentSlide">1</span> /
+                <span class="totalSlides"></span>
+            </div>
+            <div id="videoSlider" class="sliderGallery flexslider" navFor="videosPaging" syncfor="videosThumb">
+                <ul class="slides flexImg">
+                    {% for data in content["#data_obj"][["videos"]] %}
+                        <a class="popup-youtube" href="http://www.youtube.com/watch?v="{{ data["youtube_id"] }}>
+                            <img src="{{ data["thumbnail"] }}" />
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="videosThumb" syncTo="videoSlider" class="galleryThumb flexslider thumbComp">
+                <ul class="slides">
+                    {% for data in content["#data_obj"][["videos"]] %}
+                        <li>
+                            <img src="{{ file_url(data["thumbnail"]) }}"/>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
