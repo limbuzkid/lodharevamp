@@ -94,15 +94,15 @@
 
         
           
-          foreach ($prices as $price) {
+          // foreach ($prices as $price) {
            
-              $typology[] = $price->name ;
+          //     $typology[] = $price->name ;
 
-          echo '<pre>';  print_r($price->name);
-          }
+          // echo '<pre>';  print_r($price->name);
+          // }
   
         
-     echo '<pre>';print_r($typology);
+    //  echo '<pre>';print_r($typology);
       $date = date('M Y', strtotime($node->field_tentative_possession_date_value));
       $output .= '<div class="slides">
                     <span class="slider-tag grey">'.$node->tpc_name.'</span>
