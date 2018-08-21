@@ -35,15 +35,13 @@
       $query->leftJoin('node__field_project_category', 'fpc', 'fpc.entity_id = n.nid');
       $query->leftJoin('node__field_scheme_title', 'fst', 'fst.entity_id = n.nid');
       $query->leftJoin('node__field_tentative_possession_date', 'ftp', 'ftp.entity_id = n.nid');
-      $query->leftJoin('node__field_project', 'fpro', 'fpro.field_project_target_id = n.nid');
-      $query->leftJoin('node__field_unit_plan', 'fup', 'fup.entity_id = fpro.entity_id');
-      $query->leftJoin('paragraph__field_typology', 'ft', 'ft.entity_id = fup.field_unit_plan_target_id');
-      // paragraph__field_typology
+      // $query->leftJoin('node__field_minimized_images_', 'fmi', 'fmi.entity_id = n.nid');
       
-
       $query->leftJoin('taxonomy_term_field_data', 'fp', 'fp.tid = fq.field_quotes_and_world_target_id');
       $query->leftJoin('taxonomy_term_field_data', 'tpc', 'tpc.tid = fpc.field_project_category_target_id');
-      $query->leftJoin('taxonomy_term_field_data', 'ttp', 'ttp.tid = ft.field_typology_target_id');
+      
+      // $query->leftJoin('paragraph__field_image_url', 'fiu', 'fiu.entity_id = fmi.field_minimized_images__target_id');
+      
       $query->fields('nf', ['title', 'nid']);
       $query->fields('nd', ['field_home_commercial_project_de_value']);
       $query->fields('ni', ['field_home_commercial_project_im_value']);
@@ -54,10 +52,9 @@
       $query->fields('tpc', ['name']);
       $query->fields('fst', ['field_scheme_title_value']);
       $query->fields('ftp', ['field_tentative_possession_date_value']);
-      $query->fields('ttp', ['name']);
+      // $query->fields('fiu', ['field_image_url_value']);
       
       
-     
 			$query->condition('nf.status', NODE_PUBLISHED)
             ->condition('nf.type', 'projects')
 						->orderBy('fp.name', 'ASC');
@@ -66,97 +63,89 @@
       $tabs = array();
       
       $node_id = 0;
-      // foreach($nodes as $node) {
-      //  echo '<pre>'; print_r($node);
-      // }
-      // die();
+   
+      $output = '';
+      $nodeid = 0;
       foreach($nodes as $node) {
+        // echo'<pre>';print_r($node);
+        $typology = array();
+        $query = \Drupal::database()->select('node', 'npp');
+        $query->leftJoin('node_field_data', 'nf', 'nf.nid = npp.nid');
+        $query->leftJoin('node__field_project', 'fpro', 'fpro.field_project_target_id = '.$node->nid);
+        $query->leftJoin('node__field_unit_plan', 'fup', 'fup.entity_id = npp.nid');
+        $query->leftJoin('paragraph__field_typology', 'ft', 'ft.entity_id = fup.field_unit_plan_target_id');
+        $query->leftJoin('taxonomy_term_field_data', 'ttp', 'ttp.tid = ft.field_typology_target_id');
+        $query->fields('ttp', ['name']);
+        $query->fields('npp', ['nid']);
+        $query->condition('nf.status', NODE_PUBLISHED)
+              ->condition('nf.type', 'plans_prices');
+        $prices 	= $query->execute();
+
+
         
-        if($node_id == 0 ){
+        // $query = \Drupal::entityQuery('node');
+       
+        // $query->condition('status', NODE_PUBLISHED)
+        //       ->condition('type', 'plans_prices')
+        //       ->condition('field_project', $node->nid)
+        //       ->sort('nid', 'DESC');
+        // $nid 	= $query->execute();
+        // print_r($nid);exit;
 
-            if($node->field_home_commercial_proj_url_value) {
-              $path = $node->field_home_commercial_proj_url_value;
-            } else {
-              $path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid);
-            }
-            
-            if($node->field_home_commercial_project_im_value) {
-              $image_path = $base_path .'/'. $node->field_home_commercial_project_im_value;
-            } else {
-              $image_path = '';
-            }
         
+          
+          foreach ($prices as $price) {
+           
+              $typology[] = $price->name ;
 
-            $data[] = array(
-              'nid'       => $node->nid,
-              'title'     => $node->title,
-              'body'      => $node->field_home_commercial_project_de_value,
-              'linkText'  => $node->field_home_commercial_project_li_value,
-              'linkUrl'   => $path,
-              'imagePath' => $image_path,
-              'type'      => $node->name,
-              'location' => $node->field_specific_location_value,
-              'project_category' => $node->name,
-              'scheme_offers' => $node->field_scheme_title_value
-            );
-
-            // $data['typology'][] = $node->ttp_name;
-            // $data[]['price'] => $node->ttp_name;
-
-            $node_id = $node->nid;
-
-        } else{
-
-          if($node_id == $node->nid){
-
-            // $data['typology'][] = $node->ttp_name;
-            // $data[]['price'] => $node->ttp_name;
-
-          }else{
-
-            if($node->field_home_commercial_proj_url_value) {
-              $path = $node->field_home_commercial_proj_url_value;
-            } else {
-              $path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->nid);
-            }
-            
-            if($node->field_home_commercial_project_im_value) {
-              $image_path = $base_path .'/'. $node->field_home_commercial_project_im_value;
-            } else {
-              $image_path = '';
-            }
-        
-
-            $data[] = array(
-              'nid'       => $node->nid,
-              'title'     => $node->title,
-              'body'      => $node->field_home_commercial_project_de_value,
-              'linkText'  => $node->field_home_commercial_project_li_value,
-              'linkUrl'   => $path,
-              'imagePath' => $image_path,
-              'type'      => $node->name,
-              'location' => $node->field_specific_location_value,
-              'project_category' => $node->name,
-              'scheme_offers' => $node->field_scheme_title_value
-            );
-
-            // $data['typology'][] = $node->ttp_name;
-            // $data[]['price'] => $node->ttp_name;
-
-            $node_id = $node->nid;
-
+          echo '<pre>';  print_r($price->name);
           }
-
-        }
-			
+  
+        
+     echo '<pre>';print_r($typology);
+      $date = date('M Y', strtotime($node->field_tentative_possession_date_value));
+      $output .= '<div class="slides">
+                    <span class="slider-tag grey">'.$node->tpc_name.'</span>
+                    <div class="res-head flex-wrp">
+                        <div class="head-txt">
+                            <h3>'.$node->title.'</h3>
+                            <p>'.$node->field_specific_location_value.'</p>
+                        </div>
+                        <div class="rating">
+                            <a href="javascript:void(0);" class="viewIcon"></a>
+                            <!-- <span class="sprite-star"></span> -->
+                            <img src="/themes/basic/images/aspi/star.png" alt="star">
+                        </div>
+                    </div>
+                    <div class="inner-wrp custCarou">
+                        <div class="inner-slider">
+                            <img src="'.$base_path.$node->field_image_url_value.'" alt="resident-image">
+                        </div>
+                        <span class="fav-icon">
+                                        <img src="/themes/basic/images/aspi/fav-icon.png" alt="fav-icon">
+                                    </span>
+                    </div>
+                    <div class="possession-wrp">
+                        <p>Possession Date: <b>'.$date.'</b></p>
+                        <p>Typology: <b>2, 3 BHK</b> | Price: <b>2.5 to 5 Cr</b></p>
+                        <p><span>Offer : '.$node->field_scheme_title_value.'</span></p>
+                    </div>
+                    <div class="slide-footer">
+                        <a href="javascript:;">View Details</a>
+                    </div>
+                </div>';
       }
+      //die();
+      // return [
+      //   '#theme'    => 'page--all-projects',
+      //   '#data_tab' => $tabs,
+      //   '#data_obj' => $data,
+      // ];
       
-      return [
-        '#theme'    => 'page--search-property',
-        '#data_tab' => $tabs,
-        '#data_obj' => $data,
-      ];
-      
+      $element = array(
+        '#markup' => $output,
+      );
+      return $element;
 		
 
     }

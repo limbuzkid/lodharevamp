@@ -1,5 +1,6 @@
 global:
   version: VERSION
+
   css:
     layout:
       css/layout/layout.css: {}
@@ -17,6 +18,9 @@ global:
       css/magnific-popup.css: {}
       css/style.css: {}
   js:
+    js/map-places-search.js: {}
+    https://maps.googleapis.com/maps/api/js?key=AIzaSyCWus3m2h3YdxBOz9XPyzqgATz-hzBklLo&libraries=places: {}
+    js/new-common.js: {}
     js/owl.carousel.js: {}
     js/jquery.flexslider.js: {}
     js/jquery-ui.js: {}
@@ -27,8 +31,7 @@ global:
     js/svg-and-scroll.js: {}
     js/needsharebutton.min.js: {}
     js/priva.js: {}
-    js/new-common.js: {}
-
+   
     #js/build/scripts.js: {}
   dependencies:
     - core/drupal

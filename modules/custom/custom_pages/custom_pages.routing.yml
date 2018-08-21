@@ -1,7 +1,7 @@
 custom_pages.search:
-  path: '/all-property'
+  path: '/all-projects'
   defaults:
     _controller: '\Drupal\custom_pages\Controller\CustomPagesController::search'
-    _title: 'All Property'
+    _title: 'All Project'
   requirements: 
     _permission: 'access content'
