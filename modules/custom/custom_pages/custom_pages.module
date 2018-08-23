@@ -1,8 +1,8 @@
 <?php 
   function custom_pages_theme($existing, $type, $theme, $path) {
     return [
-        'page__my_account' => [
-          'variables' => ['test_var' => NULL, 'doubles' => array()],
+        'page__all_projects' => [
+          'variables' => ['test_var' => NULL, 'data_obj' => array()],
         ],
         'page__irma__get_involved' => [
           'variables' => ['cur_page' => NULL, 'test_var' => NULL, 'data_obj' => array()],

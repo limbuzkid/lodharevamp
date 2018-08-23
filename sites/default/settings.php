@@ -797,4 +797,4 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_MrFeNYVcKjw6GIzOda-vZry6nMv_JILc2Wx-xkPH82YcGWMh4Z9h62VS-UbSnG-IWaapUQyjZw/sync';
-$config['assets_path']['url'] = 'https://indigoconsulting.in';
+$config['assets_path']['url'] = 'http://10.132.150.168:8088';

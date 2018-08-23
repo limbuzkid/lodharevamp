@@ -13,6 +13,8 @@
   use Symfony\Component\HttpFoundation\Response;
   use Symfony\Component\HttpFoundation\RedirectResponse;
   use Drupal\Core\Password\PhpassHashedPassword;
+	use Drupal\taxonomy\Entity\Term;
+	use Drupal\paragraphs\Entity\Paragraph; 
   
   
   class CustomPagesController extends ControllerBase {
@@ -20,134 +22,167 @@
     public function search() {
 
       $base_path =  \Drupal::config('assets_path')->get('url');
-		
-			$output = '';
+			
+			$nids = \Drupal::entityQuery('node')
+						->condition('status', NODE_PUBLISHED)
+						->condition('type', 'projects')
+						->sort('created', 'DESC')
+						->execute();
+			$nodes = Node::loadMultiple($nids);
+			
+			$data = array();
+			
+			//echo '<pre>';
+			foreach($nodes as $node) {
+				/*$paragraph = Paragraph::load(254);
+				print_r($paragraph);
+				exit;*/
+				
+				$nid = $node->nid->value;
+				$tid = $node->get('field_project_category')->target_id;
+				
+				$ppqry = \Drupal::database()->select('node__field_project', 'nfp');
+				$ppqry->addField('nfp', 'entity_id');
+				$ppqry->condition('nfp.field_project_target_id', $nid);
+				$ppqry->range(0, 1);
+				
+				$price_plans_nid = $ppqry->execute()->fetchField();
+				
+				$price_plans_node = Node::load($price_plans_nid);
+				
+				$image_array = array();
+				
+				if(!empty($node->field_minimized_images_)) {
+					foreach($node->field_minimized_images_ as $image) {
+						$referenced_image = $image->entity;
+						$image_array[] = $base_path .'/'. $referenced_image->field_image_url->value;
+					}
+				}
+				
+				$typology = array();
+				
+				
+				if($price_plans_node->field_unit_plan) {
+					$unit_price =array();
+					$paras = $price_plans_node->field_unit_plan->referencedEntities();
+					foreach($paras as $para) {
+						$unit_plan_id = $para->id->value;
+						$query = \Drupal::database()->select('paragraph__field_plans', 'pfp');
+						$query->leftJoin('paragraph__field_room_image_plan_details', 'fripd', 'fripd.entity_id = pfp.field_plans_target_id');
+						$query->leftJoin('paragraph__field_unit_price', 'pfup', 'pfup.entity_id = fripd.field_room_image_plan_details_target_id');
+						$query->fields('pfup', ['field_unit_price_value']);
+						$query->condition('pfp.entity_id', $unit_plan_id);
 
-      $query = \Drupal::database()->select('node', 'n');
-      $query->leftJoin('node_field_data', 'nf', 'nf.nid = n.nid');
-      $query->leftJoin('node__field_home_commercial_project_de', 'nd', 'nd.entity_id = n.nid');
-      $query->leftJoin('node__field_home_commercial_project_im', 'ni', 'ni.entity_id = n.nid');
-      $query->leftJoin('node__field_home_commercial_project_li', 'nlt', 'nlt.entity_id = n.nid');
-      $query->leftJoin('node__field_home_commercial_proj_url', 'nlu', 'nlu.entity_id = n.nid');
-      $query->leftJoin('node__field_project_category', 'nfc', 'nfc.entity_id = n.nid');
-      $query->leftJoin('node__field_quotes_and_world', 'fq', 'fq.entity_id = n.nid');
-      $query->leftJoin('node__field_specific_location', 'fs', 'fs.entity_id = n.nid');
-      $query->leftJoin('node__field_project_category', 'fpc', 'fpc.entity_id = n.nid');
-      $query->leftJoin('node__field_scheme_title', 'fst', 'fst.entity_id = n.nid');
-      $query->leftJoin('node__field_tentative_possession_date', 'ftp', 'ftp.entity_id = n.nid');
-      // $query->leftJoin('node__field_minimized_images_', 'fmi', 'fmi.entity_id = n.nid');
-      
-      $query->leftJoin('taxonomy_term_field_data', 'fp', 'fp.tid = fq.field_quotes_and_world_target_id');
-      $query->leftJoin('taxonomy_term_field_data', 'tpc', 'tpc.tid = fpc.field_project_category_target_id');
-      
-      // $query->leftJoin('paragraph__field_image_url', 'fiu', 'fiu.entity_id = fmi.field_minimized_images__target_id');
-      
-      $query->fields('nf', ['title', 'nid']);
-      $query->fields('nd', ['field_home_commercial_project_de_value']);
-      $query->fields('ni', ['field_home_commercial_project_im_value']);
-      $query->fields('nlt', ['field_home_commercial_project_li_value']);
-      $query->fields('nlu', ['field_home_commercial_proj_url_value']);
-      $query->fields('fp', ['name']);
-      $query->fields('fs', ['field_specific_location_value']);
-      $query->fields('tpc', ['name']);
-      $query->fields('fst', ['field_scheme_title_value']);
-      $query->fields('ftp', ['field_tentative_possession_date_value']);
-      // $query->fields('fiu', ['field_image_url_value']);
-      
-      
-			$query->condition('nf.status', NODE_PUBLISHED)
-            ->condition('nf.type', 'projects')
-						->orderBy('fp.name', 'ASC');
-			$nodes 	= $query->execute();
+						$prices = $query->execute();
+						foreach($prices as $price) {
+							$unit_price[] = round($price->field_unit_price_value/1000000, 1);
+						}
+						
+						
+						
 
-      $tabs = array();
-      
-      $node_id = 0;
-   
-      $output = '';
-      $nodeid = 0;
-      foreach($nodes as $node) {
-        // echo'<pre>';print_r($node);
-        $typology = array();
-        $query = \Drupal::database()->select('node', 'npp');
-        $query->leftJoin('node_field_data', 'nf', 'nf.nid = npp.nid');
-        $query->leftJoin('node__field_project', 'fpro', 'fpro.field_project_target_id = '.$node->nid);
-        $query->leftJoin('node__field_unit_plan', 'fup', 'fup.entity_id = npp.nid');
-        $query->leftJoin('paragraph__field_typology', 'ft', 'ft.entity_id = fup.field_unit_plan_target_id');
-        $query->leftJoin('taxonomy_term_field_data', 'ttp', 'ttp.tid = ft.field_typology_target_id');
-        $query->fields('ttp', ['name']);
-        $query->fields('npp', ['nid']);
-        $query->condition('nf.status', NODE_PUBLISHED)
-              ->condition('nf.type', 'plans_prices');
-        $prices 	= $query->execute();
+						
+						
+						
+
+						
+						
+						
+						
+						$para_term_id = $para->field_typology->target_id;
+						$para_qry = \Drupal::database()->select('taxonomy_term_field_data', 't');
+						$para_qry->addField('t', 'name');
+						$para_qry->condition('t.tid', $para_term_id);
+						$para_qry->orderBy('t.name', 'ASC');
+						
+						$typology[] = $para_qry->execute()->fetchField();
+						
+						sort($typology);
+					}
+					
+					
+					
+					
+					
+				}
+				
+				
+				$project_price 	= '';
+						
+
+						if(!empty($unit_price)) {
+							$max_price = max($unit_price);
+							$min_price = min($unit_price);
+						
+							if($max_price == $min_price) {
+								$project_price = $max_price .' Cr';
+							} else {
+								$project_price = $min_price .' - '. $max_price .' Cr';
+							}
+						}
+				
+
+				$first = $first_BHK = true;
+				$typo_str1 = $typo_str2 = '';
+				
+				if(!empty($typology)) {
+					foreach($typology as $typo) {
+						if (strpos($typo, 'BHK') !== false) {
+							$temp = explode(' ', $typo);
+							if($first_BHK) {
+								$typo_str1 .= $temp[0];
+								$first_BHK = false;
+							} else {
+								$typo_str1 .= ','. $temp[0];
+							}
+							
+						} else {
+							if($first) {
+								$typo_str2 = $typo;
+								$first = false;
+							} else {
+								$typo_str2 = ' ,'. $typo;
+							}
+						}
+					}
+				}
+				
+				//echo $typo_str1;
+				
+				$typo_logy = '';
+				
+				if($typo_str1 != '' && $typo_str2 != '') {
+					$typo_logy = $typo_str1 . ' BHK, '. $typo_str2;
+				} elseif($typo_str1 != '' && $typo_str2 == '') {
+					$typo_logy = $typo_str1 . ' BHK';
+				} elseif($typo_str1 == '' && $typo_str2 != '') {
+					$typo_logy = $typo_str2;
+				}
 
 
-        
-        // $query = \Drupal::entityQuery('node');
-       
-        // $query->condition('status', NODE_PUBLISHED)
-        //       ->condition('type', 'plans_prices')
-        //       ->condition('field_project', $node->nid)
-        //       ->sort('nid', 'DESC');
-        // $nid 	= $query->execute();
-        // print_r($nid);exit;
+				$data[] = array(
+					'nid'							=> $node->nid->value,
+					'project_name' 		=> $node->title->value,
+					'category'				=> \Drupal\taxonomy\Entity\Term::load($tid)->get('name')->value,
+					'scheme_title'		=> $node->field_scheme_title->value,
+					'scheme_details'	=> trim($node->field_scheme_details->value),
+					'location'				=> $node->field_specific_location->value,
+					'possession_date' => date('M Y', strtotime($node->field_tentative_possession_date->value)),
+					'link_url'				=> \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid),
+					'typology'				=> $typo_logy,
+					'images'					=> $image_array,
+					'unit_price'			=> $project_price,
+				);
+			}
+			
+			
 
-        
-          
-          // foreach ($prices as $price) {
-           
-          //     $typology[] = $price->name ;
+			//echo '<pre>';  print_r($data); exit;
 
-          // echo '<pre>';  print_r($price->name);
-          // }
-  
-        
-    //  echo '<pre>';print_r($typology);
-      $date = date('M Y', strtotime($node->field_tentative_possession_date_value));
-      $output .= '<div class="slides">
-                    <span class="slider-tag grey">'.$node->tpc_name.'</span>
-                    <div class="res-head flex-wrp">
-                        <div class="head-txt">
-                            <h3>'.$node->title.'</h3>
-                            <p>'.$node->field_specific_location_value.'</p>
-                        </div>
-                        <div class="rating">
-                            <a href="javascript:void(0);" class="viewIcon"></a>
-                            <!-- <span class="sprite-star"></span> -->
-                            <img src="/themes/basic/images/aspi/star.png" alt="star">
-                        </div>
-                    </div>
-                    <div class="inner-wrp custCarou">
-                        <div class="inner-slider">
-                            <img src="'.$base_path.$node->field_image_url_value.'" alt="resident-image">
-                        </div>
-                        <span class="fav-icon">
-                                        <img src="/themes/basic/images/aspi/fav-icon.png" alt="fav-icon">
-                                    </span>
-                    </div>
-                    <div class="possession-wrp">
-                        <p>Possession Date: <b>'.$date.'</b></p>
-                        <p>Typology: <b>2, 3 BHK</b> | Price: <b>2.5 to 5 Cr</b></p>
-                        <p><span>Offer : '.$node->field_scheme_title_value.'</span></p>
-                    </div>
-                    <div class="slide-footer">
-                        <a href="javascript:;">View Details</a>
-                    </div>
-                </div>';
-      }
-      //die();
-      // return [
-      //   '#theme'    => 'page--all-projects',
-      //   '#data_tab' => $tabs,
-      //   '#data_obj' => $data,
-      // ];
-      
-      $element = array(
-        '#markup' => $output,
-      );
-      return $element;
-		
-
+			return [
+				'#theme' => 'page__all_projects',
+				'#blank' => $this->t(''),
+				'#data_obj' => $data
+			];
     }
-     
 }

@@ -1,5 +1,10 @@
 
+{{ page.content }}
+
+
+
 <div class="wrap1900">
+    {{ blank }}
     <section class="residential allproperty">
         <div class="container searchproperty">
             <div class="search">
@@ -32,9 +37,45 @@
             </div>
             <p class="resultitle"><span>40</span> Properties matching your search</p>
             <div class="searchresult">
-
-                {{ page.content }}
+                {% for data in data_obj %}
+                    <div class="slides">
+                        <span class="slider-tag">{{ data.category }}</span>
+                        <div class="res-head flex-wrp">
+                            <div class="head-txt">
+                                <h3>{{ data.project_name }}</h3>
+                                <p>{{ data.location }}</p>
+                            </div>
+                            <div class="rating">
+                                <a href="javascript:void(0);" class="viewIcon"></a>
+                                <img src="/{{ directory }}/images/aspi/star.png" alt="star">
+                            </div>
+                        </div>
+                        <div class="inner-wrp custCarou">
+                            <div class="inner-slider">
+                                {% for image in data.images %}
+                                    <img src="{{ image }}" alt="resident-image">
+                                {% endfor %}
+                            </div>
+                            <span class="fav-icon">
+                                <img src="/{{ directory }}/images/aspi/fav-icon.png" alt="fav-icon">
+                            </span>
+                        </div>
+                        <div class="possession-wrp">
+                            <p>Possession Date: <b>{{ data.possession_date }}</b></p>
+                            <p>Typology: <b>{{ data.typology }}</b> | Price: <b>{{ data.unit_price }}</b></p>
+                            <p><span>Offer : {{ data.scheme_title }}</span></p>
+                        </div>
+                        <div class="slide-footer">
+                            <a href="{{ data.link_url }}">View Details</a>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 </div>
+
+
+
+
+
